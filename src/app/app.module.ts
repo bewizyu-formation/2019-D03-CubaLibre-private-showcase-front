@@ -16,6 +16,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeUserSettingsComponent } from './home-user-settings/home-user-settings.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,13 @@ import { ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
