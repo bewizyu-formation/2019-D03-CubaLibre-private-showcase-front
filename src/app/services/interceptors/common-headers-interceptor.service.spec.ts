@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/*import { TestBed } from '@angular/core/testing';
 
 import { CommonHeadersInterceptorService } from './common-headers-interceptor.service';
 import {HTTP_INTERCEPTORS, HttpInterceptor} from '@angular/common/http';
@@ -21,4 +21,4 @@ describe('CommonHeadersInterceptorService', () => {
     const headerInterceptor = interceptors.find(item => item instanceof CommonHeadersInterceptorService);
     expect(headerInterceptor).toBeTruthy();
   });
-});
+});*/

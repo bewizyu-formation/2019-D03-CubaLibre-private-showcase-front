@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
+import { ArtistCardComponent } from './artist-card/artist-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, Mat
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    HomeUserSettingsComponent
+    HomeUserSettingsComponent,
+    ArtistCardComponent
   ],
   imports: [
     BrowserModule,
