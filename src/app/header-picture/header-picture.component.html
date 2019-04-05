@@ -1,0 +1,21 @@
+<div class='navbar'>
+
+  <h1 class='navbar__title'>
+    Private ShowCase
+  </h1>
+  <div class="navbar__button_back" *ngIf="hasReturn()">
+    <mat-icon  (click)="navigateToWelcome()">arrow_back</mat-icon>
+  </div>
+  <div class="navbar__button_connect" *ngIf="isWelcome()">
+    <button class="navbar__login" (click)="navigateToLogin()" mat-button>
+      Login
+    </button>
+    <button class="navbar__register" (click)="navigateToRegister()" mat-button>
+      Register
+    </button>
+  </div>
+</div>
+
+<div class='picture'>
+  <img src="../../assets/img/header/banniere.png">
+</div>

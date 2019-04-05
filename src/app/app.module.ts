@@ -12,12 +12,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HeaderComponent } from './header/header.component';
 import { HomeUserSettingsComponent } from './home-user-settings/home-user-settings.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
+import { HeaderPictureComponent } from './header-picture/header-picture.component';
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
 import { ExempleComponent } from './exemple/exemple.component';
 
 @NgModule({
@@ -27,9 +27,9 @@ import { ExempleComponent } from './exemple/exemple.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    HeaderComponent,
-    HomeUserSettingsComponent,
     ExempleComponent
+    HeaderPictureComponent,
+    HomeUserSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,8 @@ import { ExempleComponent } from './exemple/exemple.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
