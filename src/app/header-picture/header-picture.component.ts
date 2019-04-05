@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
+import {PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME} from '../app.routes.constantes';
 
 @Component({
   selector: 'app-header-picture',
@@ -19,16 +19,20 @@ export class HeaderPictureComponent implements OnInit {
     return (this.router.url === `/${PATH_WELCOME}`) ? true : false;
   }
 
+  isHome() {
+    return (this.router.url === `/${PATH_HOME}`) ? true : false;
+  }
 
   // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
   hasReturn() {
-    if (this.router.url === `/${PATH_LOGIN}`) {
+    if ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) {
       return true;
-    } else if (this.router.url === `/${PATH_REGISTER}`) {
-      return true;
-    } else {
-      return false;
     }
+      return false;
+  }
+
+  needPicture() {
+    return (this.router.url === `/${PATH_HOME}`) ? false : true;
   }
 
   navigateToRegister() {
