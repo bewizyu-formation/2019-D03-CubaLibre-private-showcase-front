@@ -36,6 +36,7 @@ import { ExempleComponent } from './exemple/exemple.component';
     RegisterComponent,
     ExempleComponent,
     HeaderPictureComponent,
+    HomeComponent,
     HomeUserSettingsComponent,
   ],
   imports: [
