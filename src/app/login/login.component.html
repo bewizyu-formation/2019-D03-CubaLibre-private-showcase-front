@@ -1,5 +1,23 @@
 <app-header-picture></app-header-picture>
 
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="login-container">
+    <div class="login-card">
+      <h2 class="login-card__title">Formulaire de connexion</h2>
+      <div class="login-card__content">
+        <form class="login-card__form" (ngSubmit)="validate()" [formGroup]="userForm">
+          <mat-form-field class="login-card__input">
+            <input matInput placeholder="Identifiant" value="" formControlName="login">
+          </mat-form-field>
+          <mat-form-field class="login-card__input">
+            <input matInput type="password" placeholder="Password" value="" formControlName="password">
+          </mat-form-field>
+          <div class="login-card__footer">
+            <button mat-raised-button class="login-card__button login-card__button--cancel" (click)="toHome()">Annuler</button>
+            <button mat-raised-button type="submit" class="login-card__button--validate" [disabled]="userForm.invalid">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
