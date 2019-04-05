@@ -1,0 +1,32 @@
+<div class='navbar'>
+  <h1 class='navbar__title'>
+    Private ShowCase
+  </h1>
+  <!--If we need a back button-->
+  <div class='navbar__button_back left' *ngIf='hasReturn()'>
+    <mat-icon (click)='navigateToWelcome()'>arrow_back</mat-icon>
+  </div>
+  <!-- If we need login and register button-->
+  <div class='navbar__button_connect right' *ngIf='isWelcome()'>
+    <button class='navbar__login' (click)='navigateToLogin()' mat-button>
+      Login
+    </button>
+    <button class='navbar__register' (click)='navigateToRegister()' mat-button>
+      Register
+    </button>
+  </div>
+  <!--If we need left menu and right menu-->
+  <div class='menu-home' *ngIf='isHome()'>
+    <div class='menu-home-left left'>
+
+    </div>
+    <div class='menu-home-right right'>
+      <app-home-user-settings></app-home-user-settings>
+    </div>
+  </div>
+</div>
+
+
+<div class='picture' *ngIf='needPicture()'>
+  <img src='../../assets/img/header/banniere.png'>
+</div>
