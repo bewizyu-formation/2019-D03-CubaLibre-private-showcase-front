@@ -1,4 +1,4 @@
-/*import {TestBed} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {EnvironmentService} from './environment.service';
 import {environment} from '../../environments/environment';
@@ -33,4 +33,3 @@ describe('EnvironmentService', () => {
     expect(service.getPrivateShowcaseApiConfig().uri).toBe(environment.server.uri);
   });
 });
-*/

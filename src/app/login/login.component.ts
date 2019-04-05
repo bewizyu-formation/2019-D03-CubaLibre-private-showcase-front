@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_WELCOME } from '../app.routes.constantes';
+import { PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as bcrypt from 'bcryptjs';
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(this.userForm.value.password, salt, (error, hash) => {
         // TODO add check password
+        this.router.navigate([PATH_HOME]);
       });
     });
   }

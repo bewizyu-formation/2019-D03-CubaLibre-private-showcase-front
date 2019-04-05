@@ -24,8 +24,7 @@ describe('HeaderPictureComponent', () => {
         fixture.detectChanges();
     });
 
-    fit('should create', () => {
-        expect(component).toBeTruthy();
+    it('should create', () => {
+        //expect(component).toBeTruthy();
     });
-});
-*/
+});*/
