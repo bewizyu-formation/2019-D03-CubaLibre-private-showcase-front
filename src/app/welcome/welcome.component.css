@@ -17,10 +17,20 @@
 @media(max-width: 600px){
     .home__cards-container {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
         flex-direction: column;
         margin: 60px 0;
     }
+
+    .home__cards{
+        margin: 15px 0;
+    }
+}
+
+.home__image-cards{
+    border-radius: 50%;
+    width: 165px;
+    height: 165px;
 }
 
 .home__cards {
