@@ -10,40 +10,40 @@ import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME } from '../app.routes.constante
 export class HeaderPictureComponent implements OnInit {
 
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  isWelcome(){
-    return (this.router.url === `/${PATH_WELCOME}`)? true : false;
+  isWelcome() {
+    return (this.router.url === `/${PATH_WELCOME}`) ? true : false;
   }
 
-  
- //If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
- hasReturn(){
-  if(this.router.url === `/${PATH_LOGIN}`){
-    return true;
-  }else if(this.router.url === `/${PATH_REGISTER}`){
-    return true;
-  }else{
-    return false;
-  }
-}  
 
-  navigateToRegister(){
+  // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
+  hasReturn() {
+    if (this.router.url === `/${PATH_LOGIN}`) {
+      return true;
+    } else if (this.router.url === `/${PATH_REGISTER}`) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  navigateToRegister() {
     this.navigateTo([PATH_REGISTER]);
   }
 
-  navigateToLogin(){
+  navigateToLogin() {
     this.navigateTo([PATH_LOGIN]);
   }
 
-  navigateToWelcome(){
+  navigateToWelcome() {
     this.navigateTo([PATH_WELCOME]);
   }
 
-  navigateTo(path:string[]){
+  navigateTo(path: string[]) {
     this.router.navigate(path);
   }
 

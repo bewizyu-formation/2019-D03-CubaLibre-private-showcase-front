@@ -17,7 +17,14 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderPictureComponent } from './header-picture/header-picture.component';
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatIconModule,
+} from '@angular/material';
 import { ExempleComponent } from './exemple/exemple.component';
 
 @NgModule({
@@ -27,7 +34,7 @@ import { ExempleComponent } from './exemple/exemple.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ExempleComponent
+    ExempleComponent,
     HeaderPictureComponent,
     HomeUserSettingsComponent,
   ],
@@ -41,7 +48,7 @@ import { ExempleComponent } from './exemple/exemple.component';
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
