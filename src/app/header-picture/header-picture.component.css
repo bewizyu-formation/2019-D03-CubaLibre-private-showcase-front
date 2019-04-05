@@ -4,16 +4,17 @@
     color:white;
     justify-content: center;
     position: relative;
+    height: 80px;
 }
 
-.navbar__button_back{
+.navbar__button-back{
     position:absolute;
     left:10px;
     align-self: center;
     cursor: pointer;
 }
 
-.navbar__button_connect{
+.navbar__button-connect{
     position:absolute;
     right:10px;
     align-self: center;

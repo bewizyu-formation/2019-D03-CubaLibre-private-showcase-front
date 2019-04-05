@@ -1,12 +1,11 @@
 <div class='navbar'>
-
+  <div class="navbar__button-back" *ngIf="hasReturn()">
+    <mat-icon (click)="navigateToWelcome()">arrow_back</mat-icon>
+  </div>
   <h1 class='navbar__title'>
     Private ShowCase
   </h1>
-  <div class="navbar__button_back" *ngIf="hasReturn()">
-    <mat-icon (click)="navigateToWelcome()">arrow_back</mat-icon>
-  </div>
-  <div class="navbar__button_connect" *ngIf="isWelcome()">
+  <div class="navbar__button-connect" *ngIf="isWelcome()">
     <button class="navbar__login" (click)="navigateToLogin()" mat-button>
       Login
     </button>
