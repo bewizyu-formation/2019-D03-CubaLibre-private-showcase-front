@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+/*import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_CONFIG } from './app.config';
@@ -14,7 +14,14 @@ import { HeaderPictureComponent } from './header-picture/header-picture.componen
 import { HomeUserSettingsComponent } from './home-user-settings/home-user-settings.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatIconModule
+} from '@angular/material';
 import { CommonHeadersInterceptorService } from './services/interceptors/common-headers-interceptor.service';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
@@ -63,3 +70,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('private-showcase');
   }));
 });
+*/
