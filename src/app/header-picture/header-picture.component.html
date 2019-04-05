@@ -1,5 +1,7 @@
 <div class='navbar'>
-
+  <div class="navbar__button-back" *ngIf="hasReturn()">
+    <mat-icon (click)="navigateToWelcome()">arrow_back</mat-icon>
+  </div>
   <h1 class='navbar__title'>
     Private ShowCase
   </h1>

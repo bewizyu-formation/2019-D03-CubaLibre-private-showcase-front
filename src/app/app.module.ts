@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderPictureComponent } from './header-picture/header-picture.component';
+import { ExempleComponent } from './exemple/exemple.component';
 import {
   MatFormFieldModule,
   MatInputModule,
@@ -25,7 +26,6 @@ import {
   MatProgressSpinnerModule,
   MatIconModule,
 } from '@angular/material';
-import { ExempleComponent } from './exemple/exemple.component';
 
 @NgModule({
   declarations: [
