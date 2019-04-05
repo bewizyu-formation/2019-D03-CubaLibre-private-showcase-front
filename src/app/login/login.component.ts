@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   validate() {
     bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(this.userForm.value.password, salt, (err, hash) => {
+      bcrypt.hash(this.userForm.value.password, salt, (error, hash) => {
         // TODO add check password
       });
     });

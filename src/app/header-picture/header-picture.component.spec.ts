@@ -13,7 +13,7 @@ describe('HeaderPictureComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            providers: [HeaderPictureComponent]            
+            providers: [HeaderPictureComponent]
         })
             .compileComponents();
     }));
