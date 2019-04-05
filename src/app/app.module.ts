@@ -26,6 +26,7 @@ import {
   MatProgressSpinnerModule,
   MatIconModule,
 } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,8 @@ import {
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
