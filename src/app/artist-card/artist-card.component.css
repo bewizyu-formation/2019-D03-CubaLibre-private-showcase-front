@@ -1,0 +1,7 @@
+.picture{
+  position: relative;
+}
+
+.Text-inFrontOf-picture{
+  position: absolute;
+}

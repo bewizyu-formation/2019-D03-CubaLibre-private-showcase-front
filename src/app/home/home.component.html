@@ -1,5 +1,5 @@
-<app-header-picture></app-header-picture>
+{{artistList}};
 
-<p>
-  home works!
-</p>
+<div *ngFor="let artist of artistList">
+  <app-artist-card></app-artist-card>
+</div>
