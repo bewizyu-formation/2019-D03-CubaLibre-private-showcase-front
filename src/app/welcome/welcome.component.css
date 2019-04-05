@@ -1,7 +1,50 @@
-.home__presentation{
+.home__presentation {
     font-size: 20px;
 }
 
-.home__presentation--sous-presentation{
+.home__presentation--sous-presentation {
+    font-size: 14px;
+}
+
+@media(min-width: 600.1px){
+    .home__cards-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 60px 0;
+    }
+}
+
+@media(max-width: 600px){
+    .home__cards-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 60px 0;
+    }
+}
+
+.home__cards {
+    width: 239px;
+    height: 263px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+    box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.3), 0 0 24px 0 rgba(0, 0, 0, 0.22);
+    border-style: solid;
+    border-width: 0.5px;
+    border-image-source: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4) 5%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0));
+    border-image-slice: 1;
+    background-color: #b8b6b6;
+}
+
+.home__title-cards{
+    margin:5px 0;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.home__text-cards{
+    margin:15px 0;
     font-size: 14px;
 }
