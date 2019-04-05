@@ -26,6 +26,7 @@ import { CommonHeadersInterceptorService } from './services/interceptors/common-
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ArtistCardComponent } from './artist-card/artist-card.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -39,6 +40,7 @@ describe('AppComponent', () => {
         ExempleComponent,
         HeaderPictureComponent,
         HomeUserSettingsComponent,
+        ArtistCardComponent,
       ],
       imports: [
         BrowserModule,

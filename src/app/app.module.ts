@@ -27,6 +27,7 @@ import {
   MatIconModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArtistCardComponent } from './artist-card/artist-card.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderPictureComponent,
     HomeComponent,
     HomeUserSettingsComponent,
+    ArtistCardComponent,
   ],
   imports: [
     BrowserModule,
