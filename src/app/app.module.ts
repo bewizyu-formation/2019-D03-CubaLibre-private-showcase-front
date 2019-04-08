@@ -57,7 +57,7 @@ import { AutocompInputComponent } from './autocomp-input/autocomp-input.componen
     MatProgressSpinnerModule,
     FormsModule ,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,

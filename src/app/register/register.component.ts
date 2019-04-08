@@ -1,28 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators, NgForm} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+
 import {Router} from '@angular/router';
 import { PATH_LOGIN } from '../app.routes.constantes';
 
-import { PASSWORD_REGEXP, checkPasswords } from '../validators/validators';
+import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { UserService } from '../user/user.service';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    const invalidCtrl = !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-    return invalidCtrl;
-  }
-}
 
-export class MyErrorStateMatcherPassword implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    const invalidCtrl = !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-    const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.dirty);
-    return (invalidCtrl || invalidParent);
-  }
-}
 
 @Component({
   selector: 'app-register',
@@ -40,7 +25,17 @@ export class RegisterComponent implements OnInit {
   passwordGroup: FormGroup;
   registerForm: FormGroup;
 
+  matcher = new MyErrorStateMatcher();
+  passwordMatcher = new MyErrorStateMatcherPassword();
+
+  @Output()
+  outCityCtrl:EventEmitter<FormControl> = new EventEmitter<FormControl>();
+
   user: any;
+
+  outputCityCtrl() {
+    this.outCityCtrl.emit(this.cityCtrl);
+  }
 
 
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
@@ -52,8 +47,8 @@ export class RegisterComponent implements OnInit {
       ]
       );
     this.confirmPasswordCtrl = fb.control('');
-    this.emailCtrl = fb.control('', [Validators.email]);
-    this.cityCtrl = fb.control('', Validators.required);
+    this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
+    this.cityCtrl = fb.control('', [Validators.required]);
 
     this.passwordGroup = fb.group({
       password: this.passwordCtrl,
@@ -68,8 +63,10 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  matcher = new MyErrorStateMatcher();
-  passwordMatcher = new MyErrorStateMatcherPassword();
+  handleCitySelect(event){
+    this.cityCtrl.setValue(event);
+    console.log(this.cityCtrl.dirty);
+  }
 
   handleSubmit() {
     this.userService.register(
@@ -84,7 +81,7 @@ export class RegisterComponent implements OnInit {
 
   testNavigate() {
     console.log('machin');
-      }
+  }
 
   ngOnInit() {
   }
