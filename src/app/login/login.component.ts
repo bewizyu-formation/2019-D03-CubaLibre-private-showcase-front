@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
       .login(this.userForm.value.login, this.userForm.value.password)
       .then(
         (resp: any) => {
-          if (resp.status === 403) {
-            this.isError = true;
-          } else if (resp.status === 200) {
+          if (resp.status === 200) {
             this.isError = false;
             this.router.navigate([PATH_HOME]);
+          } else {
+            this.isError = true;
           }
         }
       );
