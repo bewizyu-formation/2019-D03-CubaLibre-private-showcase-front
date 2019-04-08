@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
   user: any;
 
 
-  constructor(fb: FormBuilder, private userService: UserService, private router:Router) {
+  constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
@@ -79,13 +79,12 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.city
       );
     console.log(this.registerForm.value.username);
-    
+
   }
 
-  testNavigate(){
-    console.log("machin")
-    this.router.navigate([PATH_LOGIN]);
-  }
+  testNavigate() {
+    console.log('machin');
+      }
 
   ngOnInit() {
   }

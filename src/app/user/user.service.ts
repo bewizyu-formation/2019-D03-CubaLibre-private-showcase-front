@@ -16,7 +16,7 @@ export class UserService {
    */
    public token: string;
 
-   constructor(private userRepository: UserRepository, private router:Router) {
+   constructor(private userRepository: UserRepository, private router: Router) {
    }
 
    register(username: string, password: string, email: string, city: string) {
@@ -27,7 +27,7 @@ export class UserService {
          (response: HttpResponse<any>) => {
            console.log(response);
            this.router.navigate([PATH_LOGIN]);
-         }, 
+         },
 
          (error) => {
            console.log(error);
@@ -35,10 +35,10 @@ export class UserService {
 
          () => {
            console.log('register completed');
-           
+
          });
 
-     })
+     });
    }
 
   /**
