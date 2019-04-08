@@ -1,11 +1,17 @@
 <div class='homeUserSettings'>
-  <div><button mat-button>Artistes</button></div>
   <div>
-    <button mat-button (click)='navigateToProfil()'>
+    <button mat-button class="homeUserSettings_button">
+      <mat-icon>music_note</mat-icon>Artistes
+    </button>
+  </div>
+  <div>
+    <button mat-button (click)='navigateToProfil()' class="homeUserSettings_button">
       <mat-icon>settings</mat-icon> Profil
-    </button></div>
+    </button>
+  </div>
   <div>
     <button mat-button (click)='useServiceDisconnect()'>
       <mat-icon>exit_to_app</mat-icon> Déconnexion
-    </button></div>
+    </button>
+  </div>
 </div>

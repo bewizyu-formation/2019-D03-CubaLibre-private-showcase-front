@@ -16,15 +16,15 @@
     </button>
   </div>
   <!-- If we need left menu and right menu-->
-  <div class='menu-home' *ngIf='isHome()'>
-    <div class='menu-home-left left'>
 
-    </div>
+  <div class='menu-home-left left' *ngIf='isHome()'>
+    <button mat-button (click)='clickHomeUserMenu()'><mat-icon>menu</mat-icon></button>
+    <app-home-user-menu *ngIf="isVisibleHomeUserMenu()"></app-home-user-menu>
+  </div>
 
-    <div class='menu-home-right right'>
-      <mat-icon (click)='clickHomeUserSettings()'>more_vert</mat-icon>
-      <app-home-user-settings *ngIf="isVisible()"></app-home-user-settings>
-    </div>
+  <div class='menu-home-right right' *ngIf='isHome()'>
+    <button mat-button (click)='clickHomeUserSettings()'><mat-icon>more_vert</mat-icon></button>
+    <app-home-user-settings *ngIf="isVisibleHomeUserSettings()"></app-home-user-settings>
   </div>
 </div>
 
