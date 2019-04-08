@@ -16,14 +16,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.artistService.getArtistList().subscribe(
       (resp: any) => {
-        console.log(resp);
         this.artistList = resp;
       }
     )
   }
 
   artistListIsEmpty() {
-    console.log(this.artistList);
     return (this.artistList === undefined) ? true : false;
   }
 
