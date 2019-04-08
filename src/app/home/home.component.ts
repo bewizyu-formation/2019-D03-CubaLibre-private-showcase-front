@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.artistService.getArtistList().subscribe(
-      (resp:any) => {
+      (resp: any) => {
         console.log(resp);
         this.artistList = resp;
       }
