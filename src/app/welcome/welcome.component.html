@@ -1,3 +1,19 @@
-<p>
-  welcome works!
-</p>
+<app-header-picture></app-header-picture>
+<div class="container">
+  <p class="home__presentation">
+    Private ShowCase est une plateforme web permettant la mise en
+    relation de musiciens avec des particuliers qui souhaitent organiser
+    des concerts chez eux.
+  </p>
+  <p class="home__presentation--sous-presentation">
+    Les spectateurs sont directement invités par l'organisateur,
+    une participation pourra être demandée pour le cachet des artistes.
+  </p>
+  <div class="home__cards-container">
+    <div class="home__cards" *ngFor="let card of cards">
+      <img src="{{card.url_img}}" class="home__image-cards">
+      <h3 class="home__title-cards">{{card.title}}</h3>
+      <p class="home__text-cards">{{card.text}}</p>
+    </div>
+  </div>
+</div>
