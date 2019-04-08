@@ -25,9 +25,11 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MatIconModule,
+  MatAutocompleteModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
+import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { ArtistCardComponent } from './artist-card/artist-card.component';
     HomeComponent,
     HomeUserSettingsComponent,
     ArtistCardComponent,
+    AutocompInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { ArtistCardComponent } from './artist-card/artist-card.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
