@@ -37,7 +37,7 @@ export class HeaderPictureComponent implements OnInit {
     return (this.visibleHomeUserSettings) ? true : false;
   }
 
-  isVisibleHomeUserMenu(){
+  isVisibleHomeUserMenu() {
     return (this.visibleHomeUserMenu) ? true : false;
   }
 
