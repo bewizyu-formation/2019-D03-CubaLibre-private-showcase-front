@@ -1,36 +1,42 @@
-<!--<div class="image-placeholder">
-  <img src="{{artist.picture}}">
+<!--<div class='image-placeholder'>
+  <img src='{{artist.picture}}'>
 </div>-->
 
-<!--<div class="scrim">
-  <h1>
+<div class='scrim'>
+  <h1 class='Title-goes-here'>
     {{artist.artistName}}
   </h1>
-  <h4>
+  <h4 class='Subtitle-here'>
     {{artist.description}}
   </h4>
-  <div class="Text-inFrontOf-picture-footer">
-    <div class="footer-left">
-      <div class="footer-left-top">
-        <div>
-          <div *ngFor='let star of starsList'>
-            <div *ngIf='star == 1'>
-              <mat-icon>star</mat-icon>
-            </div>
-            <mat-icon *ngIf='star == 0.5'>star_half</mat-icon>
-            <mat-icon *ngIf='star == 0'>star_border</mat-icon>
+  <div class='scrim__footer'>
+    <div class='footer-left'>
+      <div class='footer-left-top'>
+        <div *ngFor='let star of starsList'>
+          <div *ngIf='star == 1'>
+            <mat-icon>star</mat-icon>
+          </div>
+          <div *ngIf='star == 0.5'>
+            <mat-icon>star_half</mat-icon>
+          </div>
+          <div *ngIf='star == 0'>
+            <mat-icon>star_border</mat-icon>
           </div>
         </div>
       </div>
-      <div class="footer-left-bottom">
+      <div class='footer-left-bottom'>
         {{artist.voteNumber}}
       </div>
     </div>
-    <div class="footer-center">
-      <button value="voir"></button>
+    <div class='footer-center'>
+      <div>
+        <mat-icon>visibility</mat-icon> VOIR
+      </div>
     </div>
-    <div class="footer-right">
-      <button value="booker" mat-button></button>
+    <div class='footer-right'>
+      <div>
+        <mat-icon>calendar_today</mat-icon> BOOKER
+      </div>
     </div>
   </div>
-</div>-->
+</div>

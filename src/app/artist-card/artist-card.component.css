@@ -22,3 +22,24 @@
   letter-spacing: normal;
   color: #d8d8d8;
 }
+
+.Subtitle-here {
+  width: 107px;
+  height: 20px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.scrim__footer{
+  display: flex;
+}
+
+.footer-left-top{
+  display: flex;
+}
