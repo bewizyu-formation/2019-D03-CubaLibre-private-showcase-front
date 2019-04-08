@@ -11,14 +11,25 @@ export class HomeComponent implements OnInit {
 
   artistList: Artist[];
 
-  constructor(private artistService: ArtistService) { }
+  constructor(private artistService: ArtistService) { 
+    console.log(this.artistList);
+  }
 
   ngOnInit() {
     this.artistList = this.artistService.artistList;
+    console.log(this.artistList);
   }
 
   artistListIsEmpty() {
     return (this.artistList.length === 0) ? true : false;
+  }
+
+  isArtistListEmpty(){
+    return (this.artistList === undefined) ? true : false;
+  }
+
+  isArtistListNotEmpty(){
+    return (this.artistList === undefined) ? false : true;
   }
 
 }
