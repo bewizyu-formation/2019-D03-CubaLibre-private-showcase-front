@@ -24,10 +24,7 @@ export class AutocompInputComponent implements OnInit {
   ngOnInit() {
     const input = document.getElementsByTagName('input')
     fromEvent(input, 'keyup').pipe(
-      filter((event: any) => {
-        console.log(event.keyCode);
-        return event.keyCode != 38 && event.keyCode != 40;
-      }),
+      filter((event: any) => event.keyCode != 38 && event.keyCode != 40),
       throttleTime(300)
     ).subscribe(
       resp => {
