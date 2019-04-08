@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Artist } from './Artist';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from '../services/environment.service';
+import { PATH_HOME } from '../app.routes.constantes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,7 @@ export class ArtistService implements OnInit {
   ngOnInit(): void { }
 
   getArtistList(){
-    //return this.httpClient.get(this.env.getPrivateShowcaseApiConfig().uri);
-    return undefined;
+    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_HOME}/`);
   }
 
 }
