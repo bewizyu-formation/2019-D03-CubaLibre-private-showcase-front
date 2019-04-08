@@ -7,12 +7,12 @@
 
 .login-card {
     width: 680px;
-    height: 320px;
     border-radius: 14px;
     background-color: #e7e6e6;
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .login-card__content{
@@ -60,4 +60,11 @@
 .login-card__button--validate{
     background-color: #17998c;
     color: white;
+}
+
+.login-card__error{
+    border-radius: 10px;
+    background-color: #be1d1d;
+    color: white;
+    padding: 10px;
 }

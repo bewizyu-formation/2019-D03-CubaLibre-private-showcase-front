@@ -22,7 +22,7 @@ export class ExempleComponent {
     this.userService
       .login('user', 'user')
       .then(
-        (token: string) => this.token = token,
+        (response) => this.token = response.headers.get('Authorization'),
       );
   }
 
