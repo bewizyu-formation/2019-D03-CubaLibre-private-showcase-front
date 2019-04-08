@@ -2,3 +2,10 @@
     display: flex;
     flex-flow:column wrap;
 }
+
+.spinner{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
