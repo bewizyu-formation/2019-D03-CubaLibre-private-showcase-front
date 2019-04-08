@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -25,20 +25,30 @@ export class LoginComponent implements OnInit {
   passwordCtrl: FormControl;
   userForm: FormGroup;
 
+  isError = false;
+
   ngOnInit() {
 
   }
 
   validate() {
     this.httpClient.post(
-      'localhost:8080/login',
+      'http://localhost:8080/login',
       {
         'username': this.userForm.value.login,
         'password': this.userForm.value.password
+      },
+      {
+        observe: 'response',
+        responseType: 'json',
       }
-    ).subscribe(resp => {
+    ).subscribe((resp: any) => {
+      this.isError = false;
       this.router.navigate([PATH_HOME]);
-    });
+    },
+      err => {
+        this.isError = true;
+      });
   }
 
   toHome() {
