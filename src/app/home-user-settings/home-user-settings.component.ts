@@ -11,11 +11,11 @@ export class HomeUserSettingsComponent implements OnInit {
 
   ngOnInit() { }
 
-  navigateToProfil(){
-    //To do
+  navigateToProfil() {
+    // To do
   }
 
-  useServiceDisconnect(){
-    //To do
+  useServiceDisconnect() {
+    // To do
   }
 }

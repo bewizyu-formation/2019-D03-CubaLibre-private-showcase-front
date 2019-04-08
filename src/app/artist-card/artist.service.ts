@@ -1,5 +1,5 @@
-import {Injectable, OnInit} from '@angular/core';
-import {Artist} from './Artist';
+import { Injectable, OnInit } from '@angular/core';
+import { Artist } from './Artist';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,15 +7,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArtistService implements OnInit {
 
-  artistList: Artist [];
+  artistList: Artist[];
 
-  constructor() { 
-    this.artistList = [new Artist('name', 'description', 'website', 'phone', 'address', 3, 'picture',6)];
+  constructor() {
+    this.artistList = [new Artist('name', 'description', 'website', 'phone', 'address', 3, 'picture', 6)];
   }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
 
-  //getArtistList
+  // getArtistList
 
 }
 
