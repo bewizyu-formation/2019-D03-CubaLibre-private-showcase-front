@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ArtistService} from '../artist-card/artist.service';
-import {Artist} from '../artist-card/Artist';
+import { ArtistService } from '../artist-card/artist.service';
+import { Artist } from '../artist-card/Artist';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +9,16 @@ import {Artist} from '../artist-card/Artist';
 })
 export class HomeComponent implements OnInit {
 
-  artistList: Artist [];
+  artistList: Artist[];
 
   constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
     this.artistList = this.artistService.artistList;
   }
+
+  artistListIsEmpty() {
+    return (this.artistList.length === 0) ? true : false;
+  }
+
 }

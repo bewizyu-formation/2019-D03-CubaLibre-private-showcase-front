@@ -6,5 +6,6 @@ export class Artist {
               public address: string,
               public rating: number,
               public picture: any,
+              public voteNumber: number,
               private id?: number) {}
 }

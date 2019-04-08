@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME} from '../app.routes.constantes';
+import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
 
 @Component({
   selector: 'app-header-picture',
@@ -9,6 +9,7 @@ import {PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME} from '../app.routes.
 })
 export class HeaderPictureComponent implements OnInit {
 
+  visible: boolean;
 
   constructor(private router: Router) { }
 
@@ -23,12 +24,25 @@ export class HeaderPictureComponent implements OnInit {
     return (this.router.url === `/${PATH_HOME}`) ? true : false;
   }
 
+  clickHomeUserSettings() {
+    this.visible = !this.visible;
+    console.log('clickHomeUser');
+  }
+
+  isVisible() {
+    return (this.visible) ? true : false;
+  }
+
+  isHidden() {
+    return (this.visible) ? false : true;
+  }
+
   // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
   hasReturn() {
     if ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) {
       return true;
     }
-      return false;
+    return false;
   }
 
   needPicture() {

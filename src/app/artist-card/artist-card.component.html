@@ -1,8 +1,8 @@
-<div class="picture">
+<!--<div class="image-placeholder">
   <img src="{{artist.picture}}">
-</div>
+</div>-->
 
-<div class="Text-inFrontOf-picture">
+<!--<div class="scrim">
   <h1>
     {{artist.artistName}}
   </h1>
@@ -12,17 +12,25 @@
   <div class="Text-inFrontOf-picture-footer">
     <div class="footer-left">
       <div class="footer-left-top">
-        étoiles
+        <div>
+          <div *ngFor='let star of starsList'>
+            <div *ngIf='star == 1'>
+              <mat-icon>star</mat-icon>
+            </div>
+            <mat-icon *ngIf='star == 0.5'>star_half</mat-icon>
+            <mat-icon *ngIf='star == 0'>star_border</mat-icon>
+          </div>
+        </div>
       </div>
       <div class="footer-left-bottom">
-        note
+        {{artist.voteNumber}}
       </div>
     </div>
     <div class="footer-center">
       <button value="voir"></button>
     </div>
     <div class="footer-right">
-      <button value="booker"></button>
+      <button value="booker" mat-button></button>
     </div>
   </div>
-</div>
+</div>-->

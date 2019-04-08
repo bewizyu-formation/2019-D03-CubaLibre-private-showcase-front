@@ -1,3 +1,11 @@
-<p>
-  home-user-settings works!
-</p>
+<div class='homeUserSettings'>
+  <div><button mat-button>Artistes</button></div>
+  <div>
+    <button mat-button (click)='navigateToProfil()'>
+      <mat-icon>settings</mat-icon> Profil
+    </button></div>
+  <div>
+    <button mat-button (click)='useServiceDisconnect()'>
+      <mat-icon>exit_to_app</mat-icon> Déconnexion
+    </button></div>
+</div>
