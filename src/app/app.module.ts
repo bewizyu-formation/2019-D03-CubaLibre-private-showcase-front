@@ -17,7 +17,10 @@ import { HomeUserSettingsComponent } from './home-user-settings/home-user-settin
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule,
+  MatButtonModule, MatCardModule,
+  MatProgressSpinnerModule, MatCheckboxModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, Mat
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FormsModule ,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
