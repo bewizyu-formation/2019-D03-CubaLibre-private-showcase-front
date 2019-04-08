@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   artistList: Artist[];
 
-  constructor(private artistService: ArtistService) { 
+  constructor(private artistService: ArtistService) {
     console.log(this.artistList);
   }
 
@@ -24,11 +24,11 @@ export class HomeComponent implements OnInit {
     return (this.artistList.length === 0) ? true : false;
   }
 
-  isArtistListEmpty(){
+  isArtistListEmpty() {
     return (this.artistList === undefined) ? true : false;
   }
 
-  isArtistListNotEmpty(){
+  isArtistListNotEmpty() {
     return (this.artistList === undefined) ? false : true;
   }
 
