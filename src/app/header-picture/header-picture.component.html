@@ -20,8 +20,10 @@
     <div class='menu-home-left left'>
 
     </div>
+
     <div class='menu-home-right right'>
-      <app-home-user-settings></app-home-user-settings>
+      <mat-icon (click)='clickHomeUserSettings()'>more_vert</mat-icon>
+      <app-home-user-settings *ngIf="isVisible()"></app-home-user-settings>
     </div>
   </div>
 </div>

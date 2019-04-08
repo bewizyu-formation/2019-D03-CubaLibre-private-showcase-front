@@ -9,6 +9,7 @@ import {PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME} from '../app.routes.
 })
 export class HeaderPictureComponent implements OnInit {
 
+  visible:boolean = false;
 
   constructor(private router: Router) { }
 
@@ -21,6 +22,19 @@ export class HeaderPictureComponent implements OnInit {
 
   isHome() {
     return (this.router.url === `/${PATH_HOME}`) ? true : false;
+  }
+
+  clickHomeUserSettings(){
+    this.visible = !this.visible;
+    console.log('clickHomeUser');
+  }
+
+  isVisible(){
+    return (this.visible)? true: false;
+  }
+
+  isHidden(){
+    return (this.visible)? false: true;
   }
 
   // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent

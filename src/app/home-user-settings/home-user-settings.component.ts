@@ -9,7 +9,13 @@ export class HomeUserSettingsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  navigateToProfil(){
+    //To do
   }
 
+  useServiceDisconnect(){
+    //To do
+  }
 }

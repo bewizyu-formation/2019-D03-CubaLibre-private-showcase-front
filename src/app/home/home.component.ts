@@ -16,4 +16,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.artistList = this.artistService.artistList;
   }
+
+  artistListIsEmpty(){
+    return (this.artistList.length == 0)? true: false;
+  }
+
+  
 }

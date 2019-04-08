@@ -8,13 +8,13 @@ export class ArtistService implements OnInit {
 
   artistList: Artist [];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
     this.artistList = [new Artist('name', 'description', 'website', 'phone', 'address', 3, 'picture')];
   }
 
-
+  ngOnInit(): void {
+    
+  }
 }
 
 

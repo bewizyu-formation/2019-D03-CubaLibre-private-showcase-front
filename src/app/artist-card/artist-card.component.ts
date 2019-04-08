@@ -13,7 +13,7 @@ export class ArtistCardComponent implements OnInit {
   artist: Artist;
 
   constructor() {
-
+    console.log(this.artist);
   }
 
   ngOnInit() {
