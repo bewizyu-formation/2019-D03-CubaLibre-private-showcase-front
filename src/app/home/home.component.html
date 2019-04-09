@@ -1,9 +1,11 @@
 <app-header-picture></app-header-picture>
 
-<div *ngFor="let artist of artistList" class='cardArtist'>
-  <app-artist-card [artist]='artist'></app-artist-card>
-</div>
+<div class='container'>
+  <div class='spinner'>
+    <mat-spinner></mat-spinner>
+  </div>
 
-<div *ngIf="artistListIsEmpty">
-  Aucun artist ne correspond à votre recherche
+  <div *ngFor='let artist of artistList' class='cardArtist'>
+    <app-artist-card [artist]='artist'></app-artist-card>
+  </div>
 </div>
