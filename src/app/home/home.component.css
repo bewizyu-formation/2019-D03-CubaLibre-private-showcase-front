@@ -1,4 +1,12 @@
 .cardArtist{
     display: flex;
-    flex-flow:column wrap;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.spinner{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }

@@ -31,6 +31,7 @@ import { ErrorInterceptorService } from './services/interceptors/error-intercept
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
+import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -46,6 +47,7 @@ describe('AppComponent', () => {
         HomeUserSettingsComponent,
         ArtistCardComponent,
         AutocompInputComponent,
+        HomeUserMenuComponent,
       ],
       imports: [
         BrowserModule,

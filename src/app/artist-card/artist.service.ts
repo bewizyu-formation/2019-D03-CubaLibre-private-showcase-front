@@ -1,6 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Artist } from './Artist';
 import { HttpClient } from '@angular/common/http';
+import { EnvironmentService } from '../services/environment.service';
+import { PATH_HOME } from '../app.routes.constantes';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +11,13 @@ export class ArtistService implements OnInit {
 
   artistList: Artist[];
 
-  constructor() {
-    this.artistList = [new Artist('name', 'description', 'website', 'phone', 'address', 3, 'picture', 6)];
+  constructor(private httpClient: HttpClient, private env: EnvironmentService) {
   }
 
   ngOnInit(): void { }
 
-  // getArtistList
+  getArtistList() {
+    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_HOME}/`);
+  }
 
 }
-
-

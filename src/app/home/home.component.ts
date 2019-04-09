@@ -14,11 +14,15 @@ export class HomeComponent implements OnInit {
   constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
-    this.artistList = this.artistService.artistList;
+    this.artistService.getArtistList().subscribe(
+      (resp: any) => {
+        this.artistList = resp;
+      }
+    );
   }
 
   artistListIsEmpty() {
-    return (this.artistList.length === 0) ? true : false;
+    return (this.artistList === undefined) ? true : false;
   }
 
 }
