@@ -15,7 +15,7 @@ export class ArtistCardComponent implements OnInit {
   starsList: number[] = [];
 
   constructor() {
-    //console.log(this.artist);
+    // console.log(this.artist);
   }
 
   ngOnInit() {

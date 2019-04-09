@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
 
   artistList: Artist[];
 
-  isAuthenticated:boolean;
+  isAuthenticated: boolean;
 
-  constructor(private artistService: ArtistService, private userService:UserService) { }
+  constructor(private artistService: ArtistService, private userService: UserService) { }
 
   ngOnInit() {
     this.isAuthenticated = !(this.userService.token == null);

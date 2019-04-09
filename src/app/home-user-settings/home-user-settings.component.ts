@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeUserSettingsComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 
@@ -19,7 +19,7 @@ export class HomeUserSettingsComponent implements OnInit {
     // To do
   }
 
-  navigateToHome(){
+  navigateToHome() {
     this.router.navigate([PATH_HOME]);
   }
 

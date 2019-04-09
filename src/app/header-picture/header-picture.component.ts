@@ -14,14 +14,14 @@ export class HeaderPictureComponent implements OnInit {
   visibleHomeUserSettings: boolean;
   visibleHomeUserMenu: boolean;
 
-  isAuthenticated:boolean;
+  isAuthenticated: boolean;
 
-  constructor(private router: Router, private userService:UserService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
     this.isAuthenticated = !(this.userService.token == null);
     console.log(this.isAuthenticated);
-   
+
   }
 
   isWelcome() {
