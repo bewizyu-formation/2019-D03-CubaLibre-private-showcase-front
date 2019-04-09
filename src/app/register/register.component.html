@@ -1,1 +1,68 @@
+<app-header-picture></app-header-picture>
+<div class="container">
+	<div class="register-container">
+		<div class="register-card">
+			<h2 class="register-card__title">Formulaire d'inscription</h2>
+			<div class="register-card__content">
+				<form (ngSubmit)="handleSubmit()" [formGroup]="registerForm">
+					<div class="register-card__error-username" *ngIf="isAlreadyExist">
+						L'identifiant <strong>existe déjà</strong>
+					</div>
+					<mat-form-field class="register-card__input">
+						<input matInput placeholder="Identifiant" formControlName="username">
+						<mat-error *ngIf="usernameCtrl.hasError('required')">
+							Identifiant <strong>obligatoire</strong>
+						</mat-error>
+					</mat-form-field>
 
+					<div formGroupName="passwordGroup">
+						<mat-form-field class="register-card__input">
+							<input matInput type="password" placeholder="Mot de passe" formControlName="password"
+								[errorStateMatcher]="passwordMatcher">
+							<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
+								Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
+									minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
+							</mat-error>
+							<mat-error *ngIf="passwordCtrl.hasError('required')">
+								Mot de passe <strong>obligatoire</strong>
+							</mat-error>
+						</mat-form-field>
+
+						<mat-form-field class="register-card__input">
+							<input matInput type="password" placeholder="Confirmez le mot de passe"
+								formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
+							<mat-error *ngIf="passwordGroup.hasError('notSame')">
+								Mot de passe incorrect
+							</mat-error>
+						</mat-form-field>
+					</div>
+
+					<mat-form-field class="register-card__input">
+						<input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+						<mat-error *ngIf="emailCtrl.hasError('required')">
+							Email <strong>obligatoire</strong>
+						</mat-error>
+						<mat-error *ngIf="emailCtrl.hasError('email')">
+							Email <strong>invalide</strong>
+						</mat-error>
+
+					</mat-form-field>
+					<app-autocomp-input class="register-card__input" autocompType="communes" placeHolder="Ville"
+						[cityCtrl]="cityCtrl" (nameSelect)="handleCitySelect($event)">
+					</app-autocomp-input>
+
+					<div class="register-card__input">
+						<mat-checkbox>Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
+					</div>
+
+					<div class="register-card__footer">
+						<button mat-raised-button class="register-card__button register-card__button--cancel"
+							(click)="toWelcome()">Annuler</button>
+						<button mat-raised-button class="register-card__button register-card__button--validate"
+							type="submit" [disabled]="registerForm.invalid">Valider</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
