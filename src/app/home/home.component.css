@@ -1,11 +1,23 @@
-.cardArtist{
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
+.container-artist {
+    margin: auto;
+    padding: 35px auto;
+    max-width: 1250px;
 }
 
-.spinner{
-    display:flex;
+.cardArtist {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card{
+    flex: auto;
+    margin: auto;
+}
+
+.spinner {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 80vh;
