@@ -28,15 +28,7 @@ export class RegisterComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   passwordMatcher = new MyErrorStateMatcherPassword();
 
-  @Output()
-  outCityCtrl:EventEmitter<FormControl> = new EventEmitter<FormControl>();
-
   user: any;
-
-  outputCityCtrl() {
-    this.outCityCtrl.emit(this.cityCtrl);
-  }
-
 
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
@@ -75,12 +67,6 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.email,
       this.registerForm.value.city
       );
-    console.log(this.registerForm.value.username);
-
-  }
-
-  testNavigate() {
-    console.log('machin');
   }
 
   ngOnInit() {

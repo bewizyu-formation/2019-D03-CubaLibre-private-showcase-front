@@ -13,7 +13,7 @@ export class ExempleComponent {
   token: string;
 
   selecetdFile: File;
-  imagePreview: string;
+  imagePreview: string|ArrayBuffer;
 
   constructor(private userService: UserService, private hello: HelloRepository) {
   }
