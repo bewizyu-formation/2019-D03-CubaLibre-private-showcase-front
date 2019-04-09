@@ -32,6 +32,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
+import { LoggedGuard } from './user/logged.guard';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

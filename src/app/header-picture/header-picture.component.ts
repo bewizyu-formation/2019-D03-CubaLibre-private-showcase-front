@@ -20,8 +20,6 @@ export class HeaderPictureComponent implements OnInit {
 
   ngOnInit() {
     this.isAuthenticated = !(this.userService.token == null);
-    console.log(this.isAuthenticated);
-
   }
 
   isWelcome() {
