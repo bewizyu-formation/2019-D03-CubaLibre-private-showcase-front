@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
+import { UserService } from '../user/user.service';
+
 
 @Component({
   selector: 'app-header-picture',
@@ -12,9 +14,14 @@ export class HeaderPictureComponent implements OnInit {
   visibleHomeUserSettings: boolean;
   visibleHomeUserMenu: boolean;
 
-  constructor(private router: Router) { }
+  isAuthenticated: boolean;
+
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    this.isAuthenticated = !(this.userService.token == null);
+    console.log(this.isAuthenticated);
+
   }
 
   isWelcome() {
