@@ -18,13 +18,13 @@
   <!-- If we need left menu and right menu-->
 
   <div class='menu-home-left left' *ngIf='isAuthenticated'>
-    <button mat-button (click)='clickHomeUserMenu()'><mat-icon>menu</mat-icon></button>
-    <app-home-user-menu *ngIf="isVisibleHomeUserMenu()"></app-home-user-menu>
+    <button mat-button (click)='clickHomeUserMenu($event)'><mat-icon>menu</mat-icon></button>
+    <app-home-user-menu *ngIf="visibleHomeUserMenu"></app-home-user-menu>
   </div>
 
   <div class='menu-home-right right' *ngIf='isAuthenticated'>
-    <button mat-button (click)='clickHomeUserSettings()'><mat-icon>more_vert</mat-icon></button>
-    <app-home-user-settings *ngIf="isVisibleHomeUserSettings()"></app-home-user-settings>
+    <button mat-button (click)='clickHomeUserSettings($event)'><mat-icon>more_vert</mat-icon></button>
+    <app-home-user-settings *ngIf="visibleHomeUserSettings"></app-home-user-settings>
   </div>
 </div>
 
