@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DisconnectService } from '../services/disconnect.service';
 
 @Component({
   selector: 'app-home-user-settings',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeUserSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private disconnectService: DisconnectService) { }
 
   ngOnInit() { }
 
@@ -16,6 +17,6 @@ export class HomeUserSettingsComponent implements OnInit {
   }
 
   useServiceDisconnect() {
-    // To do
+    this.disconnectService.setDisconnect();
   }
 }
