@@ -1,18 +1,26 @@
-.image-placeholder {
+.card {
   width: 344px;
   height: 304px;
+  position: relative;
 }
 
-.scrim {
-  width: 344px;
-  height: 140px;
+.card__img {
+  width: 100%;
+  height: auto;
+}
+
+.card__content {
+  width: 312px;
+  height: 102px;
   background-color: rgba(66, 66, 66, 0.9);
+  position: absolute;
+  bottom: 20px;
+  padding: 16px;
 }
 
-.Title-goes-here {
+.card__title {
   width: 121px;
   height: 32px;
-  background-color: #d8d8d8;
   font-family: Roboto;
   font-size: 24px;
   font-weight: normal;
@@ -21,10 +29,11 @@
   line-height: 1.33;
   letter-spacing: normal;
   color: #d8d8d8;
+  margin: 0;
 }
 
-.Subtitle-here {
-  width: 107px;
+.card__description {
+  width: 100%;
   height: 20px;
   font-family: Roboto;
   font-size: 13px;
@@ -34,12 +43,37 @@
   line-height: 1.54;
   letter-spacing: normal;
   color: #ffffff;
+  margin: 2px;
 }
 
-.scrim__footer{
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.card__footer--left-top {
   display: flex;
 }
 
-.footer-left-top{
+.card__footer--left{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f5a623;
+  width: 50%;
+}
+
+.card__footer-text{
+  margin-left: 3px;
+  font-size: 11px;
+}
+
+.card__footer--right{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 30px;
 }

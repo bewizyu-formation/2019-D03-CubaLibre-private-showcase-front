@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GeoService } from '../geo/geo.service';
-import { FormControl } from '@angular/forms';
-import { throttleTime, filter } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
+import { throttleTime, filter, auditTime } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
+import { MyErrorStateMatcher } from '../validators/validators';
+
 
 @Component({
   selector: 'app-autocomp-input',
@@ -14,6 +16,12 @@ export class AutocompInputComponent implements OnInit {
   @Input()
   autocompType: string;
 
+  @Input()
+  placeHolder: string;
+
+  @Input()
+  cityCtrl: FormControl;
+
   myControl = new FormControl();
   options: string[];
 
@@ -22,13 +30,17 @@ export class AutocompInputComponent implements OnInit {
   @Output()
   nameSelect: EventEmitter<string> = new EventEmitter<string>();
 
+  handleOutCityCtrl(event) {
+    this.cityCtrl = event;
+  }
+
   constructor(private geoService: GeoService) { }
 
   ngOnInit() {
     const input = document.getElementsByTagName('input');
     fromEvent(input, 'keyup').pipe(
       filter((event: any) => event.keyCode !== 38 && event.keyCode !== 40),
-      throttleTime(300)
+      auditTime(300)
     ).subscribe(
       resp => {
         if (this.autocompType === 'communes') {
@@ -65,6 +77,6 @@ export class AutocompInputComponent implements OnInit {
         listTemp.push(list[i]);
       }
     }
-    this.options = [...listTemp];
+    this.options = listTemp;
   }
 }

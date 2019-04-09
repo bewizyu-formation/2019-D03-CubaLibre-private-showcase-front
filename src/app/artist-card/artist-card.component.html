@@ -1,41 +1,39 @@
-<!--<div class='image-placeholder'>
-  <img src='{{artist.picture}}'>
-</div>-->
+<div class='card'>
+  <img src='{{artist.picture}}' class="card__img">
 
-<div class='scrim'>
-  <h1 class='Title-goes-here'>
-    {{artist.artistName}}
-  </h1>
-  <h4 class='Subtitle-here'>
-    {{artist.description}}
-  </h4>
-  <div class='scrim__footer'>
-    <div class='footer-left'>
-      <div class='footer-left-top'>
-        <div *ngFor='let star of starsList'>
-          <div *ngIf='star == 1'>
-            <mat-icon>star</mat-icon>
-          </div>
-          <div *ngIf='star == 0.5'>
-            <mat-icon>star_half</mat-icon>
-          </div>
-          <div *ngIf='star == 0'>
-            <mat-icon>star_border</mat-icon>
+  <div class='card__content'>
+    <h1 class='card__title'>
+      {{artist.artistName}}
+    </h1>
+    <h4 class='card__description'>
+      {{artist.description}}
+    </h4>
+    <div class='card__footer'>
+      <div class='card__footer--left'>
+        <div class='card__footer--left-top'>
+          <div *ngFor='let star of starsList'>
+            <div *ngIf='star == 1'>
+              <mat-icon>star</mat-icon>
+            </div>
+            <div *ngIf='star == 0.5'>
+              <mat-icon>star_half</mat-icon>
+            </div>
+            <div *ngIf='star == 0'>
+              <mat-icon>star_border</mat-icon>
+            </div>
           </div>
         </div>
+        <div class='card__footer-text'>
+          ({{artist.voteNumber}} votes)
+        </div>
       </div>
-      <div class='footer-left-bottom'>
-        {{artist.voteNumber}}
+      <div class='card__footer--right'>
+        <mat-icon>visibility</mat-icon>
+        <span class='card__footer-text'>VOIR</span>
       </div>
-    </div>
-    <div class='footer-center'>
-      <div>
-        <mat-icon>visibility</mat-icon> VOIR
-      </div>
-    </div>
-    <div class='footer-right'>
-      <div>
-        <mat-icon>calendar_today</mat-icon> BOOKER
+      <div class='card__footer--right'>
+        <mat-icon>calendar_today</mat-icon>
+        <span class='card__footer-text'>BOOKER</span>
       </div>
     </div>
   </div>
