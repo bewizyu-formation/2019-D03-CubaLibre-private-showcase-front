@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {UserService} from './user/user.service';
-import {HelloRepository} from './hello/hello.repository';
-import {HttpErrorResponse} from '@angular/common/http';
+import { Component } from '@angular/core';
+import { UserService } from './user/user.service';
+import { HelloRepository } from './hello/hello.repository';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,10 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class AppComponent {
 
-  constructor() {
+
+  constructor(private userService: UserService) {
+    if (localStorage.getItem('token') && userService.token === undefined) {
+      userService.token = localStorage.getItem('token');
+    }
   }
 }

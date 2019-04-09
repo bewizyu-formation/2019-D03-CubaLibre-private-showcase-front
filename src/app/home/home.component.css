@@ -1,6 +1,7 @@
 .cardArtist{
     display: flex;
-    flex-flow:column wrap;
+    flex-flow: wrap;
+    justify-content: space-around;
 }
 
 .spinner{

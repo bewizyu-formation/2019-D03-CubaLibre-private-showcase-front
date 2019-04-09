@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -25,7 +24,8 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MatIconModule,
-  MatAutocompleteModule,
+  MatCheckboxModule,
+  MatAutocompleteModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
@@ -57,9 +57,13 @@ import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    FormsModule ,
+    ReactiveFormsModule,
+    MatCheckboxModule,
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     MatAutocompleteModule,
   ],
   providers: [

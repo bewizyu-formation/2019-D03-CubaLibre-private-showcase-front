@@ -20,14 +20,19 @@ import {
   MatButtonModule,
   MatCardModule,
   MatProgressSpinnerModule,
-  MatIconModule
+  MatIconModule,
+  MatCheckboxModule,
+  MatOptionModule,
+  MatAutocompleteModule
 } from '@angular/material';
 import { CommonHeadersInterceptorService } from './services/interceptors/common-headers-interceptor.service';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
+import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
+import { LoggedGuard } from './user/logged.guard';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -42,6 +47,7 @@ describe('AppComponent', () => {
         HeaderPictureComponent,
         HomeUserSettingsComponent,
         ArtistCardComponent,
+        AutocompInputComponent,
         HomeUserMenuComponent,
       ],
       imports: [
@@ -56,6 +62,10 @@ describe('AppComponent', () => {
         MatProgressSpinnerModule,
         MatIconModule,
         ReactiveFormsModule,
+        MatCheckboxModule,
+        MatOptionModule,
+        MatAutocompleteModule,
+        FormsModule,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: environment },
