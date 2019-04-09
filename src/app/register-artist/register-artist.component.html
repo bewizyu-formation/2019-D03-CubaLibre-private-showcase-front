@@ -1,0 +1,29 @@
+<form (ngSubmit)="handleSubmit()" [formGroup]="registerArtistForm">
+  <div class="register-card__error-username" *ngIf="isAlreadyExist">
+    L'identifiant <strong>existe déjà</strong>
+  </div>
+  <mat-form-field class="register-card__input">
+    <input matInput placeholder="Identifiant" formControlName="artistname">
+    <mat-error *ngIf="artistnameCtrl.hasError('required')">
+      Nom d'artiste <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="register-card__input">
+    <input matInput placeholder="Description courte" formControlName="descriptionshort">
+    <mat-error *ngIf="descriptionshortCtrl.hasError('required')">
+      Description courte <strong>obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="register-card__input">
+    <input matInput placeholder="Description" formControlName="description">
+  </mat-form-field>
+  <div class='upload__container' mat-button>
+    <input style='display:none' type='file' (change)='onFileUpload($event)' #selectFile accept='image/*'>
+    <div (click)='selectFile.click()' class='upload__container__background' *ngIf='!imagePreview'>
+      <button mat-button>Upload Image</button>
+    </div>
+    <div *ngIf='imagePreview'>
+      <img [src]='imagePreview' class='upload__preview'>
+    </div>
+  </div>
+</form>

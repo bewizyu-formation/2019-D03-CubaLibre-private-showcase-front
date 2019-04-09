@@ -32,6 +32,8 @@ export class RegisterComponent implements OnInit {
 
   isAlreadyExist: boolean;
 
+  isArtist: boolean;
+
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
@@ -78,6 +80,11 @@ export class RegisterComponent implements OnInit {
 
   userNameExist() {
     return this.isAlreadyExist;
+  }
+
+  isChecked(event){
+    event.preventDefault();
+    this.isArtist = !this.isArtist;
   }
 
   toWelcome() {
