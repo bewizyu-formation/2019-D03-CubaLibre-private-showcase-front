@@ -65,15 +65,8 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.username,
       this.registerForm.value.passwordGroup.password,
       this.registerForm.value.email,
-      this.cleanUpAccents(this.registerForm.value.city)
+      this.registerForm.value.city
       );
-  }
-
-  cleanUpAccents(str)
-  {
-    const newStr:string = str.replace(/é|è|ê/g,"e");
-    const newStr2:string = newStr.replace(/à|â/g,"a");
-    return newStr2;
   }
 
   ngOnInit() {
