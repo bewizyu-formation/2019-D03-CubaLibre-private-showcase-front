@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home-user-settings',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeUserSettingsComponent implements OnInit {
 
-  constructor() { }
+  isArtist: boolean;
 
-  ngOnInit() { }
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
+  }
 
   navigateToProfil() {
     // To do
