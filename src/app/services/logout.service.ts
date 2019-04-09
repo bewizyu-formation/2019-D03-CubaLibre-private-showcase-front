@@ -12,10 +12,11 @@ export class LogoutService {
   constructor(private httpClient: HttpClient, private env: EnvironmentService, private router: Router) {
   }
 
-  ngOnInit(): void { }
-
   setDisconnect() {
-    this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_LOGOUT}/`);
-    this.router.navigate([PATH_WELCOME]);
+
+    this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_LOGOUT}/`)
+      .subscribe(() => {
+        this.router.navigate([PATH_WELCOME]);
+      });
   }
 }
