@@ -27,6 +27,7 @@ import { TokenInterceptorService } from './services/interceptors/token-intercept
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
+import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -41,6 +42,7 @@ describe('AppComponent', () => {
         HeaderPictureComponent,
         HomeUserSettingsComponent,
         ArtistCardComponent,
+        HomeUserMenuComponent,
       ],
       imports: [
         BrowserModule,

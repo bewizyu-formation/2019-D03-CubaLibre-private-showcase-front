@@ -30,6 +30,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
+import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AutocompInputComponent } from './autocomp-input/autocomp-input.componen
     HomeUserSettingsComponent,
     ArtistCardComponent,
     AutocompInputComponent,
+    HomeUserMenuComponent,
   ],
   imports: [
     BrowserModule,
