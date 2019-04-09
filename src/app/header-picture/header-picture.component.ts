@@ -11,8 +11,8 @@ import { UserService } from '../user/user.service';
 })
 export class HeaderPictureComponent implements OnInit {
 
-  visibleHomeUserSettings: boolean = false;
-  visibleHomeUserMenu: boolean = false;
+  visibleHomeUserSettings = false;
+  visibleHomeUserMenu = false;
 
   isAuthenticated: boolean;
 
@@ -43,16 +43,16 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   @HostListener('click', ['$event']) click(e) {
-    //e.stopPropagation();
+    // e.stopPropagation();
 
   }
 
-  @HostListener("document:click") resetToggle() {
+  @HostListener('document:click') resetToggle() {
     this.visibleHomeUserSettings = false;
     this.visibleHomeUserMenu = false;
   }
 
-  
+
 
   // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
   hasReturn() {
