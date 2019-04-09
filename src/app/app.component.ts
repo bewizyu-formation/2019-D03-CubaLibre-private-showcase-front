@@ -11,6 +11,9 @@ import {HttpErrorResponse} from '@angular/common/http';
 export class AppComponent {
 
 
-  constructor() {
+  constructor(private userService: UserService) {
+    if(localStorage.getItem('token') && userService.token === undefined){
+      userService.token = localStorage.getItem('token');
+    }
   }
 }
