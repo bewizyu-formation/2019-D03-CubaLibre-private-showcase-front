@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PATH_HOME } from '../app.routes.constantes';
+import { PATH_HOME, PATH_WELCOME } from '../app.routes.constantes';
 import { Router } from '@angular/router';
+import { UserService } from '../user/user.service';
 
 
 
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeUserSettingsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() { }
 
@@ -24,6 +25,8 @@ export class HomeUserSettingsComponent implements OnInit {
   }
 
   useServiceDisconnect() {
-    // To do
+    localStorage.clear();
+    this.userService.token = null;
+    this.router.navigate([PATH_WELCOME]);
   }
 }
