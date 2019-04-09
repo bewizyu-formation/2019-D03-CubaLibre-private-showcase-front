@@ -1,11 +1,11 @@
-.login-container {
+.register-container {
     padding-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-card {
+.register-card {
     width: 680px;
     border-radius: 14px;
     background-color: #e7e6e6;
@@ -15,7 +15,7 @@
     padding-bottom: 20px;
 }
 
-.login-card__content{
+.register-card__content{
     width: 60%;
     margin: 20px auto 0 auto;
     display: flex;
@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-.login-card__title {
+.register-card__title {
     font-family: Roboto;
     font-size: 20px;
     font-weight: 500;
@@ -34,35 +34,35 @@
     color: rgba(0, 0, 0, 0.54);
 }
 
-.login-card__form{
+.register-card__form{
     width: 100%;
     display: flex;
     flex-direction: column;
     color: rgba(0, 0, 0, 0.54);
 }
 
-.login-card__footer{
+.register-card__footer{
     width: 100%;
     margin-top: 30px;
     display: flex;
     justify-content: flex-end;
 }
 
-.login-card__button{
+.register-card__button{
     margin-right: 10px;
 }
 
-.login-card__button--cancel{
+.register-card__button--cancel{
     background-color: #4a4a4a;
     color: white;
 }
 
-.login-card__button--validate{
+.register-card__button--validate{
     background-color: #17998c;
     color: white;
 }
 
-.login-card__error{
+.register-card__error{
     border-radius: 10px;
     background-color: #be1d1d;
     color: white;
