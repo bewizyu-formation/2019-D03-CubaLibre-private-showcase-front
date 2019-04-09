@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LogoutService {
 
-  constructor(private httpClient: HttpClient, private env: EnvironmentService, private router: Router) {
-    
-  }
+  constructor(private httpClient: HttpClient, private env: EnvironmentService, private router: Router) { }
 
   setDisconnect() {
 
