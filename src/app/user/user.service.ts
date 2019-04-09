@@ -52,6 +52,7 @@ export class UserService {
         .subscribe(
           (response: HttpResponse<any>) => {
             this.token = response.headers.get('Authorization');
+            console.log(this.token);
             resolve(response);
           },
           (error: HttpResponse<any>) => {

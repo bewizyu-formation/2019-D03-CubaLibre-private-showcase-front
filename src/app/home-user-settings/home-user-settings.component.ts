@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PATH_HOME } from '../app.routes.constantes';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home-user-settings',
@@ -7,12 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeUserSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() { }
 
   navigateToProfil() {
     // To do
+  }
+
+  navigateToHome(){
+    this.router.navigate([PATH_HOME]);
   }
 
   useServiceDisconnect() {
