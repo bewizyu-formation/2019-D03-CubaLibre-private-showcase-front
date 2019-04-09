@@ -11,7 +11,7 @@ export class LogoutService {
 
   constructor(private httpClient: HttpClient, private env: EnvironmentService, private router: Router) {
   }
-
+  
   setDisconnect() {
 
     this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_LOGOUT}/`)
