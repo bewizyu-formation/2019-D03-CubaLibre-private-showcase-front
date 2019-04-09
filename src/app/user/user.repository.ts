@@ -21,7 +21,6 @@ export class UserRepository {
       email: email,
       city: city
     };
-    console.log(user);
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 

@@ -25,12 +25,11 @@ export class UserService {
        .register(username, password, email, city)
        .subscribe(
          (response: HttpResponse<any>) => {
-           console.log(response);
            this.router.navigate([PATH_LOGIN]);
          },
 
          (error) => {
-           console.log(error);
+           resolve(error);
          },
 
          () => {

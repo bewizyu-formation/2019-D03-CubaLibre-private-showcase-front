@@ -3,6 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.register-card__input {
+    width: 100%;
+    margin: 8px 0;
 }
 
 .register-card {
@@ -15,7 +21,14 @@
     padding-bottom: 20px;
 }
 
-.register-card__content{
+.register-card__error-username{
+    border-radius: 10px;
+    background-color: #be1d1d;
+    color: white;
+    padding: 10px;
+}
+
+.register-card__content {
     width: 60%;
     margin: 20px auto 0 auto;
     display: flex;
@@ -34,11 +47,39 @@
     color: rgba(0, 0, 0, 0.54);
 }
 
-.register-card__form{
+.register-card__form {
     width: 100%;
     display: flex;
     flex-direction: column;
     color: rgba(0, 0, 0, 0.54);
+}
+
+.register-card__footer {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.register-card__button {
+    margin-right: 10px;
+}
+
+.register-card__button--cancel {
+    background-color: #4a4a4a;
+    color: white;
+}
+
+.register-card__button--validate {
+    background-color: #17998c;
+    color: white;
+}
+
+.register-card__error {
+    border-radius: 10px;
+    background-color: #be1d1d;
+    color: white;
+    padding: 10px;
 }
 
 .register-card__footer{
@@ -46,25 +87,4 @@
     margin-top: 30px;
     display: flex;
     justify-content: flex-end;
-}
-
-.register-card__button{
-    margin-right: 10px;
-}
-
-.register-card__button--cancel{
-    background-color: #4a4a4a;
-    color: white;
-}
-
-.register-card__button--validate{
-    background-color: #17998c;
-    color: white;
-}
-
-.register-card__error{
-    border-radius: 10px;
-    background-color: #be1d1d;
-    color: white;
-    padding: 10px;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GeoService } from '../geo/geo.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { throttleTime, filter, auditTime} from 'rxjs/operators';
+import { throttleTime, filter, auditTime } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
 import { MyErrorStateMatcher } from '../validators/validators';
 
@@ -14,13 +14,13 @@ import { MyErrorStateMatcher } from '../validators/validators';
 export class AutocompInputComponent implements OnInit {
 
   @Input()
-  autocompType:string;
+  autocompType: string;
 
   @Input()
-  placeHolder:string;
+  placeHolder: string;
 
   @Input()
-  cityCtrl:FormControl;
+  cityCtrl: FormControl;
 
   myControl = new FormControl();
   options: string[];
@@ -30,9 +30,8 @@ export class AutocompInputComponent implements OnInit {
   @Output()
   nameSelect: EventEmitter<string> = new EventEmitter<string>();
 
-  handleOutCityCtrl(event){
-    console.log("truc")
-    this.cityCtrl=event;
+  handleOutCityCtrl(event) {
+    this.cityCtrl = event;
   }
 
   constructor(private geoService: GeoService) { }

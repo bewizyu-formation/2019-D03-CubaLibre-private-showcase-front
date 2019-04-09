@@ -62,7 +62,7 @@ import { AutocompInputComponent } from './autocomp-input/autocomp-input.componen
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },

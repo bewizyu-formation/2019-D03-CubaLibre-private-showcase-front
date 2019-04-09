@@ -1,7 +1,6 @@
-
-<mat-form-field class="example-full-width">
+<mat-form-field class="autocomp-form">
 	<input name="inputCity" type="text" [placeholder]="placeHolder" matInput [(ngModel)]="valueInput"
-	[matAutocomplete]="auto">
+		[matAutocomplete]="auto">
 	<mat-error *ngIf="cityCtrl.hasError('required')">
 		Ville <strong>obligatoire</strong>
 	</mat-error>

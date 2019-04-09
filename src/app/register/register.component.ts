@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators, NgForm} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators, NgForm } from '@angular/forms';
 
-import {Router} from '@angular/router';
-import { PATH_LOGIN } from '../app.routes.constantes';
+import { Router } from '@angular/router';
+import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 
 import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { UserService } from '../user/user.service';
@@ -30,14 +30,16 @@ export class RegisterComponent implements OnInit {
 
   user: any;
 
+  isAlreadyExist: boolean;
+
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
-      Validators.required,
-      Validators.pattern(PASSWORD_REGEXP)
+        Validators.required,
+        Validators.pattern(PASSWORD_REGEXP)
       ]
-      );
+    );
     this.confirmPasswordCtrl = fb.control('');
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
@@ -45,7 +47,7 @@ export class RegisterComponent implements OnInit {
     this.passwordGroup = fb.group({
       password: this.passwordCtrl,
       confirmPassword: this.confirmPasswordCtrl
-    }, {validator : checkPasswords});
+    }, { validator: checkPasswords });
 
     this.registerForm = fb.group({
       username: this.usernameCtrl,
@@ -55,9 +57,8 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  handleCitySelect(event){
+  handleCitySelect(event) {
     this.cityCtrl.setValue(event);
-    console.log(this.cityCtrl.dirty);
   }
 
   handleSubmit() {
@@ -66,7 +67,21 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.passwordGroup.password,
       this.registerForm.value.email,
       this.registerForm.value.city
-      );
+    ).then((resp: any) => {
+      if (resp.status === 400) {
+        this.isAlreadyExist = true;
+      } else {
+        this.isAlreadyExist = false;
+      }
+    });
+  }
+
+  userNameExist() {
+    return this.isAlreadyExist;
+  }
+
+  toWelcome() {
+    this.router.navigate([PATH_WELCOME]);
   }
 
   ngOnInit() {
