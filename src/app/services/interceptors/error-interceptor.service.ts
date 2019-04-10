@@ -18,7 +18,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
         } else if (errorResponse.status === 403) {
           console.log(errorResponse.message);
         } else if (errorResponse.status === 400) {
-          console.log(errorResponse.error.message)
+          //console.log(errorResponse.error.message)
         }
 
         return throwError(errorResponse);

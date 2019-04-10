@@ -29,17 +29,16 @@ export class RegisterComponent implements OnInit {
   passwordMatcher = new MyErrorStateMatcherPassword();
 
   user: any;
-
-  isAlreadyExist: boolean;
+  serverErrorMessage: string;
 
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
-        Validators.required,
-        Validators.pattern(PASSWORD_REGEXP)
+      Validators.required,
+      Validators.pattern(PASSWORD_REGEXP)
       ]
-    );
+      );
     this.confirmPasswordCtrl = fb.control('');
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
@@ -67,24 +66,22 @@ export class RegisterComponent implements OnInit {
       this.registerForm.value.passwordGroup.password,
       this.registerForm.value.email,
       this.registerForm.value.city
-    ).then((resp: any) => {
-      if (resp.status === 400) {
-        this.isAlreadyExist = true;
-      } else {
-        this.isAlreadyExist = false;
-      }
-    });
-  }
+      ).then((resp: any) => {
+        if (resp.status === 400) {
+          this.serverErrorMessage = resp.error.message;
+        }
+      },
+      (err) => {
+        console.log(err);
+      });
+    }
 
-  userNameExist() {
-    return this.isAlreadyExist;
-  }
 
-  toWelcome() {
-    this.router.navigate([PATH_WELCOME]);
-  }
+    toWelcome() {
+      this.router.navigate([PATH_WELCOME]);
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-}
+  }
