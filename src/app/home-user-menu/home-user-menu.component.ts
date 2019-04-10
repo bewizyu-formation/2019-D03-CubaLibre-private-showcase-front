@@ -14,11 +14,11 @@ export class HomeUserMenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  isHome(){
+  isHome() {
     return this.router.url === `/${PATH_HOME}` ? true : false;
   }
 
-  isWelcome(){
+  isWelcome() {
     return this.router.url === `/${PATH_WELCOME}` ? true : false;
   }
 

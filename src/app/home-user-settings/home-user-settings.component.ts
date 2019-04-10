@@ -20,7 +20,7 @@ export class HomeUserSettingsComponent implements OnInit {
     this.isArtist = this.userService.getUser().artiste ? true : false;
   }
 
-  navigateToArtist(){
+  navigateToArtist() {
     // TODO
   }
 
