@@ -13,6 +13,7 @@ export class HomeUserSettingsComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.isArtist = this.userService.getUser().artiste ? true : false;
   }
 
   navigateToProfil() {

@@ -60,4 +60,19 @@ export class UserService {
         );
     });
   }
+
+  getUser(){
+
+    // TODO
+
+    const mockUser = {
+      'username': 'test',
+      'email': 'fake@nul.o',
+      'city': 'pluton',
+      'codeDepartement': 9,
+      // 'artiste': {'nom': 'coucou'},
+      'artiste': null,
+    };
+    return mockUser;
+  }
 }
