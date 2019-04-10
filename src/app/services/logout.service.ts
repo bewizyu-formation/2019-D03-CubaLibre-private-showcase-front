@@ -18,7 +18,7 @@ export class LogoutService {
       .subscribe(() => {
         localStorage.clear();
         this.userService.token = null;
-        if(this.router.url === `/${PATH_WELCOME}`){ 
+        if (this.router.url === `/${PATH_WELCOME}`) {
           window.location.reload();
         }
         this.router.navigate([PATH_WELCOME]);

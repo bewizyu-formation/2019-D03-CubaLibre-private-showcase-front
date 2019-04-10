@@ -14,7 +14,11 @@ export class HomeUserSettingsComponent implements OnInit {
 
   isArtist: boolean;
 
-  constructor(private router: Router, private userService: UserService, private logoutService: LogoutService, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private logoutService: LogoutService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.isArtist = this.userService.getUser().artiste ? true : false;
