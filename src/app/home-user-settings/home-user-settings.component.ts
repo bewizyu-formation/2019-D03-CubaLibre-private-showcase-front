@@ -20,12 +20,12 @@ export class HomeUserSettingsComponent implements OnInit {
     this.isArtist = this.userService.getUser().artiste ? true : false;
   }
 
-  navigateToProfil() {
-    // To do
+  navigateToArtist() {
+    // TODO
   }
 
-  navigateToHome() {
-    this.router.navigate([PATH_HOME]);
+  navigateToProfil() {
+    // To do
   }
 
   useServiceDisconnect() {
