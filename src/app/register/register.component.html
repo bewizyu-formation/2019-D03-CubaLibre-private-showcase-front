@@ -5,8 +5,8 @@
 			<h2 class="register-card__title">Formulaire d'inscription</h2>
 			<div class="register-card__content">
 				<form (ngSubmit)="handleSubmit()" [formGroup]="registerForm">
-					<div class="register-card__error-username" *ngIf="isAlreadyExist">
-						L'identifiant <strong>existe déjà</strong>
+					<div class="register-card__error-username" *ngIf="serverErrorMessage">
+						{{serverErrorMessage}}
 					</div>
 					<mat-form-field class="register-card__input">
 						<input matInput placeholder="Identifiant" formControlName="username">
