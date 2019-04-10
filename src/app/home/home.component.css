@@ -1,19 +1,31 @@
 .container-artist {
     margin: auto;
-    padding: 35px auto;
-    max-width: 1250px;
+    padding: 18px 18px;
+    max-width: 1100px;
 }
 
-.cardArtist {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+@media(min-width: 1100.1px){
+    .cardArtist {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 18px;
+    }
 }
 
-.card{
-    flex: auto;
-    margin: auto;
+@media(max-width: 1100px){
+    .cardArtist {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 18px;
+    }
+}
+
+@media(max-width: 750px){
+    .cardArtist {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 18px;
+    }
 }
 
 .spinner {
