@@ -6,7 +6,7 @@ import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 
 import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { UserService } from '../user/user.service';
-
+import {Artist} from "../artist-card/Artist";
 
 
 @Component({
@@ -14,6 +14,7 @@ import { UserService } from '../user/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   usernameCtrl: FormControl;
@@ -33,6 +34,11 @@ export class RegisterComponent implements OnInit {
   isAlreadyExist: boolean;
 
   isArtist: boolean;
+
+  artistName:string;
+  shortDescription:string;
+  longDescription:string;
+  artist:Artist;
 
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
@@ -64,11 +70,19 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit() {
+    if(this.isArtist) {
+      this.artist.artistName = this.artistName;
+      this.artist.shortDescription = this.shortDescription;
+      this.artist.longDescription = this.longDescription;
+    }
+
     this.userService.register(
       this.registerForm.value.username,
       this.registerForm.value.passwordGroup.password,
       this.registerForm.value.email,
-      this.registerForm.value.city
+      this.registerForm.value.city,
+      this.artist
+
     ).then((resp: any) => {
       if (resp.status === 400) {
         this.isAlreadyExist = true;
@@ -89,6 +103,18 @@ export class RegisterComponent implements OnInit {
 
   toWelcome() {
     this.router.navigate([PATH_WELCOME]);
+  }
+
+  handleInputArtistName(event){
+    this.artistName=event;
+  }
+
+  handleInputShortDescription(event){
+    this.shortDescription=event;
+  }
+
+  handleInputLongDescription(event){
+    this.longDescription=event;
   }
 
   ngOnInit() {

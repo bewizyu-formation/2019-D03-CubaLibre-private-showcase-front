@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {EnvironmentService} from '../services/environment.service';
+import {Artist} from "../artist-card/Artist";
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_USERS = '/users/';
@@ -14,13 +15,27 @@ export class UserRepository {
   constructor(private http: HttpClient, private env: EnvironmentService) {
   }
 
-  register(username: string, password: string, email: string, city: string) {
-    const user: any = {
-      username: username,
-      password: password,
-      email: email,
-      city: city
-    };
+  register(username: string, password: string, email: string, city: string, artist?: Artist) {
+    console.log("test "+artist);
+    let user: any;
+    if(artist!=undefined) {
+      user = {
+        username: username,
+        password: password,
+        email: email,
+        city: city,
+        artist: artist
+      };
+    }else {
+      user = {
+        username: username,
+        password: password,
+        email: email,
+        city: city,
+      }
+    }
+
+    console.log("test "+user.aze);
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 

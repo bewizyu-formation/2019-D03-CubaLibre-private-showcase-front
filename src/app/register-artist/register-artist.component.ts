@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ArtistService } from '../artist-card/artist.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register-artist',
@@ -21,6 +22,19 @@ export class RegisterArtistComponent implements OnInit {
 
   selectedFile: File;
 
+  @Output()
+  handleArtistName:EventEmitter<string> = new EventEmitter<string>();
+
+  @Output()
+  handleShortDescription:EventEmitter<string> = new EventEmitter<string>();
+
+  @Output()
+  handleLongDescription:EventEmitter<string> = new EventEmitter<string>();
+
+  eventArtistName:string;
+  eventShortDescription:string;
+  eventLongDescription:string;
+
   constructor(fb: FormBuilder, private artistService: ArtistService, private router: Router) {
     this.artistnameCtrl = fb.control('', [Validators.required]);  
     this.descriptionshortCtrl = fb.control('', [Validators.required]);
@@ -37,7 +51,7 @@ export class RegisterArtistComponent implements OnInit {
 
   onFileUpload(event) {
 
-    this.selecetdFile = event.target.files[0];
+    /*this.selecetdFile = event.target.files[0];
 
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -48,7 +62,22 @@ export class RegisterArtistComponent implements OnInit {
           error => console.log('Upload error', error),
         );
     };
-    reader.readAsDataURL(this.selecetdFile);
+    reader.readAsDataURL(this.selecetdFile);*/
+  }
+
+  handleInputArtistName(event){
+    this.eventArtistName = event.target.value;
+    this.handleArtistName.emit(this.eventArtistName);
+  }
+
+  handleInputShortDescription(event){
+    this.eventShortDescription = event.target.value;
+    this.handleShortDescription.emit(this.eventShortDescription);
+  }
+
+  handleInputLongDescription(event){
+    this.eventLongDescription = event.target.value;
+    this.handleLongDescription.emit(this.eventLongDescription);
   }
 
   ngOnInit() {

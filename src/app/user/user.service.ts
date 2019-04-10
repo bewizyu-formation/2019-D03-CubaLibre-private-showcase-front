@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.routes.constantes';
 import {UserRepository} from './user.repository';
 import {HttpResponse} from '@angular/common/http';
+import {Artist} from "../artist-card/Artist";
 
 
 @Injectable({
@@ -19,10 +20,11 @@ export class UserService {
    constructor(private userRepository: UserRepository, private router: Router) {
    }
 
-   register(username: string, password: string, email: string, city: string) {
+   register(username: string, password: string, email: string, city: string, artist?: Artist) {
      return new Promise ((resolve) => {
+
        this.userRepository
-       .register(username, password, email, city)
+       .register(username, password, email, city, artist)
        .subscribe(
          (response: HttpResponse<any>) => {
            this.router.navigate([PATH_LOGIN]);
