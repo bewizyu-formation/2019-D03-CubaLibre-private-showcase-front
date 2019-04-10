@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_WELCOME } from '../app.routes.constantes';
+import { PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
 
 @Component({
   selector: 'app-home-user-menu',
@@ -12,6 +12,18 @@ export class HomeUserMenuComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  isHome(){
+    return this.router.url === `/${PATH_HOME}` ? true : false;
+  }
+
+  isWelcome(){
+    return this.router.url === `/${PATH_WELCOME}` ? true : false;
+  }
+
+  navigateToHome() {
+    this.router.navigate([PATH_HOME]);
   }
 
   navigateToWelcome() {
