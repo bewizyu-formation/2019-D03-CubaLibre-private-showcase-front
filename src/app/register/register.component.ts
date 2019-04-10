@@ -61,6 +61,7 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit() {
+    console.log("Ville", this.registerForm.value.city);
     this.userService.register(
       this.registerForm.value.username,
       this.registerForm.value.passwordGroup.password,
