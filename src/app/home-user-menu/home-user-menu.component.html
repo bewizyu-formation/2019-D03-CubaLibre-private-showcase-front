@@ -1,11 +1,13 @@
 <div class='homeUserMenu'>
   <div>
-    <button mat-button class="homeUserMenu_button" (click)="navigateToWelcome()">
+    <button mat-button class="homeUserMenu_button" *ngIf="isHome()" (click)="navigateToWelcome()">
       <mat-icon>home</mat-icon> Accueil
     </button>
 
     <button mat-button class="homeUserMenu_button" *ngIf="isWelcome()" (click)="navigateToHome()">
+
       <mat-icon>apps</mat-icon> Liste des artistes
+
     </button>
   </div>
   <div>
