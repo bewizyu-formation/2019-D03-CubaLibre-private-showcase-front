@@ -13,7 +13,7 @@ export class LogoutService {
 
   setDisconnect() {
 
-    this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_LOGOUT}/`)
+    this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/logout/`)
       .subscribe(() => {
         this.router.navigate([PATH_WELCOME]);
       });
