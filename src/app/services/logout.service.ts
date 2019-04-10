@@ -14,7 +14,7 @@ export class LogoutService {
 
   setDisconnect() {
 
-    this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/${PATH_LOGOUT}/`)
+    this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/logout/`)
       .subscribe(() => {
         localStorage.clear();
         this.userService.token = null;
