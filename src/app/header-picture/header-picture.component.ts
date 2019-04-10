@@ -33,11 +33,13 @@ export class HeaderPictureComponent implements OnInit {
   clickHomeUserSettings($event) {
     $event.stopPropagation();
     this.visibleHomeUserSettings = !this.visibleHomeUserSettings;
+    this.visibleHomeUserMenu = false;
   }
 
   clickHomeUserMenu($event) {
     $event.stopPropagation();
     this.visibleHomeUserMenu = !this.visibleHomeUserMenu;
+    this.visibleHomeUserSettings = false;
   }
 
   @HostListener('click', ['$event']) click(e) {
