@@ -12,8 +12,8 @@
           <mat-form-field class="login-card__input">
             <input matInput type="password" placeholder="Password" value="" formControlName="password">
           </mat-form-field>
-          <div class="login-card__error" *ngIf="serverErrorMessage">
-            {{serverErrorMessage}}
+          <div class="login-card__error" *ngIf="isError">
+            Identifiants incorrect
           </div>
           <div class="login-card__footer">
             <button mat-raised-button class="login-card__button login-card__button--cancel" (click)="toHome()">Annuler</button>

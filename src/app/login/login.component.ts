@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
   passwordCtrl: FormControl;
   userForm: FormGroup;
 
-  serverErrorMessage: string;
-
   isError = false;
 
   ngOnInit() {
@@ -40,9 +38,10 @@ export class LoginComponent implements OnInit {
       .then(
         (resp: any) => {
           if (resp.status === 200) {
+            this.isError = false;
             this.router.navigate([PATH_HOME]);
           } else {
-            this.serverErrorMessage = resp.error.message;
+            this.isError = true;
           }
         }
         
