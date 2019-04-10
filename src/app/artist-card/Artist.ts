@@ -1,5 +1,6 @@
 export class Artist {
   constructor(public artistName: string,
+              public shortDescription: string,
               public description: string,
               public website: string,
               public phone: string,

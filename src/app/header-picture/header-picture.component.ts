@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
+import { UserService } from '../user/user.service';
+
 
 @Component({
   selector: 'app-header-picture',
@@ -9,12 +11,15 @@ import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME } from '../app.route
 })
 export class HeaderPictureComponent implements OnInit {
 
-  visibleHomeUserSettings: boolean;
-  visibleHomeUserMenu: boolean;
+  visibleHomeUserSettings = false;
+  visibleHomeUserMenu = false;
 
-  constructor(private router: Router) { }
+  isAuthenticated: boolean;
+
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    this.isAuthenticated = !(this.userService.token == null);
   }
 
   isWelcome() {
@@ -25,21 +30,29 @@ export class HeaderPictureComponent implements OnInit {
     return (this.router.url === `/${PATH_HOME}`) ? true : false;
   }
 
-  clickHomeUserSettings() {
+  clickHomeUserSettings($event) {
+    $event.stopPropagation();
     this.visibleHomeUserSettings = !this.visibleHomeUserSettings;
+    this.visibleHomeUserMenu = false;
   }
 
-  clickHomeUserMenu() {
+  clickHomeUserMenu($event) {
+    $event.stopPropagation();
     this.visibleHomeUserMenu = !this.visibleHomeUserMenu;
+    this.visibleHomeUserSettings = false;
   }
 
-  isVisibleHomeUserSettings() {
-    return (this.visibleHomeUserSettings) ? true : false;
+  @HostListener('click', ['$event']) click(e) {
+    // e.stopPropagation();
+
   }
 
-  isVisibleHomeUserMenu() {
-    return (this.visibleHomeUserMenu) ? true : false;
+  @HostListener('document:click') resetToggle() {
+    this.visibleHomeUserSettings = false;
+    this.visibleHomeUserMenu = false;
   }
+
+
 
   // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
   hasReturn() {
