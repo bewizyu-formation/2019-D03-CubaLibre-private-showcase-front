@@ -14,7 +14,11 @@ export class ErrorInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((errorResponse: HttpErrorResponse) => {
         if (errorResponse.status === 404) {
-          // TODO: Gérer l'erreur
+          console.log(errorResponse.message);
+        } else if (errorResponse.status === 403) {
+          console.log(errorResponse.message);
+        } else if (errorResponse.status === 400) {
+          console.log(errorResponse.error.message)
         }
 
         return throwError(errorResponse);
