@@ -13,9 +13,9 @@ export class ArtistCardComponent implements OnInit {
 
   @Input()
   artist: Artist;
+  starsList: number[] = [];
 
   constructor(private router: Router) {
-  starsList: number[] = [];
   }
 
   ngOnInit() {

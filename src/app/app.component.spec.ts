@@ -71,7 +71,7 @@ describe('AppComponent', () => {
         MatOptionModule,
         MatAutocompleteModule,
         FormsModule,
-        MatChipsModule
+        MatChipsModule,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: environment },
