@@ -1,4 +1,4 @@
-/*import { async, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_CONFIG } from './app.config';
@@ -31,7 +31,6 @@ import { TokenInterceptorService } from './services/interceptors/token-intercept
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
-import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 import { LoggedGuard } from './user/logged.guard';
 
@@ -48,7 +47,6 @@ describe('AppComponent', () => {
         HeaderPictureComponent,
         HomeUserSettingsComponent,
         ArtistCardComponent,
-        AutocompInputComponent,
         HomeUserMenuComponent,
         RegisterArtistComponent,
       ],
@@ -80,5 +78,5 @@ describe('AppComponent', () => {
   it('should create the app', async(() => {
     expect(true).toBe(true);
   }));
-});*/
+});
 
