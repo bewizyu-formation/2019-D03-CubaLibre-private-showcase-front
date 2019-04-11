@@ -38,13 +38,13 @@ export class AutocompInputComponent implements OnInit {
 
   ngOnInit() {
     const input = document.getElementsByTagName('input');
-    fromEvent(input, 'input').pipe(
-      //filter((event: any) => event.keyCode !== 38 && event.keyCode !== 40),
-      //auditTime(300)
+    fromEvent(input, 'keyup').pipe(
+      // filter((event: any) => event.keyCode !== 38 && event.keyCode !== 40),
+      // auditTime(300)
     ).subscribe(
       resp => {
         if (this.autocompType === 'communes') {
-          console.log("res", resp);
+          console.log('res', resp);
           this.autoCompCommunes();
           this.nameSelect.emit(this.valueInput);
         } else if (this.autocompType === 'departements') {
