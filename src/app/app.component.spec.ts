@@ -14,6 +14,7 @@ import { HeaderPictureComponent } from './header-picture/header-picture.componen
 import { HomeUserSettingsComponent } from './home-user-settings/home-user-settings.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterArtistComponent } from './register-artist/register-artist.component';
 import {
   MatFormFieldModule,
   MatInputModule,
@@ -31,7 +32,6 @@ import { TokenInterceptorService } from './services/interceptors/token-intercept
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
-import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 import { LoggedGuard } from './user/logged.guard';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
@@ -50,10 +50,10 @@ describe('AppComponent', () => {
         HeaderPictureComponent,
         HomeUserSettingsComponent,
         ArtistCardComponent,
-        AutocompInputComponent,
         HomeUserMenuComponent,
         ArtistPageComponent,
         RatingComponent,
+        RegisterArtistComponent,
       ],
       imports: [
         BrowserModule,

@@ -1,20 +1,20 @@
 /*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutocompInputComponent } from './autocomp-input.component';
+import { RegisterArtistComponent } from './register-artist.component';
 
-describe('AutocompInputComponent', () => {
-  let component: AutocompInputComponent;
-  let fixture: ComponentFixture<AutocompInputComponent>;
+describe('RegisterArtistComponent', () => {
+  let component: RegisterArtistComponent;
+  let fixture: ComponentFixture<RegisterArtistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutocompInputComponent ]
+      declarations: [ RegisterArtistComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutocompInputComponent);
+    fixture = TestBed.createComponent(RegisterArtistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,5 +22,4 @@ describe('AutocompInputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
-*/
+});*/

@@ -30,10 +30,11 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
-import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
+import { RegisterArtistComponent } from './register-artist/register-artist.component';
+
 
 @NgModule({
   declarations: [
@@ -47,10 +48,10 @@ import { RatingComponent } from './rating/rating.component';
     HomeComponent,
     HomeUserSettingsComponent,
     ArtistCardComponent,
-    AutocompInputComponent,
     HomeUserMenuComponent,
     ArtistPageComponent,
     RatingComponent,
+    RegisterArtistComponent,
   ],
   imports: [
     BrowserModule,

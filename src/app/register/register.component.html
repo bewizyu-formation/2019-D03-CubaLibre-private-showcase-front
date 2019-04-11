@@ -11,26 +11,26 @@
 					<mat-form-field class="register-card__input">
 						<input matInput placeholder="Identifiant" formControlName="username">
 						<mat-error *ngIf="usernameCtrl.hasError('required')">
-							Identifiant <strong>obligatoire</strong>
+							Identifiant <strong>obligatoire</strong>, ça parait evident...
 						</mat-error>
 					</mat-form-field>
 
 					<div formGroupName="passwordGroup">
 						<mat-form-field class="register-card__input">
 							<input matInput type="password" placeholder="Mot de passe" formControlName="password"
-								[errorStateMatcher]="passwordMatcher">
+							[errorStateMatcher]="passwordMatcher">
 							<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
 								Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
-									minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
+								minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
 							</mat-error>
 							<mat-error *ngIf="passwordCtrl.hasError('required')">
-								Mot de passe <strong>obligatoire</strong>
+								Mot de passe <strong>obligatoire</strong>, gros bêta
 							</mat-error>
 						</mat-form-field>
 
 						<mat-form-field class="register-card__input">
 							<input matInput type="password" placeholder="Confirmez le mot de passe"
-								formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
+							formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
 							<mat-error *ngIf="passwordGroup.hasError('notSame')">
 								Mot de passe incorrect
 							</mat-error>
@@ -45,21 +45,36 @@
 						<mat-error *ngIf="emailCtrl.hasError('email')">
 							Email <strong>invalide</strong>
 						</mat-error>
-
 					</mat-form-field>
-					<app-autocomp-input class="register-card__input" autocompType="communes" placeHolder="Ville"
-						[cityCtrl]="cityCtrl" (nameSelect)="handleCitySelect($event)">
-					</app-autocomp-input>
+
+					<mat-form-field class="register-card__input">
+						<input matInput placeholder="Ville" [formControl]="cityCtrl" [errorStateMatcher]="matcher" [matAutocomplete]="auto">
+						<mat-autocomplete #auto="matAutocomplete">
+							<mat-option *ngFor="let option of options" [value]="option">
+								{{option}}
+							</mat-option>
+						</mat-autocomplete>
+						<mat-error *ngIf="cityCtrl.hasError('required')">
+							Ville <strong>OBLIGATOIRE</strong> nomdidiou
+						</mat-error>
+					</mat-form-field>
 
 					<div class="register-card__input">
-						<mat-checkbox>Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
+						<mat-checkbox [checked]="isArtist"   
+						(click)="isChecked($event)">Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
+						<app-register-artist (handleArtistName)="handleInputArtistName($event)"
+                                 (handleShortDescription)="handleInputShortDescription($event)"
+                                 (handleLongDescription)="handleInputLongDescription($event)"
+                                 *ngIf='isArtist'>
+
+            </app-register-artist>
 					</div>
 
 					<div class="register-card__footer">
 						<button mat-raised-button class="register-card__button register-card__button--cancel"
-							(click)="toWelcome()">Annuler</button>
+						(click)="toWelcome()">Annuler</button>
 						<button mat-raised-button class="register-card__button register-card__button--validate"
-							type="submit" [disabled]="registerForm.invalid">Valider</button>
+						type="submit" [disabled]="registerForm.invalid">Valider</button>
 					</div>
 				</form>
 			</div>
