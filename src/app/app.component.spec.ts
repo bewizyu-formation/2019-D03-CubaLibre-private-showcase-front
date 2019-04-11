@@ -14,6 +14,7 @@ import { HeaderPictureComponent } from './header-picture/header-picture.componen
 import { HomeUserSettingsComponent } from './home-user-settings/home-user-settings.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterArtistComponent } from './register-artist/register-artist.component';
 import {
   MatFormFieldModule,
   MatInputModule,
@@ -49,6 +50,7 @@ describe('AppComponent', () => {
         ArtistCardComponent,
         AutocompInputComponent,
         HomeUserMenuComponent,
+        RegisterArtistComponent,
       ],
       imports: [
         BrowserModule,

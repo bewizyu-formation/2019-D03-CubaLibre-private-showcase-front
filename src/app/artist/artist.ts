@@ -1,7 +1,7 @@
 export class Artist {
   constructor(public artistName: string,
               public shortDescription: string,
-              public description: string,
+              public longDescription: string,
               public website: string,
               public phone: string,
               public address: string,
@@ -9,4 +9,5 @@ export class Artist {
               public picture: any,
               public voteNumber: number,
               private id?: number) {}
+
 }

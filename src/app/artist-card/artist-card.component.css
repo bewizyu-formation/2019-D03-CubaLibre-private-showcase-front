@@ -7,7 +7,7 @@
 
 .card__img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .card__content {
@@ -15,7 +15,7 @@
   height: 102px;
   background-color: rgba(66, 66, 66, 0.9);
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   padding: 16px;
 }
 

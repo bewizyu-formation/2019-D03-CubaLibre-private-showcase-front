@@ -11,13 +11,14 @@ import { UserService } from '../user/user.service';
 import { GeoService } from '../geo/geo.service';
 
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit, OnDestroy {
+
 
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -36,6 +37,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   user: any;
   serverErrorMessage: string;
+
+  isArtist: boolean;
+
+  artistName: string;
+  shortDescription: string;
+  longDescription: string;
 
   constructor(
     fb: FormBuilder,
@@ -92,13 +99,38 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.registerForm.value.username,
       this.registerForm.value.passwordGroup.password,
       this.registerForm.value.email,
-      this.registerForm.value.city
-      )
-    .then(
-      (resp: any) => {
+      this.registerForm.value.city,
+      this.artistName,
+      this.shortDescription,
+      this.longDescription
+    ).then((resp: any) => {
         if (resp.status === 400) {
           return this.serverErrorMessage = resp.error.message;
         }
       });
   }
+
+    isChecked(event) {
+      event.preventDefault();
+      this.isArtist = !this.isArtist;
+    }
+
+    toWelcome() {
+      this.router.navigate([PATH_WELCOME]);
+    }
+
+    handleInputArtistName(event) {
+      this.artistName = event;
+    }
+
+    handleInputShortDescription(event) {
+      this.shortDescription = event;
+    }
+
+    handleInputLongDescription(event) {
+      this.longDescription = event;
+    }
+
+    ngOnInit() {
+    }
 }

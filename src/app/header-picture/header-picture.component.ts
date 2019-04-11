@@ -30,6 +30,10 @@ export class HeaderPictureComponent implements OnInit {
     return (this.router.url === `/${PATH_HOME}`) ? true : false;
   }
 
+  isLogPage() {
+    return ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) ? true : false;
+  }
+
   clickHomeUserSettings($event) {
     $event.stopPropagation();
     this.visibleHomeUserSettings = !this.visibleHomeUserSettings;
