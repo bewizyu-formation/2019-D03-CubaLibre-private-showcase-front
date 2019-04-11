@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Artist } from './Artist';
+import { Artist } from './artist';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from '../services/environment.service';
 import { PATH_HOME } from '../app.routes.constantes';

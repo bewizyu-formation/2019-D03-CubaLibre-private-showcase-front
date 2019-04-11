@@ -6,7 +6,6 @@ import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 
 import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { UserService } from '../user/user.service';
-import {Artist} from "../artist-card/Artist";
 
 
 @Component({
@@ -30,8 +29,7 @@ export class RegisterComponent implements OnInit {
   passwordMatcher = new MyErrorStateMatcherPassword();
 
   user: any;
-
-  isAlreadyExist: boolean;
+  serverErrorMessage: string;
 
   isArtist: boolean;
 
@@ -43,10 +41,10 @@ export class RegisterComponent implements OnInit {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
-        Validators.required,
-        Validators.pattern(PASSWORD_REGEXP)
+      Validators.required,
+      Validators.pattern(PASSWORD_REGEXP)
       ]
-    );
+      );
     this.confirmPasswordCtrl = fb.control('');
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
@@ -79,40 +77,38 @@ export class RegisterComponent implements OnInit {
       this.longDescription
 
     ).then((resp: any) => {
-      if (resp.status === 400) {
-        this.isAlreadyExist = true;
-      } else {
-        this.isAlreadyExist = false;
-      }
-    });
+        if (resp.status === 400) {
+          this.serverErrorMessage = resp.error.message;
+        }
+      },
+      (err) => {
+        console.log(err);
+      });
   }
 
-  userNameExist() {
-    return this.isAlreadyExist;
-  }
+    isChecked(event){
+      event.preventDefault();
+      this.isArtist = !this.isArtist;
+    }
 
-  isChecked(event){
-    event.preventDefault();
-    this.isArtist = !this.isArtist;
-  }
+    toWelcome() {
+      this.router.navigate([PATH_WELCOME]);
+    }
 
-  toWelcome() {
-    this.router.navigate([PATH_WELCOME]);
-  }
+    handleInputArtistName(event){
+      this.artistName=event;
+    }
 
-  handleInputArtistName(event){
-    this.artistName=event;
-  }
+    handleInputShortDescription(event){
+      this.shortDescription=event;
+    }
 
-  handleInputShortDescription(event){
-    this.shortDescription=event;
-  }
+    handleInputLongDescription(event){
+      this.longDescription=event;
+    }
 
-  handleInputLongDescription(event){
-    this.longDescription=event;
-  }
+    ngOnInit() {
+    }
 
-  ngOnInit() {
-  }
 
 }
