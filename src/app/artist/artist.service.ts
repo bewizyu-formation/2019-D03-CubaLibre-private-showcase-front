@@ -1,4 +1,4 @@
-/*import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Artist } from './artist';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from '../services/environment.service';
@@ -21,4 +21,4 @@ export class ArtistService implements OnInit {
   }
 
 }
-*/
+
