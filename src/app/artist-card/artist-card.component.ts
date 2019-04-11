@@ -20,7 +20,7 @@ export class ArtistCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  toArtistPage(){
-    this.router.navigate([PATH_ARTIST, this.artist.artistName])
+  toArtistPage() {
+    this.router.navigate([PATH_ARTIST, this.artist.artistName]);
   }
 }

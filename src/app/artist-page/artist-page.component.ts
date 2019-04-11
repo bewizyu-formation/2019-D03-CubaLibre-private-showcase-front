@@ -19,13 +19,13 @@ export class ArtistPageComponent implements OnInit {
   constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.artistService.getArtistByName(this.route.snapshot.paramMap.get("artistName")).subscribe(
+    this.artistService.getArtistByName(this.route.snapshot.paramMap.get('artistName')).subscribe(
       (resp: any) => {
         this.artist = resp;
         this.isReqArtistDone = true;
       }
     );
-    this.artistService.getArtistCountys(this.route.snapshot.paramMap.get("artistName")).subscribe(
+    this.artistService.getArtistCountys(this.route.snapshot.paramMap.get('artistName')).subscribe(
       (resp: any) => {
         this.countys = resp;
         console.log(resp);
