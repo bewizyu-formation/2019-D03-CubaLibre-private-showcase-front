@@ -20,11 +20,11 @@
   </mat-form-field>
   <div class='upload__container' mat-button>
     <input style='display:none' type='file' (change)='onFileUpload($event)' #selectFile accept='image/*'>
-   <!-- <div (click)='selectFile.click()' class='upload__container__background' *ngIf='!imagePreview'>
+   <div (click)='selectFile.click()' class='upload__container__background' *ngIf='!imagePreview'>
       <button mat-button>Upload Image</button>
     </div>
     <div *ngIf='imagePreview'>
       <img [src]='imagePreview' class='upload__preview'>
-    </div>-->
+    </div>
   </div>
 </form>

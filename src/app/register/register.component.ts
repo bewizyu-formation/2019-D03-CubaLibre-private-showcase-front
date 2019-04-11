@@ -33,9 +33,9 @@ export class RegisterComponent implements OnInit {
 
   isArtist: boolean;
 
-  artistName:string;
-  shortDescription:string;
-  longDescription:string;
+  artistName: string;
+  shortDescription: string;
+  longDescription: string;
 
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-    isChecked(event){
+    isChecked(event) {
       event.preventDefault();
       this.isArtist = !this.isArtist;
     }
@@ -95,16 +95,16 @@ export class RegisterComponent implements OnInit {
       this.router.navigate([PATH_WELCOME]);
     }
 
-    handleInputArtistName(event){
-      this.artistName=event;
+    handleInputArtistName(event) {
+      this.artistName = event;
     }
 
-    handleInputShortDescription(event){
-      this.shortDescription=event;
+    handleInputShortDescription(event) {
+      this.shortDescription = event;
     }
 
-    handleInputLongDescription(event){
-      this.longDescription=event;
+    handleInputLongDescription(event) {
+      this.longDescription = event;
     }
 
     ngOnInit() {

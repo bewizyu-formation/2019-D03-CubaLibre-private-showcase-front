@@ -23,20 +23,20 @@ export class RegisterArtistComponent implements OnInit {
   selectedFile: File;
 
   @Output()
-  handleArtistName:EventEmitter<string> = new EventEmitter<string>();
+  handleArtistName: EventEmitter<string> = new EventEmitter<string>();
 
   @Output()
-  handleShortDescription:EventEmitter<string> = new EventEmitter<string>();
+  handleShortDescription: EventEmitter<string> = new EventEmitter<string>();
 
   @Output()
-  handleLongDescription:EventEmitter<string> = new EventEmitter<string>();
+  handleLongDescription: EventEmitter<string> = new EventEmitter<string>();
 
-  eventArtistName:string;
-  eventShortDescription:string;
-  eventLongDescription:string;
+  eventArtistName: string;
+  eventShortDescription: string;
+  eventLongDescription: string;
 
   constructor(fb: FormBuilder, private artistService: ArtistService, private router: Router) {
-    this.artistnameCtrl = fb.control('', [Validators.required]);  
+    this.artistnameCtrl = fb.control('', [Validators.required]);
     this.descriptionshortCtrl = fb.control('', [Validators.required]);
     this.descriptionCtrl = fb.control('');
     this.pictureCtrl = fb.control('', [Validators.required]);
@@ -50,32 +50,31 @@ export class RegisterArtistComponent implements OnInit {
   }
 
   onFileUpload(event) {
-
-    /*this.selecetdFile = event.target.files[0];
+   /* this.selectedFile = event.target.files[0];
 
     const reader = new FileReader();
     reader.onloadend = () => {
       this.imagePreview = reader.result;
-      this.hello.uploadFile(this.selecetdFile)
+      this.hello.uploadFile(this.selectedFile)
         .subscribe(
           () => console.log('Upload success'),
           error => console.log('Upload error', error),
         );
     };
-    reader.readAsDataURL(this.selecetdFile);*/
+    reader.readAsDataURL(this.selectedFile);*/
   }
 
-  handleInputArtistName(event){
+  handleInputArtistName(event) {
     this.eventArtistName = event.target.value;
     this.handleArtistName.emit(this.eventArtistName);
   }
 
-  handleInputShortDescription(event){
+  handleInputShortDescription(event) {
     this.eventShortDescription = event.target.value;
     this.handleShortDescription.emit(this.eventShortDescription);
   }
 
-  handleInputLongDescription(event){
+  handleInputLongDescription(event) {
     this.eventLongDescription = event.target.value;
     this.handleLongDescription.emit(this.eventLongDescription);
   }

@@ -20,7 +20,8 @@ export class UserService {
   }
 
 
-   register(username: string, password: string, email: string, city: string, artistName?: string, shortDescription?: string, longDescription?: string) {
+   register(username: string, password: string, email: string, city: string,
+            artistName?: string, shortDescription?: string, longDescription?: string) {
      return new Promise ((resolve) => {
 
        this.userRepository
