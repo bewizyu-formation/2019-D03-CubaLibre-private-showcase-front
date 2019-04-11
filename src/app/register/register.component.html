@@ -11,7 +11,7 @@
 					<mat-form-field class="register-card__input">
 						<input matInput placeholder="Identifiant" formControlName="username">
 						<mat-error *ngIf="usernameCtrl.hasError('required')">
-							Identifiant <strong>obligatoire</strong>
+							Identifiant <strong>obligatoire</strong>, ça parait evident...
 						</mat-error>
 					</mat-form-field>
 
@@ -24,7 +24,7 @@
 								minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
 							</mat-error>
 							<mat-error *ngIf="passwordCtrl.hasError('required')">
-								Mot de passe <strong>obligatoire</strong>
+								Mot de passe <strong>obligatoire</strong>, gros bêta
 							</mat-error>
 						</mat-form-field>
 
