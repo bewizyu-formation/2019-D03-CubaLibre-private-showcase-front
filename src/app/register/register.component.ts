@@ -1,11 +1,14 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators, NgForm } from '@angular/forms';
-
 import { Router } from '@angular/router';
-import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 
+import {Observable, interval, Subscription} from 'rxjs';
+import {map, startWith, auditTime, throttle, switchMap} from 'rxjs/operators';
+
+import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { UserService } from '../user/user.service';
+import { GeoService } from '../geo/geo.service';
 
 
 @Component({
@@ -14,7 +17,8 @@ import { UserService } from '../user/user.service';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
+
 
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
@@ -28,6 +32,9 @@ export class RegisterComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   passwordMatcher = new MyErrorStateMatcherPassword();
 
+  options: string[] = [];
+  optionsSubscription: Subscription;
+
   user: any;
   serverErrorMessage: string;
 
@@ -37,7 +44,12 @@ export class RegisterComponent implements OnInit {
   shortDescription: string;
   longDescription: string;
 
-  constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(
+    fb: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private geoService: GeoService
+    ) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
@@ -62,8 +74,25 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  handleCitySelect(event) {
-    this.cityCtrl.setValue(event);
+  toWelcome() {
+    this.router.navigate([PATH_WELCOME]);
+  }
+
+  isChecked(event) {
+    event.preventDefault();
+    this.isArtist = !this.isArtist;
+  }
+
+  handleInputArtistName(event) {
+    this.artistName = event;
+  }
+
+  handleInputShortDescription(event) {
+    this.shortDescription = event;
+  }
+
+  handleInputLongDescription(event) {
+    this.longDescription = event;
   }
 
   handleSubmit() {
@@ -75,40 +104,31 @@ export class RegisterComponent implements OnInit {
       this.artistName,
       this.shortDescription,
       this.longDescription
-
-    ).then((resp: any) => {
-        if (resp.status === 400) {
-          this.serverErrorMessage = resp.error.message;
-        }
-      },
-      (err) => {
-        console.log(err);
-      });
+      )
+    .then((resp: any) => {
+      if (resp.status === 400) {
+        return this.serverErrorMessage = resp.error.message;
+      }
+    });
   }
 
-    isChecked(event) {
-      event.preventDefault();
-      this.isArtist = !this.isArtist;
+
+  ngOnInit() {
+    this.optionsSubscription = this.cityCtrl.valueChanges
+    .pipe(
+      switchMap(value => {
+        return this.geoService.getCommunes(value);
+      }),
+      map(resp => resp.map(ville => ville.nom).slice(0, 20))
+      ).subscribe(value => this.options = value,
+      error => console.log(error));
     }
 
-    toWelcome() {
-      this.router.navigate([PATH_WELCOME]);
-    }
-
-    handleInputArtistName(event) {
-      this.artistName = event;
-    }
-
-    handleInputShortDescription(event) {
-      this.shortDescription = event;
-    }
-
-    handleInputLongDescription(event) {
-      this.longDescription = event;
-    }
-
-    ngOnInit() {
+    ngOnDestroy() {
+      this.optionsSubscription.unsubscribe();
     }
 
 
-}
+
+
+  }
