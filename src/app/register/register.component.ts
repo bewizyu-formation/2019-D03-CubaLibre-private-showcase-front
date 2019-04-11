@@ -42,8 +42,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private router: Router,
     private geoService: GeoService
-    ) 
-  {
+    ) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
