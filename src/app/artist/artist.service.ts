@@ -28,3 +28,4 @@ export class ArtistService implements OnInit {
     return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/county/${artistName}`);
   }
 }
+

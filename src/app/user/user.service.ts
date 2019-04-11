@@ -1,10 +1,10 @@
 
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { PATH_LOGIN } from '../app.routes.constantes';
-import { UserRepository } from './user.repository';
-import { HttpResponse } from '@angular/common/http';
 
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {PATH_LOGIN} from '../app.routes.constantes';
+import {UserRepository} from './user.repository';
+import {HttpResponse} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +19,17 @@ export class UserService {
   constructor(private userRepository: UserRepository, private router: Router) {
   }
 
-  register(username: string, password: string, email: string, city: string) {
-    return new Promise((resolve) => {
-      this.userRepository
-        .register(username, password, email, city)
-        .subscribe(
-          (response: HttpResponse<any>) => {
-            this.router.navigate([PATH_LOGIN]);
-          },
+
+   register(username: string, password: string, email: string, city: string,
+            artistName?: string, shortDescription?: string, longDescription?: string) {
+     return new Promise ((resolve) => {
+
+       this.userRepository
+       .register(username, password, email, city, artistName, shortDescription, longDescription)
+       .subscribe(
+         (response: HttpResponse<any>) => {
+           this.router.navigate([PATH_LOGIN]);
+         },
 
           (error) => {
             resolve(error);
