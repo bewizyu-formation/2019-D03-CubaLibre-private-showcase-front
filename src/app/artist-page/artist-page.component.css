@@ -1,0 +1,64 @@
+.container {
+    width: 90%;
+    max-width: 90%;
+}
+
+.artist__title {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.14);
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #ffffff;
+    margin: 20px 0 5px 18px;
+}
+
+.artist__box {
+    border: solid 1px #979797;
+    background-color: #fafafa;
+    display: flex;
+    padding: 24px;
+    position: relative;
+}
+
+.artist__img {
+    height: 245px;
+    width: auto;
+    margin-right: 25px;
+}
+
+.artist__rating {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.artist__name {
+    margin-top: 0;
+}
+
+.artist__short-description {
+    font-size: 16px;
+}
+
+.artist__description {
+    font-size: 14px;
+}
+
+.artist__info-line {
+    display: flex;
+    align-items: center;
+    margin: 18px;
+}
+
+.artist__info-icon {
+    margin-right: 15px;
+}
+
+.artist__box--info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

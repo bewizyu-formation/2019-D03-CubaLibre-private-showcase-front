@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ArtistService } from '../artist/artist.service';
+import { Artist } from '../artist/artist';
 
 @Component({
   selector: 'app-artist-page',
@@ -9,9 +10,21 @@ import { ArtistService } from '../artist/artist.service';
 })
 export class ArtistPageComponent implements OnInit {
 
-  constructor(private router: Router, private artistService: ArtistService) { }
+  artist: Artist;
+
+  isReqArtistDone: boolean;
+
+  countys: any[];
+
+  constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.artistService.getArtistByName(this.route.snapshot.paramMap.get("artistName")).subscribe(
+      (resp: any) => {
+        this.artist = resp;
+        this.isReqArtistDone = true;
+      }
+    );
   }
 
 }
