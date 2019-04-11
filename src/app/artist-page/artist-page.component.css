@@ -62,3 +62,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+.artist__departement-list{
+    margin-top: 10px;
+}

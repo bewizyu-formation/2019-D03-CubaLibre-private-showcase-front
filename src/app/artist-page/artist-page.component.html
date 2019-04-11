@@ -3,7 +3,8 @@
   <h2 class="artist__title">Présentation</h2>
   <mat-card class="artist__box">
     <img src="../../assets/img/card_temp/darkfufu.jpg" class="artist__img">
-    <app-rating *ngIf="isReqArtistDone" [rating]="artist.rating" [voteNumber]="artist?.voteNumber" class="artist__rating"></app-rating>
+    <app-rating *ngIf="isReqArtistDone" [rating]="artist.rating" [voteNumber]="artist?.voteNumber"
+      class="artist__rating"></app-rating>
     <div>
       <h2 class="artist__name">
         {{artist?.artistName}}
@@ -30,10 +31,13 @@
       </div>
     </div>
     <div>
-      <span>Departements accéptés</span>
-      <mat-chip-list *ngFor="let county of countys">
-        <mat-chip></mat-chip>
-      </mat-chip-list>
+      <span>Départements acceptés</span>
+      <div class="artist__departement-list">
+        <mat-chip-list>
+          <mat-chip *ngFor="let county of countys">{{county.nom}}</mat-chip>
+        </mat-chip-list>
+      </div>
+
     </div>
   </mat-card>
 </div>
