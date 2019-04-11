@@ -5,7 +5,6 @@ import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.routes.constantes';
 import {UserRepository} from './user.repository';
 import {HttpResponse} from '@angular/common/http';
-import {Artist} from "../artist-card/Artist";
 
 @Injectable({
   providedIn: 'root'

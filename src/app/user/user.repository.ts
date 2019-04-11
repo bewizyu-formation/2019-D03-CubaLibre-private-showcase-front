@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {EnvironmentService} from '../services/environment.service';
-import {Artist} from "../artist-card/Artist";
+
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_USERS = '/users/';

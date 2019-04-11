@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ArtistService } from '../artist-card/artist.service';
+import { ArtistService } from '../artist/artist.service';
 import { Router } from '@angular/router';
 
 
