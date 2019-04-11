@@ -29,7 +29,6 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
-import { AutocompInputComponent } from './autocomp-input/autocomp-input.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 import { RegisterArtistComponent } from './register-artist/register-artist.component';
 
@@ -45,7 +44,6 @@ import { RegisterArtistComponent } from './register-artist/register-artist.compo
     HomeComponent,
     HomeUserSettingsComponent,
     ArtistCardComponent,
-    AutocompInputComponent,
     HomeUserMenuComponent,
     RegisterArtistComponent,
   ],

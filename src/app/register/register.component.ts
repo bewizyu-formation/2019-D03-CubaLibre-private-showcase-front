@@ -78,20 +78,21 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.router.navigate([PATH_WELCOME]);
   }
 
-
-  ngOnInit() {
-    this.optionsSubscription = this.cityCtrl.valueChanges
-      .pipe(
-        switchMap(value => {
-          return this.geoService.getCommunes(value);
-        }),
-        map(resp => resp.map(ville => ville.nom).slice(0, 20))
-      ).subscribe(value => this.options = value,
-                  error => console.log(error));
+  isChecked(event) {
+    event.preventDefault();
+    this.isArtist = !this.isArtist;
   }
 
-  ngOnDestroy() {
-    this.optionsSubscription.unsubscribe();
+  handleInputArtistName(event) {
+    this.artistName = event;
+  }
+
+  handleInputShortDescription(event) {
+    this.shortDescription = event;
+  }
+
+  handleInputLongDescription(event) {
+    this.longDescription = event;
   }
 
   handleSubmit() {
@@ -103,34 +104,31 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.artistName,
       this.shortDescription,
       this.longDescription
-    ).then((resp: any) => {
-        if (resp.status === 400) {
-          return this.serverErrorMessage = resp.error.message;
-        }
-      });
+      )
+    .then((resp: any) => {
+      if (resp.status === 400) {
+        return this.serverErrorMessage = resp.error.message;
+      }
+    });
   }
 
-    isChecked(event) {
-      event.preventDefault();
-      this.isArtist = !this.isArtist;
+
+  ngOnInit() {
+    this.optionsSubscription = this.cityCtrl.valueChanges
+    .pipe(
+      switchMap(value => {
+        return this.geoService.getCommunes(value);
+      }),
+      map(resp => resp.map(ville => ville.nom).slice(0, 20))
+      ).subscribe(value => this.options = value,
+      error => console.log(error));
     }
 
-    toWelcome() {
-      this.router.navigate([PATH_WELCOME]);
+    ngOnDestroy() {
+      this.optionsSubscription.unsubscribe();
     }
 
-    handleInputArtistName(event) {
-      this.artistName = event;
-    }
 
-    handleInputShortDescription(event) {
-      this.shortDescription = event;
-    }
 
-    handleInputLongDescription(event) {
-      this.longDescription = event;
-    }
 
-    ngOnInit() {
-    }
-}
+  }
