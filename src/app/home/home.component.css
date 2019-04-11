@@ -1,11 +1,35 @@
-.cardArtist{
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
+.container-artist {
+    margin: auto;
+    padding: 18px 18px;
+    max-width: 1100px;
 }
 
-.spinner{
-    display:flex;
+@media(min-width: 1100.1px){
+    .cardArtist {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 18px;
+    }
+}
+
+@media(max-width: 1100px){
+    .cardArtist {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 18px;
+    }
+}
+
+@media(max-width: 750px){
+    .cardArtist {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 18px;
+    }
+}
+
+.spinner {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 80vh;

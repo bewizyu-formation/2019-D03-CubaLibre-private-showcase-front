@@ -10,9 +10,11 @@ import { UserService } from '../user/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  artistList: Artist[];
+  artistList: Artist[] | undefined;
 
   isAuthenticated: boolean;
+
+  isError = false;
 
   constructor(private artistService: ArtistService, private userService: UserService) { }
 
@@ -22,11 +24,19 @@ export class HomeComponent implements OnInit {
       (resp: any) => {
         this.artistList = resp;
       }
-    );
+      );
+  }
+
+  artistListIsUndefined() {
+    return this.artistList === undefined;
   }
 
   artistListIsEmpty() {
-    return (this.artistList === undefined) ? true : false;
+    if (this.artistList !== undefined) {
+      return this.artistList.length === 0;
+    }
+    return true;
   }
+
 
 }

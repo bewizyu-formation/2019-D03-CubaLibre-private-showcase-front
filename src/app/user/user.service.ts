@@ -1,11 +1,11 @@
 
+
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.routes.constantes';
 import {UserRepository} from './user.repository';
 import {HttpResponse} from '@angular/common/http';
 import {Artist} from "../artist-card/Artist";
-
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +15,11 @@ export class UserService {
   /**
    * Authentification JWT Token
    */
-   public token: string;
+  public token: string;
 
-   constructor(private userRepository: UserRepository, private router: Router) {
-   }
+  constructor(private userRepository: UserRepository, private router: Router) {
+  }
+
 
    register(username: string, password: string, email: string, city: string, artist?: Artist) {
      return new Promise ((resolve) => {
@@ -30,17 +31,17 @@ export class UserService {
            this.router.navigate([PATH_LOGIN]);
          },
 
-         (error) => {
-           resolve(error);
-         },
+          (error) => {
+            resolve(error);
+          },
 
-         () => {
-           console.log('register completed');
+          () => {
+            console.log('register completed');
 
-         });
+          });
 
-     });
-   }
+    });
+  }
 
   /**
    * Login the user
@@ -62,5 +63,20 @@ export class UserService {
           }
         );
     });
+  }
+
+  getUser() {
+
+    // TODO
+
+    const mockUser = {
+      'username': 'test',
+      'email': 'fake@nul.o',
+      'city': 'pluton',
+      'codeDepartement': 9,
+      // 'artiste': {'nom': 'coucou'},
+      'artiste': null,
+    };
+    return mockUser;
   }
 }
