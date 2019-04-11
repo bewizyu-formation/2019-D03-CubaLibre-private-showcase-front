@@ -52,7 +52,14 @@
 					</app-autocomp-input>
 
 					<div class="register-card__input">
-						<mat-checkbox>Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
+						<mat-checkbox [checked]="isArtist"   
+						(click)="isChecked($event)">Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
+						<app-register-artist (handleArtistName)="handleInputArtistName($event)"
+                                 (handleShortDescription)="handleInputShortDescription($event)"
+                                 (handleLongDescription)="handleInputLongDescription($event)"
+                                 *ngIf='isArtist'>
+
+            </app-register-artist>
 					</div>
 
 					<div class="register-card__footer">
