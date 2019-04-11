@@ -8,6 +8,6 @@ export class Artist {
               public rating: number,
               public picture: any,
               public voteNumber: number,
-              private id?: number) {}
+              private id?: number) {};
 
 }

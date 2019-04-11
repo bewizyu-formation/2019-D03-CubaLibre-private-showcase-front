@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
   artistName:string;
   shortDescription:string;
   longDescription:string;
-  artist:Artist;
 
   constructor(fb: FormBuilder, private userService: UserService, private router: Router) {
     this.usernameCtrl = fb.control('', [Validators.required]);
@@ -70,18 +69,14 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit() {
-    if(this.isArtist) {
-      this.artist.artistName = this.artistName;
-      this.artist.shortDescription = this.shortDescription;
-      this.artist.longDescription = this.longDescription;
-    }
-
     this.userService.register(
       this.registerForm.value.username,
       this.registerForm.value.passwordGroup.password,
       this.registerForm.value.email,
       this.registerForm.value.city,
-      this.artist
+      this.artistName,
+      this.shortDescription,
+      this.longDescription
 
     ).then((resp: any) => {
       if (resp.status === 400) {

@@ -15,16 +15,19 @@ export class UserRepository {
   constructor(private http: HttpClient, private env: EnvironmentService) {
   }
 
-  register(username: string, password: string, email: string, city: string, artist?: Artist) {
-    console.log("test "+artist);
+  register(username: string, password: string, email: string, city: string, artistName?: string, shortDescription?: string, longDescription?: string) {
     let user: any;
-    if(artist!=undefined) {
+    if(artistName!=undefined) {
       user = {
         username: username,
         password: password,
         email: email,
         city: city,
-        artist: artist
+        artist: {
+          artistName: artistName,
+          shortDescription: shortDescription,
+          longDescription: longDescription
+        }
       };
     }else {
       user = {
@@ -35,7 +38,6 @@ export class UserRepository {
       }
     }
 
-    console.log("test "+user.aze);
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 

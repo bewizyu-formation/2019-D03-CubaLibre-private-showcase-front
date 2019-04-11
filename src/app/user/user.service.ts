@@ -21,11 +21,11 @@ export class UserService {
   }
 
 
-   register(username: string, password: string, email: string, city: string, artist?: Artist) {
+   register(username: string, password: string, email: string, city: string, artistName?: string, shortDescription?: string, longDescription?: string) {
      return new Promise ((resolve) => {
 
        this.userRepository
-       .register(username, password, email, city, artist)
+       .register(username, password, email, city, artistName, shortDescription, longDescription)
        .subscribe(
          (response: HttpResponse<any>) => {
            this.router.navigate([PATH_LOGIN]);
