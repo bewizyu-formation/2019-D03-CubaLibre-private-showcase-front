@@ -39,7 +39,7 @@ export class UserRepository {
       };
     }
 
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 
   /**
