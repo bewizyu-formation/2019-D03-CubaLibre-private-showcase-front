@@ -24,7 +24,8 @@ import {
   MatIconModule,
   MatCheckboxModule,
   MatOptionModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatChipsModule
 } from '@angular/material';
 import { CommonHeadersInterceptorService } from './services/interceptors/common-headers-interceptor.service';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
@@ -33,6 +34,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
 import { LoggedGuard } from './user/logged.guard';
+import { ArtistPageComponent } from './artist-page/artist-page.component';
+import { RatingComponent } from './rating/rating.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -48,6 +51,8 @@ describe('AppComponent', () => {
         HomeUserSettingsComponent,
         ArtistCardComponent,
         HomeUserMenuComponent,
+        ArtistPageComponent,
+        RatingComponent,
         RegisterArtistComponent,
       ],
       imports: [
@@ -66,6 +71,7 @@ describe('AppComponent', () => {
         MatOptionModule,
         MatAutocompleteModule,
         FormsModule,
+        MatChipsModule,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: environment },

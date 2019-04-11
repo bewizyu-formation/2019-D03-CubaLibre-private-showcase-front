@@ -1,0 +1,15 @@
+.star-container {
+    display: flex;
+}
+
+.vote {
+    margin-left: 3px;
+    font-size: 11px;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f5a623;
+}

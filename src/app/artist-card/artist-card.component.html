@@ -1,4 +1,4 @@
-<div class='card'>
+<div class='card' (click)="toArtistPage()">
   <img src='../../assets/img/card_temp/darkfufu.jpg' class="card__img">
 
   <div class='card__content'>
@@ -10,22 +10,7 @@
     </h4>
     <div class='card__footer'>
       <div class='card__footer--left'>
-        <div class='card__footer--left-top'>
-          <div *ngFor='let star of starsList'>
-            <div *ngIf='star == 1'>
-              <mat-icon>star</mat-icon>
-            </div>
-            <div *ngIf='star == 0.5'>
-              <mat-icon>star_half</mat-icon>
-            </div>
-            <div *ngIf='star == 0'>
-              <mat-icon>star_border</mat-icon>
-            </div>
-          </div>
-        </div>
-        <div class='card__footer-text'>
-          ({{artist.voteNumber}} votes)
-        </div>
+        <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber"></app-rating>
       </div>
       <div class='card__footer--right'>
         <mat-icon>visibility</mat-icon>
