@@ -20,4 +20,8 @@ export class ArtistService implements OnInit {
     return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/all/`);
   }
 
+  getArtistByName(artistName: string){
+    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/${artistName}`);
+  }
+
 }
