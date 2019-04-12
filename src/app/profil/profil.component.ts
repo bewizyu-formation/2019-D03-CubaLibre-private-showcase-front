@@ -42,7 +42,7 @@ export class ProfilComponent implements OnInit {
     this.profilForm = fb.group({
       passwordGroup: this.passwordGroup,
       email: this.emailCtrl
-    })
+    });
   }
 
   handleSubmit() {
@@ -50,15 +50,15 @@ export class ProfilComponent implements OnInit {
       this.profilForm.value.passwordGroup.oldPassword,
       this.profilForm.value.passwordGroup.password,
       this.profilForm.value.email
-      )
-    .then((resp: any) => {
-      if (resp.status === 400) {
-        return this.serverErrorMessage = resp.error.message;
-      }
-    });
+    )
+      .then((resp: any) => {
+        if (resp.status === 400) {
+          return this.serverErrorMessage = resp.error.message;
+        }
+      });
   }
 
-  toHome(){
+  toHome() {
     this.router.navigate([PATH_HOME]);
   }
 
