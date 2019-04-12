@@ -66,7 +66,7 @@ export class HeaderPictureComponent implements OnInit {
     return false;
   }
 
-  notArtistPage(){
+  notArtistPage() {
     return this.router.url.includes(PATH_ARTIST) ? false : true;
   }
 
@@ -83,9 +83,9 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   navigateToPrevious() {
-    if(this.router.url === `/${PATH_HOME}`){
+    if (this.router.url === `/${PATH_HOME}`) {
       this.navigateTo([PATH_WELCOME]);
-    }else{
+    } else {
       this.navigateTo([PATH_HOME]);
     }
   }
