@@ -1,10 +1,11 @@
 
 
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {PATH_LOGIN} from '../app.routes.constantes';
-import {UserRepository} from './user.repository';
-import {HttpResponse} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { PATH_LOGIN } from '../app.routes.constantes';
+import { UserRepository } from './user.repository';
+import { HttpResponse } from '@angular/common/http';
+import { ArtistService } from '../artist/artist.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +17,22 @@ export class UserService {
    */
   public token: string;
 
-  constructor(private userRepository: UserRepository, private router: Router) {
+  constructor(private userRepository: UserRepository, private router: Router, private artistService: ArtistService) {
   }
 
+  register(username: string, password: string, email: string, city: string,
+    artistName?: string, shortDescription?: string, longDescription?: string, picture?: FormData) {
+    return new Promise((resolve) => {
 
-   register(username: string, password: string, email: string, city: string,
-            artistName?: string, shortDescription?: string, longDescription?: string) {
-     return new Promise ((resolve) => {
-
-       this.userRepository
-       .register(username, password, email, city, artistName, shortDescription, longDescription)
-       .subscribe(
-         (response: HttpResponse<any>) => {
-           this.router.navigate([PATH_LOGIN]);
-         },
+      this.userRepository
+        .register(username, password, email, city, artistName, shortDescription, longDescription)
+        .subscribe(
+          (response: HttpResponse<any>) => {
+            if(picture){
+              this.artistService.putArtistPicture(picture).subscribe(() => {})
+            }
+            this.router.navigate([PATH_LOGIN]);
+          },
 
           (error) => {
             resolve(error);

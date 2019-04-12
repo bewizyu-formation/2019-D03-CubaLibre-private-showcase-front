@@ -1,11 +1,13 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {EnvironmentService} from '../services/environment.service';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { EnvironmentService } from '../services/environment.service';
 
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_USERS = '/users/';
+export const RESOURCES_UPLOAD = '/upload';
+export const RESOURCES_HELLO = '/hello';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class UserRepository {
   }
 
   register(username: string, password: string, email: string, city: string,
-           artistName?: string, shortDescription?: string, longDescription?: string) {
+    artistName?: string, shortDescription?: string, longDescription?: string) {
     let user: any;
     if (artistName !== undefined) {
       user = {
@@ -47,12 +49,12 @@ export class UserRepository {
    * @param username User login name
    * @param password User Password
    */
-   login(username: string, password: string): Observable<any> {
-     return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_LOGIN}`, {
-       username,
-       password,
-     },
-     {observe: 'response'}
-     );
-   }
- }
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_LOGIN}`, {
+      username,
+      password,
+    },
+      { observe: 'response' }
+    );
+  }
+}

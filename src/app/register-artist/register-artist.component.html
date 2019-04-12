@@ -4,27 +4,30 @@
     L'identifiant <strong>existe déjà</strong>
   </div>
   <mat-form-field class="register-card__input">
-    <input matInput (change)="handleInputArtistName($event)" placeholder="Nom de l'artiste" formControlName="artistname">
+    <input matInput (change)="handleInputArtistName($event)" placeholder="Nom de l'artiste"
+      formControlName="artistname">
     <mat-error *ngIf="artistnameCtrl.hasError('required')">
       Nom d'artiste <strong>obligatoire</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="register-card__input">
-    <input matInput (change)="handleInputShortDescription($event)" placeholder="Description courte" formControlName="descriptionshort">
+    <input matInput (change)="handleInputShortDescription($event)" placeholder="Description courte"
+      formControlName="descriptionshort">
     <mat-error *ngIf="descriptionshortCtrl.hasError('required')">
       Description courte <strong>obligatoire</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="register-card__input">
-    <input matInput (change)="handleInputLongDescription($event)" placeholder="Description" formControlName="description">
+    <input matInput (change)="handleInputLongDescription($event)" placeholder="Description"
+      formControlName="description">
   </mat-form-field>
-  <!--<div class='upload__container' mat-button>
-    <input style='display:none' type='file' (change)='onFileUpload($event)' #selectFile accept='image/*'>
-   <div (click)='selectFile.click()' class='upload__container__background' *ngIf='!imagePreview'>
+  <div class='upload__container' mat-button>
+    <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
+    <div (click)='selectFile.click()' class='upload__container__background'>
       <button mat-button>Upload Image</button>
     </div>
-    <div *ngIf='imagePreview'>
-      <img [src]='imagePreview' class='upload__preview'>
+    <div *ngIf='eventPicture'>
+      <img type="file" [src]='eventPicture' class='upload__preview'>
     </div>
-  </div>-->
+  </div>
 </form>
