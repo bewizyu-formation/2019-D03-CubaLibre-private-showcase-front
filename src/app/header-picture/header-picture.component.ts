@@ -58,7 +58,7 @@ export class HeaderPictureComponent implements OnInit {
 
 
 
-  // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
+  // If url is !== PATH_WELCOME or PATH_HOME, arrows back redirect to WelcomeComponent or HomeComponent
   hasReturn() {
     if ((this.router.url !== `/${PATH_WELCOME}`) && (this.router.url !== `/${PATH_HOME}`)) {
       return true;
