@@ -56,7 +56,7 @@ export class UserService {
       },
 
       () => {
-        console.log('register completed');
+        console.log('profil changed password completed');
 
       });
     });

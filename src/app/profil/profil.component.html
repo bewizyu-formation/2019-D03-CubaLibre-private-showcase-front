@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="profil-container">
 		<div class="profil-card">
-			<h2 class="profil-card__title">Formulaire d'inscription</h2>
+			<h2 class="profil-card__title">Profil</h2>
 			<div class="profil-card__content">
 				<form (ngSubmit)="handleSubmit()" [formGroup]="profilForm">
 					<div class="profil-card__error-username" *ngIf="serverErrorMessage">
@@ -48,7 +48,7 @@
 
 					<div class="profil-card__footer">
 						<button mat-raised-button class="profil-card__button profil-card__button--cancel"
-						(click)="toWelcome()">Annuler</button>
+						(click)="toHome()">Annuler</button>
 						<button mat-raised-button class="profil-card__button profil-card__button--validate"
 						type="submit" [disabled]="profilForm.invalid">Valider</button>
 					</div>

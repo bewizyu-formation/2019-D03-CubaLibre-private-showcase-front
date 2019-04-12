@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { PASSWORD_REGEXP, checkPasswords } from '../validators/validators';
+import { PATH_HOME } from '../app.routes.constantes';
 
 @Component({
   selector: 'app-profil',
@@ -17,6 +18,8 @@ export class ProfilComponent implements OnInit {
 
   passwordGroup: FormGroup;
   profilForm: FormGroup;
+
+  serverErrorMessage: string;
 
   constructor(
     fb: FormBuilder,
@@ -53,6 +56,10 @@ export class ProfilComponent implements OnInit {
         return this.serverErrorMessage = resp.error.message;
       }
     });
+  }
+
+  toHome(){
+    this.router.navigate([PATH_HOME]);
   }
 
   ngOnInit() {

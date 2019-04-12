@@ -43,7 +43,7 @@ export class UserRepository {
   }
 
   changePassword(oldPassword: string, password: string, email: string){
-    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}changePassword/`, [oldPassword, password, email]);
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}changePassword`, [oldPassword, password, email]);
   }
 
   /**
