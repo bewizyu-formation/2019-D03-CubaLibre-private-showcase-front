@@ -38,8 +38,8 @@ export class UserRepository {
         city: city,
       };
     }
-
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
+    console.log(user.username);
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 
   /**
