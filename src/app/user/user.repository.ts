@@ -42,6 +42,10 @@ export class UserRepository {
     return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 
+  changePassword(oldPassword: string, password: string, email: string){
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}changePassword/`, [oldPassword, password, email]);
+  }
+
   /**
    * login the current user and get the JWT token
    * @param username User login name
