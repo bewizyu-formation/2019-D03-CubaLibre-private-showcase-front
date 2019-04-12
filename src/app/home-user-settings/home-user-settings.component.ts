@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../services/logout.service';
-import { PATH_HOME, PATH_WELCOME } from '../app.routes.constantes';
+import { PATH_HOME, PATH_WELCOME, PATH_PROFIL } from '../app.routes.constantes';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user/user.service';
 
@@ -28,7 +28,7 @@ export class HomeUserSettingsComponent implements OnInit {
   }
 
   navigateToProfil() {
-    // To do
+    this.router.navigate([PATH_PROFIL]);
   }
 
   useServiceDisconnect() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from './environment.service';
-import { PATH_WELCOME, PATH_LOGOUT, PATH_HOME } from '../app.routes.constantes';
+import { PATH_WELCOME } from '../app.routes.constantes';
 import { Router } from '@angular/router';
 import { UserService } from '../user/user.service';
 

@@ -53,10 +53,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
-      Validators.required,
-      Validators.pattern(PASSWORD_REGEXP)
+        Validators.required,
+        Validators.pattern(PASSWORD_REGEXP)
       ]
-      );
+    );
     this.confirmPasswordCtrl = fb.control('');
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
@@ -132,3 +132,5 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
 
   }
+
+}

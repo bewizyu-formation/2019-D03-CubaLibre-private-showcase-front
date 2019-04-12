@@ -34,6 +34,7 @@ import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { RegisterArtistComponent } from './register-artist/register-artist.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { RegisterArtistComponent } from './register-artist/register-artist.compo
     HomeUserSettingsComponent,
     ArtistCardComponent,
     HomeUserMenuComponent,
+    ProfilComponent,
     ArtistPageComponent,
     RatingComponent,
     RegisterArtistComponent,

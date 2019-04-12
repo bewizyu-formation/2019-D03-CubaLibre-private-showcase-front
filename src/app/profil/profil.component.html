@@ -1,0 +1,34 @@
+<app-header-picture></app-header-picture>
+<div class="container">
+	<div class="register-container">
+		<div class="register-card">
+			<h2 class="register-card__title">Profil <!--{{user.name}}--></h2>
+			<div class="register-card__content">
+				<form (ngSubmit)="handleSubmit()" [formGroup]="registerForm">
+					<div class="register-card__error-username" *ngIf="serverErrorMessage">
+						{{serverErrorMessage}}
+					</div>
+
+          <mat-form-field class="register-card__input">
+							<input matInput type="password" placeholder="Ancien mot de passe" formControlName="oldPassword"
+								[errorStateMatcher]="passwordMatcher">
+							<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
+								Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
+									minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
+							</mat-error>
+							<mat-error *ngIf="passwordCtrl.hasError('required')">
+								Mot de passe <strong>obligatoire</strong>
+							</mat-error>
+						</mat-form-field>
+
+					<div class="register-card__footer">
+						<button mat-raised-button class="register-card__button register-card__button--cancel"
+							(click)="toHome()">Annuler</button>
+						<button mat-raised-button class="register-card__button register-card__button--validate"
+							type="submit" [disabled]="registerForm.invalid">Valider</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
