@@ -38,7 +38,6 @@ export class UserRepository {
         city: city,
       };
     }
-    console.log(user.username);
     return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
   }
 

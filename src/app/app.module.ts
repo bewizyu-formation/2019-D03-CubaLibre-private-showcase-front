@@ -25,12 +25,16 @@ import {
   MatProgressSpinnerModule,
   MatIconModule,
   MatCheckboxModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatChipsModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component';
+import { ArtistPageComponent } from './artist-page/artist-page.component';
+import { RatingComponent } from './rating/rating.component';
 import { RegisterArtistComponent } from './register-artist/register-artist.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,8 @@ import { RegisterArtistComponent } from './register-artist/register-artist.compo
     HomeUserSettingsComponent,
     ArtistCardComponent,
     HomeUserMenuComponent,
+    ArtistPageComponent,
+    RatingComponent,
     RegisterArtistComponent,
   ],
   imports: [
@@ -65,6 +71,7 @@ import { RegisterArtistComponent } from './register-artist/register-artist.compo
     ReactiveFormsModule,
     MatCheckboxModule,
     MatAutocompleteModule,
+    MatChipsModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
