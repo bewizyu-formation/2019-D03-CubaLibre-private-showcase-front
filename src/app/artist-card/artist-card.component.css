@@ -1,6 +1,8 @@
 .card {
-  width: 344px;
-  height: 304px;
+  max-width: 344px;
+  width: 100%;
+  max-height: 304px;
+  height: auto;
   position: relative;
   margin: auto;
 }
@@ -11,11 +13,13 @@
 }
 
 .card__content {
-  width: 312px;
-  height: 102px;
+  max-width: 312px;
+  max-height: 102px;
   background-color: rgba(66, 66, 66, 0.9);
   position: absolute;
   bottom: 0;
+  right: 0;
+  left: 0;
   padding: 16px;
 }
 
