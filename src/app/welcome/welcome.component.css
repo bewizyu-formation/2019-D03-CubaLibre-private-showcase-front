@@ -12,6 +12,10 @@
         justify-content: space-between;
         margin: 60px 0;
     }
+
+    .home__cards {
+        margin: 0 2.5px;
+    }
 }
 
 @media(max-width: 600px) {
