@@ -24,23 +24,46 @@
     position: relative;
 }
 
-@media(max-width: 700px){
+@media(max-width: 700px) {
     .artist__box {
         flex-direction: column;
     }
 }
 
-.artist__img {
-    height: 245px;
-    max-width: 285px;
-    width: auto;
-    margin-right: 25px;
+@media(min-width: 700.1px) {
+    .artist__img {
+        height: 245px;
+        max-width: 285px;
+        width: auto;
+        margin-right: 25px;
+    }
+}
+
+@media(max-width: 700px) {
+    .artist__img {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
 }
 
 .artist__rating {
     position: absolute;
     top: 24px;
     right: 24px;
+}
+
+@media(max-width: 700px) {
+    .artist__rating {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .artist__box-content {
+        position: relative;
+    }
 }
 
 .artist__name {
@@ -70,6 +93,6 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.artist__departement-list{
+.artist__departement-list {
     margin-top: 10px;
 }

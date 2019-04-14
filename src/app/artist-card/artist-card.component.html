@@ -1,4 +1,4 @@
-<div class='card' (click)="toArtistPage()">
+<div class='card'>
   <img src='../../assets/img/card_temp/dark_fufu.jpg' class="card__img">
 
   <div class='card__content'>
@@ -12,7 +12,7 @@
       <div class='card__footer--left'>
         <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber"></app-rating>
       </div>
-      <div class='card__footer--right'>
+      <div class='card__footer--right' (click)="toArtistPage()">
         <mat-icon>visibility</mat-icon>
         <span class='card__footer-text'>VOIR</span>
       </div>
