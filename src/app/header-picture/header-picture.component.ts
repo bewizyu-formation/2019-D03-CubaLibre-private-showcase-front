@@ -51,7 +51,7 @@ export class HeaderPictureComponent implements OnInit {
     this.visibleHomeUserSettings = false;
   }
 
-  clickLogMenu($event){
+  clickLogMenu($event) {
     $event.stopPropagation();
     this.visibleLogMenu = !this.visibleLogMenu;
   }
