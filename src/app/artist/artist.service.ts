@@ -27,8 +27,8 @@ export class ArtistService implements OnInit {
     return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/county/${artistName}`);
   }
 
-  putArtistPicture(picture: FormData){
-    return this.httpClient.post(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/picture`, picture)
+  putArtistPicture(picture: FormData) {
+    return this.httpClient.post(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/picture`, picture);
   }
 }
 

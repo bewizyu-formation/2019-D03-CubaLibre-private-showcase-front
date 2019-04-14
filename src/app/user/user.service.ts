@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { PATH_LOGIN } from '../app.routes.constantes';
@@ -28,8 +26,8 @@ export class UserService {
         .register(username, password, email, city, artistName, shortDescription, longDescription)
         .subscribe(
           (response: HttpResponse<any>) => {
-            if(picture){
-              this.artistService.putArtistPicture(picture).subscribe(() => {})
+            if (picture) {
+              this.artistService.putArtistPicture(picture).subscribe(() => { });
             }
             this.router.navigate([PATH_LOGIN]);
           },
