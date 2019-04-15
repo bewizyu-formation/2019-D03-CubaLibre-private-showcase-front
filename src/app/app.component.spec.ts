@@ -36,6 +36,7 @@ import { HomeUserMenuComponent } from './home-user-menu/home-user-menu.component
 import { LoggedGuard } from './user/logged.guard';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
+import { ProfilComponent } from './profil/profil.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -54,6 +55,7 @@ describe('AppComponent', () => {
         ArtistPageComponent,
         RatingComponent,
         RegisterArtistComponent,
+        ProfilComponent,
       ],
       imports: [
         BrowserModule,
