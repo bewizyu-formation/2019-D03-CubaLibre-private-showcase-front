@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
-import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword } from '../validators/validators';
+import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { PATH_HOME } from '../app.routes.constantes';
 
 @Component({
@@ -20,6 +20,8 @@ export class ProfilComponent implements OnInit {
   profilForm: FormGroup;
 
   serverErrorMessage: string;
+
+  matcher = new MyErrorStateMatcher();
   passwordMatcher = new MyErrorStateMatcherPassword();
 
   constructor(
