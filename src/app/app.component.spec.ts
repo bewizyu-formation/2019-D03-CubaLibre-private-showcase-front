@@ -40,6 +40,7 @@ import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
+import { BookArtistComponent } from './book-artist/book-artist.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -60,6 +61,7 @@ describe('AppComponent', () => {
         RegisterArtistComponent,
         ProfilComponent,
         ArtistPresentationComponent,
+        BookArtistComponent,
       ],
       imports: [
         BrowserModule,

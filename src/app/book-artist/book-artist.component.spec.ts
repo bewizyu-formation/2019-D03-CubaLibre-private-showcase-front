@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookArtistComponent } from './book-artist.component';
 
@@ -22,4 +22,4 @@ describe('BookArtistComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/

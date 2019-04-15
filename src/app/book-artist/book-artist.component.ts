@@ -28,7 +28,7 @@ export class BookArtistComponent implements OnInit {
     this.eventForm = fb.group({
       date: this.dateCtrl,
       maxPerson: this.maxPersonCtrl
-    })
+    });
   }
 
   ngOnInit() {
