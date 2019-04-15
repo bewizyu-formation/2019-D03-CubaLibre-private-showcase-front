@@ -25,7 +25,9 @@ import {
   MatCheckboxModule,
   MatOptionModule,
   MatAutocompleteModule,
-  MatChipsModule
+  MatChipsModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { CommonHeadersInterceptorService } from './services/interceptors/common-headers-interceptor.service';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
@@ -38,6 +40,7 @@ import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
+import { BookArtistComponent } from './book-artist/book-artist.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -58,6 +61,7 @@ describe('AppComponent', () => {
         RegisterArtistComponent,
         ProfilComponent,
         ArtistPresentationComponent,
+        BookArtistComponent,
       ],
       imports: [
         BrowserModule,
@@ -76,6 +80,8 @@ describe('AppComponent', () => {
         MatAutocompleteModule,
         FormsModule,
         MatChipsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
       ],
       providers: [
         { provide: APP_CONFIG, useValue: environment },

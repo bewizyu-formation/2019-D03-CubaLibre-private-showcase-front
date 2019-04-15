@@ -1,0 +1,26 @@
+.register-container {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.register-card__input {
+    width: 100%;
+    margin: 8px 0;
+}
+
+.upload__preview {
+    margin-top: 10px;
+    height: 240px;
+    max-width: 100%;
+}
+
+.upload__container {
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
