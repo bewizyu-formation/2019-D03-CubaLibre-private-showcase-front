@@ -1,7 +1,7 @@
 <form [formGroup]="registerArtistForm">
   <!--<form (ngSubmit)="handleSubmit()" [formGroup]="registerArtistForm">-->
   <div class="register-card__error-username" *ngIf="isAlreadyExist">
-    L'identifiant <strong>existe déjà</strong>
+    Ce nom <strong>existe déjà</strong>
   </div>
   <mat-form-field class="register-card__input">
     <input matInput (change)="handleInputArtistName($event)" placeholder="Nom de l'artiste"
@@ -18,8 +18,8 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field class="register-card__input">
-    <input matInput (change)="handleInputLongDescription($event)" placeholder="Description"
-      formControlName="description">
+    <textarea matInput rows="4" (change)="handleInputLongDescription($event)" placeholder="Description"
+      formControlName="description"></textarea>
   </mat-form-field>
   <div class='upload__container' mat-button>
     <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
