@@ -8,6 +8,7 @@ import { ExempleComponent } from './exemple/exemple.component';
 import { LoggedGuard } from './user/logged.guard';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { ProfilComponent } from './profil/profil.component';
+import { BookArtistComponent } from './book-artist/book-artist.component';
 
 export const ROUTES: Routes = [
     { path: PATH_WELCOME, component: WelcomeComponent },
@@ -16,6 +17,6 @@ export const ROUTES: Routes = [
     { path: PATH_REGISTER, component: RegisterComponent },
     { path: `${PATH_ARTIST}/:artistName`, component: ArtistPageComponent },
     { path : PATH_PROFIL, component: ProfilComponent},
-    { path : `${PATH_BOOK}/:artistName`, component: ProfilComponent},
+    { path : `${PATH_BOOK}/:artistName`, component: BookArtistComponent},
     { path: 'exemple', component: ExempleComponent}
 ];

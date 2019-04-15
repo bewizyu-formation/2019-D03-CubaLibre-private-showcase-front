@@ -14,6 +14,7 @@ export class ArtistCardComponent implements OnInit {
   @Input()
   artist: Artist;
   starsList: number[] = [];
+  pictureArtist: any;
 
   constructor(private router: Router) {
   }
@@ -25,7 +26,7 @@ export class ArtistCardComponent implements OnInit {
     this.router.navigate([PATH_ARTIST, this.artist.artistName]);
   }
 
-  toArtistBook(){
+  toArtistBook() {
     this.router.navigate([PATH_BOOK, this.artist.artistName]);
   }
 }

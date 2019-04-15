@@ -26,7 +26,9 @@ import {
   MatIconModule,
   MatCheckboxModule,
   MatAutocompleteModule,
-  MatChipsModule
+  MatChipsModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
@@ -78,6 +80,8 @@ import { ArtistPresentationComponent } from './artist-presentation/artist-presen
     MatCheckboxModule,
     MatAutocompleteModule,
     MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },
