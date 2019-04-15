@@ -37,6 +37,7 @@ import { LoggedGuard } from './user/logged.guard';
 import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -56,6 +57,7 @@ describe('AppComponent', () => {
         RatingComponent,
         RegisterArtistComponent,
         ProfilComponent,
+        ArtistPresentationComponent,
       ],
       imports: [
         BrowserModule,
