@@ -17,29 +17,33 @@ export class UserRepository {
 
   register(username: string, password: string, email: string, city: string,
     artistName?: string, shortDescription?: string, longDescription?: string) {
-    let user: any;
+    
     if (artistName !== undefined) {
-      user = {
-        username: username,
+      let userAndArtist = { user :
+        {username: username,
         password: password,
         email: email,
         city: city,
+        artistName: artistName
+      },
         artist: {
           artistName: artistName,
           shortDescription: shortDescription,
           longDescription: longDescription
         }
       };
+      return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, userAndArtist);
     } else {
-      user = {
+      let user = {
         username: username,
         password: password,
         email: email,
         city: city,
       };
+      return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
     }
 
-    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`, user);
+    
   }
 
   changePassword(oldPassword: string, password: string, email: string) {
