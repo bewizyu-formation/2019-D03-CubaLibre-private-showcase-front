@@ -35,6 +35,7 @@ import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { RegisterArtistComponent } from './register-artist/register-artist.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ProfilComponent } from './profil/profil.component';
     RatingComponent,
     RegisterArtistComponent,
     ProfilComponent,
+    ArtistPresentationComponent,
   ],
   imports: [
     BrowserModule,
