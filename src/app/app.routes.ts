@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { PATH_WELCOME, PATH_HOME, PATH_LOGIN, PATH_REGISTER, PATH_ARTIST, PATH_PROFIL } from './app.routes.constantes';
+import { PATH_WELCOME, PATH_HOME, PATH_LOGIN, PATH_REGISTER, PATH_ARTIST, PATH_PROFIL, PATH_EDIT } from './app.routes.constantes';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +15,7 @@ export const ROUTES: Routes = [
     { path: PATH_LOGIN, component: LoginComponent },
     { path: PATH_REGISTER, component: RegisterComponent },
     { path: `${PATH_ARTIST}/:artistName`, component: ArtistPageComponent },
+    { path: `${PATH_ARTIST}/${PATH_EDIT}/:artistName`, component: ArtistPageComponent },
     { path : PATH_PROFIL, component: ProfilComponent},
     { path: 'exemple', component: ExempleComponent}
 ];
