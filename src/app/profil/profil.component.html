@@ -11,25 +11,25 @@
 
 					<div formGroupName="passwordGroup">
 						<mat-form-field class="profil-card__input">
-							<input matInput type="password" placeholder="ancien mot de passe" formControlName="oldPassword"
-							[errorStateMatcher]="passwordMatcher">
+							<input matInput type="password" placeholder="ancien mot de passe"
+								formControlName="oldPassword" [errorStateMatcher]="passwordMatcher">
 						</mat-form-field>
 
 						<mat-form-field class="profil-card__input">
-								<input matInput type="password" placeholder="nouveau mot de passe" formControlName="password"
-								[errorStateMatcher]="passwordMatcher">
-								<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
-									Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
+							<input matInput type="password" placeholder="nouveau mot de passe"
+								formControlName="password" [errorStateMatcher]="passwordMatcher">
+							<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
+								Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
 									minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
-								</mat-error>
-								<mat-error *ngIf="passwordCtrl.hasError('required')">
-									Mot de passe <strong>obligatoire</strong>, gros bêta
-								</mat-error>
-							</mat-form-field>
+							</mat-error>
+							<mat-error *ngIf="passwordCtrl.hasError('required')">
+								Mot de passe <strong>obligatoire</strong>, gros bêta
+							</mat-error>
+						</mat-form-field>
 
 						<mat-form-field class="profil-card__input">
 							<input matInput type="password" placeholder="Confirmez le nouveau mot de passe"
-							formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
+								formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
 							<mat-error *ngIf="passwordGroup.hasError('notSame')">
 								Mot de passe incorrect
 							</mat-error>
@@ -48,9 +48,9 @@
 
 					<div class="profil-card__footer">
 						<button mat-raised-button class="profil-card__button profil-card__button--cancel"
-						(click)="toHome()">Annuler</button>
+							(click)="toHome()">Annuler</button>
 						<button mat-raised-button class="profil-card__button profil-card__button--validate"
-						type="submit" [disabled]="profilForm.invalid">Valider</button>
+							type="submit" [disabled]="profilForm.invalid">Valider</button>
 					</div>
 				</form>
 			</div>
