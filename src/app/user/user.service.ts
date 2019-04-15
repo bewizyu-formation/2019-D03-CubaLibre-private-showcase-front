@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
+import { PATH_LOGIN } from '../app.routes.constantes';
 import { UserRepository } from './user.repository';
 import { HttpResponse } from '@angular/common/http';
 import { ArtistService } from '../artist/artist.service';
+import { LogoutService } from '../services/logout.service';
 
 @Injectable({
   providedIn: 'root'
@@ -46,19 +47,7 @@ export class UserService {
   changePassword(oldPassword: string, password: string, email: string) {
     return new Promise((resolve) => {
       this.userRepository
-      .changePassword(oldPassword, password, email).subscribe(
-      (response: HttpResponse<any>) => {
-        this.router.navigate([PATH_WELCOME]);
-      },
-
-      (error) => {
-        resolve(error);
-      },
-
-      () => {
-        console.log('profil changed password completed');
-
-      });
+        .changePassword(oldPassword, password, email);
     });
   }
 
@@ -67,35 +56,35 @@ export class UserService {
    * @param username User login name
    * @param password User Password
    */
-  login(username: string, password: string): Promise < HttpResponse < any >> {
-        return new Promise((resolve) => {
-          this.userRepository
-            .login(username, password)
-            .subscribe(
-              (response: HttpResponse<any>) => {
-                this.token = response.headers.get('Authorization');
-                localStorage.setItem('token', this.token);
-                resolve(response);
-              },
-              (error: HttpResponse<any>) => {
-                resolve(error);
-              }
-            );
-        });
-      }
+  login(username: string, password: string): Promise<HttpResponse<any>> {
+    return new Promise((resolve) => {
+      this.userRepository
+        .login(username, password)
+        .subscribe(
+          (response: HttpResponse<any>) => {
+            this.token = response.headers.get('Authorization');
+            localStorage.setItem('token', this.token);
+            resolve(response);
+          },
+          (error: HttpResponse<any>) => {
+            resolve(error);
+          }
+        );
+    });
+  }
 
   getUser() {
 
-        // TODO
+    // TODO
 
-        const mockUser = {
-          'username': 'test',
-          'email': 'fake@nul.o',
-          'city': 'pluton',
-          'codeDepartement': 9,
-          // 'artiste': {'nom': 'coucou'},
-          'artiste': null,
-        };
-        return mockUser;
-      }
+    const mockUser = {
+      'username': 'test',
+      'email': 'fake@nul.o',
+      'city': 'pluton',
+      'codeDepartement': 9,
+      // 'artiste': {'nom': 'coucou'},
+      'artiste': null,
+    };
+    return mockUser;
+  }
 }
