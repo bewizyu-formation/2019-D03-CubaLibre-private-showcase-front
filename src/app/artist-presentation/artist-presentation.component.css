@@ -1,3 +1,11 @@
+.artist__box {
+    border: solid 1px #979797;
+    background-color: #fafafa;
+    display: flex;
+    padding: 24px;
+    position: relative;
+}
+
 @media(min-width: 700.1px) {
     .artist__img {
         height: 245px;

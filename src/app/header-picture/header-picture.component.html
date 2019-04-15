@@ -1,9 +1,15 @@
 <div class='navbar'>
-  <h1 class='navbar__title' *ngIf="isWelcome() || isLogPage()">
+  <h1 class='navbar__title' *ngIf="isWelcome() || isLogPage() || isProfil()">
     Private ShowCase
   </h1>
   <h1 class='navbar__title' *ngIf="isHome()">
     Artistes<span class="navbar__large"> dans votre département</span>
+  </h1>
+  <h1 class='navbar__title' *ngIf="!notArtistPage()">
+    Fiche Artiste
+  </h1>
+  <h1 class='navbar__title' *ngIf="isBooking()">
+    Créer un évènement
   </h1>
   <!-- If we need a back button-->
   <div class='left' *ngIf='hasReturn()'>
@@ -35,7 +41,7 @@
   </div>
   <!-- If we need left menu and right menu-->
 
-  <div class='left' *ngIf='isAuthenticated && notArtistPage()'>
+  <div class='left' *ngIf='isAuthenticated && notArtistPage() && !isBooking() && !isProfil()'>
     <button mat-button (click)='clickHomeUserMenu($event)'>
       <mat-icon>menu</mat-icon>
     </button>
