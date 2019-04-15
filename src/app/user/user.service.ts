@@ -50,7 +50,7 @@ export class UserService {
   changePassword(oldPassword: string, password: string, email: string) {
     return new Promise((resolve) => {
       this.userRepository
-      .changePassword(oldPassword, password, email)
+        .changePassword(oldPassword, password, email);
     });
   }
 
@@ -59,35 +59,35 @@ export class UserService {
    * @param username User login name
    * @param password User Password
    */
-  login(username: string, password: string): Promise < HttpResponse < any >> {
-        return new Promise((resolve) => {
-          this.userRepository
-            .login(username, password)
-            .subscribe(
-              (response: HttpResponse<any>) => {
-                this.token = response.headers.get('Authorization');
-                localStorage.setItem('token', this.token);
-                resolve(response);
-              },
-              (error: HttpResponse<any>) => {
-                resolve(error);
-              }
-            );
-        });
-      }
+  login(username: string, password: string): Promise<HttpResponse<any>> {
+    return new Promise((resolve) => {
+      this.userRepository
+        .login(username, password)
+        .subscribe(
+          (response: HttpResponse<any>) => {
+            this.token = response.headers.get('Authorization');
+            localStorage.setItem('token', this.token);
+            resolve(response);
+          },
+          (error: HttpResponse<any>) => {
+            resolve(error);
+          }
+        );
+    });
+  }
 
   getUser() {
 
-        // TODO
+    // TODO
 
-        const mockUser = {
-          'username': 'test',
-          'email': 'fake@nul.o',
-          'city': 'pluton',
-          'codeDepartement': 9,
-          // 'artiste': {'nom': 'coucou'},
-          'artiste': null,
-        };
-        return mockUser;
-      }
+    const mockUser = {
+      'username': 'test',
+      'email': 'fake@nul.o',
+      'city': 'pluton',
+      'codeDepartement': 9,
+      // 'artiste': {'nom': 'coucou'},
+      'artiste': null,
+    };
+    return mockUser;
+  }
 }
