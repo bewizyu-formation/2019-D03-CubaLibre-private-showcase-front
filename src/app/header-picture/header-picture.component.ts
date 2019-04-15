@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME } from '../app.routes.constantes';
+import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME, PATH_ARTIST } from '../app.routes.constantes';
 import { UserService } from '../user/user.service';
 
 
@@ -13,6 +13,7 @@ export class HeaderPictureComponent implements OnInit {
 
   visibleHomeUserSettings = false;
   visibleHomeUserMenu = false;
+  visibleLogMenu = false;
 
   isAuthenticated: boolean;
 
@@ -28,6 +29,10 @@ export class HeaderPictureComponent implements OnInit {
 
   isHome() {
     return (this.router.url === `/${PATH_HOME}`) ? true : false;
+  }
+
+  isLogged() {
+    return this.userService.token ? true : false;
   }
 
   isLogPage() {
@@ -46,6 +51,11 @@ export class HeaderPictureComponent implements OnInit {
     this.visibleHomeUserSettings = false;
   }
 
+  clickLogMenu($event) {
+    $event.stopPropagation();
+    this.visibleLogMenu = !this.visibleLogMenu;
+  }
+
   @HostListener('click', ['$event']) click(e) {
     // e.stopPropagation();
 
@@ -58,12 +68,16 @@ export class HeaderPictureComponent implements OnInit {
 
 
 
-  // If url is === PATH_LOGIN or PATH_REGISTER, arrows back redirect to WelcomeComponent
+  // If url is !== PATH_WELCOME or PATH_HOME, arrows back redirect to WelcomeComponent or HomeComponent
   hasReturn() {
-    if ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) {
+    if ((this.router.url !== `/${PATH_WELCOME}`) && (this.router.url !== `/${PATH_HOME}`)) {
       return true;
     }
     return false;
+  }
+
+  notArtistPage() {
+    return this.router.url.includes(PATH_ARTIST) ? false : true;
   }
 
   needPicture() {
@@ -78,8 +92,12 @@ export class HeaderPictureComponent implements OnInit {
     this.navigateTo([PATH_LOGIN]);
   }
 
-  navigateToWelcome() {
-    this.navigateTo([PATH_WELCOME]);
+  navigateToPrevious() {
+    if (this.router.url === `/${PATH_HOME}`) {
+      this.navigateTo([PATH_WELCOME]);
+    } else {
+      this.navigateTo([PATH_HOME]);
+    }
   }
 
   navigateTo(path: string[]) {

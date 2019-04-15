@@ -3,14 +3,29 @@
     Private ShowCase
   </h1>
   <h1 class='navbar__title' *ngIf="isHome()">
-    Artistes dans votre département
+    Artistes<span class="navbar__large"> dans votre département</span>
   </h1>
   <!-- If we need a back button-->
-  <div class='navbar__button_back left' *ngIf='hasReturn()'>
-    <mat-icon (click)='navigateToWelcome()'>arrow_back</mat-icon>
+  <div class='left' *ngIf='hasReturn()'>
+    <button mat-button (click)='navigateToPrevious()'>
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
   <!-- If we need login and register button-->
-  <div class='navbar__button_connect right' *ngIf='isWelcome() && !isAuthenticated'>
+  <div class='right small' *ngIf='isWelcome() && !isAuthenticated'>
+    <button mat-button (click)='clickLogMenu($event)' *ngIf="!isLogged()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class='navbar__button_connect-menu right' *ngIf="visibleLogMenu">
+      <button class='navbar__login' (click)='navigateToLogin()' mat-button>
+        Connexion
+      </button>
+      <button class='navbar__register' (click)='navigateToRegister()' mat-button>
+        Inscription
+      </button>
+    </div>
+  </div>
+  <div class='navbar__button_connect right large' *ngIf='isWelcome() && !isAuthenticated'>
     <button class='navbar__login' (click)='navigateToLogin()' mat-button>
       Connexion
     </button>
@@ -20,7 +35,7 @@
   </div>
   <!-- If we need left menu and right menu-->
 
-  <div class='menu-home-left left' *ngIf='isAuthenticated'>
+  <div class='left' *ngIf='isAuthenticated && notArtistPage()'>
     <button mat-button (click)='clickHomeUserMenu($event)'>
       <mat-icon>menu</mat-icon>
     </button>
