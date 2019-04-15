@@ -2,13 +2,14 @@ import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/cor
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import {Observable, interval, Subscription} from 'rxjs';
-import {map, startWith, auditTime, throttle, switchMap} from 'rxjs/operators';
+import { Observable, interval, Subscription } from 'rxjs';
+import { map, startWith, auditTime, throttle, switchMap } from 'rxjs/operators';
 
 import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { UserService } from '../user/user.service';
 import { GeoService } from '../geo/geo.service';
+import { ArtistService } from '../artist/artist.service';
 
 
 @Component({
@@ -43,20 +44,22 @@ export class RegisterComponent implements OnInit, OnDestroy {
   artistName: string;
   shortDescription: string;
   longDescription: string;
+  picture: any;
 
   constructor(
     fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private geoService: GeoService
-    ) {
+    private geoService: GeoService,
+    private artistService: ArtistService
+  ) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('',
       [
-      Validators.required,
-      Validators.pattern(PASSWORD_REGEXP)
+        Validators.required,
+        Validators.pattern(PASSWORD_REGEXP)
       ]
-      );
+    );
     this.confirmPasswordCtrl = fb.control('');
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.cityCtrl = fb.control('', [Validators.required]);
@@ -95,6 +98,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.longDescription = event;
   }
 
+  handleInputPicture(event) {
+    this.picture = event;
+  }
+
   handleSubmit() {
     this.userService.register(
       this.registerForm.value.username,
@@ -103,9 +110,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.registerForm.value.city,
       this.artistName,
       this.shortDescription,
-      this.longDescription
-      )
-    .then((resp: any) => {
+      this.longDescription,
+      this.picture
+    ).then((resp: any) => {
       if (resp.status === 400) {
         return this.serverErrorMessage = resp.error.message;
       }
@@ -115,20 +122,20 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.optionsSubscription = this.cityCtrl.valueChanges
-    .pipe(
-      switchMap(value => {
-        return this.geoService.getCommunes(value);
-      }),
-      map(resp => resp.map(ville => ville.nom).slice(0, 20))
+      .pipe(
+        switchMap(value => {
+          return this.geoService.getCommunes(value);
+        }),
+        map(resp => resp.map(ville => ville.nom).slice(0, 20))
       ).subscribe(value => this.options = value,
-      error => console.log(error));
-    }
-
-    ngOnDestroy() {
-      this.optionsSubscription.unsubscribe();
-    }
-
-
-
-
+        error => console.log(error));
   }
+
+  ngOnDestroy() {
+    this.optionsSubscription.unsubscribe();
+  }
+
+
+
+
+}

@@ -1,0 +1,6 @@
+.artist__book{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 330px;
+}

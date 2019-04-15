@@ -4,6 +4,7 @@ import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { PASSWORD_REGEXP, checkPasswords, MyErrorStateMatcherPassword, MyErrorStateMatcher } from '../validators/validators';
 import { PATH_HOME } from '../app.routes.constantes';
+import { LogoutService } from '../services/logout.service';
 
 @Component({
   selector: 'app-profil',
@@ -27,7 +28,8 @@ export class ProfilComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private userService: UserService,
-    private router: Router) {
+    private router: Router,
+    private logoutService: LogoutService) {
     this.passwordCtrl = fb.control('',
       [
         Validators.required,
@@ -59,6 +61,8 @@ export class ProfilComponent implements OnInit {
           return this.serverErrorMessage = resp.error.message;
         }
       });
+
+      this.logoutService.setDisconnect();
   }
 
   toHome() {

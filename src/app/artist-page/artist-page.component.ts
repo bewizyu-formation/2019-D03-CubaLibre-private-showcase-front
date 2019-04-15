@@ -50,7 +50,6 @@ export class ArtistPageComponent implements OnInit {
     this.artistService.getArtistCountys(this.route.snapshot.paramMap.get('artistName')).subscribe(
       (resp: any) => {
         this.countys = resp;
-        console.log(resp);
       }
     );
   }
