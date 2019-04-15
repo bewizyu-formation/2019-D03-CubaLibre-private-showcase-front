@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
+import { PATH_LOGIN } from '../app.routes.constantes';
 import { UserRepository } from './user.repository';
 import { HttpResponse } from '@angular/common/http';
 import { ArtistService } from '../artist/artist.service';
