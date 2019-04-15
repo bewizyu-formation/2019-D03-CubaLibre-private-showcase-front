@@ -11,12 +11,12 @@
 
 					<div formGroupName="passwordGroup">
 						<mat-form-field class="profil-card__input">
-							<input matInput type="password" placeholder="ancien mot de passe"
+							<input matInput type="password" placeholder="Ancien mot de passe"
 								formControlName="oldPassword" [errorStateMatcher]="passwordMatcher">
 						</mat-form-field>
 
 						<mat-form-field class="profil-card__input">
-							<input matInput type="password" placeholder="nouveau mot de passe"
+							<input matInput type="password" placeholder="Nouveau mot de passe"
 								formControlName="password" [errorStateMatcher]="passwordMatcher">
 							<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
 								Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
