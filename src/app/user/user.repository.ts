@@ -17,9 +17,9 @@ export class UserRepository {
 
   register(username: string, password: string, email: string, city: string,
     artistName?: string, shortDescription?: string, longDescription?: string) {
-    let userAndArtist:any;
+    let userAndArtist: any;
     if (artistName !== undefined) {
-      userAndArtist = { 
+      userAndArtist = {
         user : {
           username: username,
           password: password,
@@ -32,7 +32,7 @@ export class UserRepository {
           shortDescription: shortDescription,
           longDescription: longDescription
         }
-      }
+      };
     } else {
       userAndArtist = {
         user : {
