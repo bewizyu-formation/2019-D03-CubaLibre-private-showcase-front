@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Artist } from '../artist/artist';
 import { ArtistService } from '../artist/artist.service';
-import { PATH_ARTIST } from '../app.routes.constantes';
+import { PATH_ARTIST, PATH_BOOK } from '../app.routes.constantes';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,5 +23,9 @@ export class ArtistCardComponent implements OnInit {
 
   toArtistPage() {
     this.router.navigate([PATH_ARTIST, this.artist.artistName]);
+  }
+
+  toArtistBook(){
+    this.router.navigate([PATH_BOOK, this.artist.artistName]);
   }
 }

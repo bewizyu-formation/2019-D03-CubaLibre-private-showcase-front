@@ -1,5 +1,5 @@
 <div class='card'>
-  <img src='../../assets/img/card_temp/dark_fufu.jpg' class="card__img">
+  <img src='{{artist.picture}}' type="file" class="card__img">
 
   <div class='card__content'>
     <h1 class='card__title'>
@@ -16,7 +16,7 @@
         <mat-icon>visibility</mat-icon>
         <span class='card__footer-text'>VOIR</span>
       </div>
-      <div class='card__footer--right'>
+      <div class='card__footer--right' (click)="toArtistBook()">
         <mat-icon>calendar_today</mat-icon>
         <span class='card__footer-text'>BOOKER</span>
       </div>

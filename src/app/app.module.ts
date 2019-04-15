@@ -35,6 +35,7 @@ import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { RegisterArtistComponent } from './register-artist/register-artist.component';
 import { ProfilComponent } from './profil/profil.component';
+import { BookArtistComponent } from './book-artist/book-artist.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
 
 
@@ -56,6 +57,7 @@ import { ArtistPresentationComponent } from './artist-presentation/artist-presen
     RegisterArtistComponent,
     ProfilComponent,
     ArtistPresentationComponent,
+    BookArtistComponent,
   ],
   imports: [
     BrowserModule,
