@@ -6,6 +6,8 @@ import { EnvironmentService } from '../services/environment.service';
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_USERS = '/users/';
+export const RESOURCES_UPLOAD = '/upload';
+export const RESOURCES_HELLO = '/hello';
 
 @Injectable({
   providedIn: 'root'

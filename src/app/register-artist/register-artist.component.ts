@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ArtistService } from '../artist/artist.service';
 import { Router } from '@angular/router';
+import { HelloRepository } from '../hello/hello.repository';
 
 
 @Component({
@@ -31,11 +32,20 @@ export class RegisterArtistComponent implements OnInit {
   @Output()
   handleLongDescription: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output()
+  handlePicture: EventEmitter<any> = new EventEmitter<any>();
+
   eventArtistName: string;
   eventShortDescription: string;
   eventLongDescription: string;
+  eventPicture: any;
 
-  constructor(fb: FormBuilder, private artistService: ArtistService, private router: Router) {
+  constructor(
+    fb: FormBuilder,
+    private artistService: ArtistService,
+    private router: Router,
+    private hello: HelloRepository
+  ) {
     this.artistnameCtrl = fb.control('', [Validators.required]);
     this.descriptionshortCtrl = fb.control('', [Validators.required]);
     this.descriptionCtrl = fb.control('');
@@ -47,21 +57,6 @@ export class RegisterArtistComponent implements OnInit {
       description: this.descriptionCtrl,
       picture: this.pictureCtrl,
     });
-  }
-
-  onFileUpload(event) {
-   /* this.selectedFile = event.target.files[0];
-
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      this.imagePreview = reader.result;
-      this.hello.uploadFile(this.selectedFile)
-        .subscribe(
-          () => console.log('Upload success'),
-          error => console.log('Upload error', error),
-        );
-    };
-    reader.readAsDataURL(this.selectedFile);*/
   }
 
   handleInputArtistName(event) {
@@ -79,7 +74,22 @@ export class RegisterArtistComponent implements OnInit {
     this.handleLongDescription.emit(this.eventLongDescription);
   }
 
-  ngOnInit() {
+  handleInputPicture(event) {
+    this.selectedFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      this.eventPicture = reader.result;
+
+      const imageArtist: FormData = new FormData();
+      imageArtist.append('artistName', this.eventArtistName);
+      imageArtist.append('name', this.selectedFile.name);
+      imageArtist.append('file', this.selectedFile);
+
+      this.handlePicture.emit(imageArtist);
+    };
+    reader.readAsDataURL(this.selectedFile);
   }
 
+  ngOnInit() {
+  }
 }
