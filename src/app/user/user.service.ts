@@ -5,6 +5,7 @@ import { PATH_LOGIN, PATH_WELCOME } from '../app.routes.constantes';
 import { UserRepository } from './user.repository';
 import { HttpResponse } from '@angular/common/http';
 import { ArtistService } from '../artist/artist.service';
+import { LogoutService } from '../services/logout.service';
 
 
 @Injectable({
@@ -49,19 +50,7 @@ export class UserService {
   changePassword(oldPassword: string, password: string, email: string) {
     return new Promise((resolve) => {
       this.userRepository
-      .changePassword(oldPassword, password, email).subscribe(
-      (response: HttpResponse<any>) => {
-        this.router.navigate([PATH_WELCOME]);
-      },
-
-      (error) => {
-        resolve(error);
-      },
-
-      () => {
-        console.log('profil changed password completed');
-
-      });
+      .changePassword(oldPassword, password, email)
     });
   }
 
