@@ -26,7 +26,9 @@ import {
   MatIconModule,
   MatCheckboxModule,
   MatAutocompleteModule,
-  MatChipsModule
+  MatChipsModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
@@ -35,6 +37,7 @@ import { ArtistPageComponent } from './artist-page/artist-page.component';
 import { RatingComponent } from './rating/rating.component';
 import { RegisterArtistComponent } from './register-artist/register-artist.component';
 import { ProfilComponent } from './profil/profil.component';
+import { BookArtistComponent } from './book-artist/book-artist.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
 
 
@@ -56,6 +59,7 @@ import { ArtistPresentationComponent } from './artist-presentation/artist-presen
     RegisterArtistComponent,
     ProfilComponent,
     ArtistPresentationComponent,
+    BookArtistComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,8 @@ import { ArtistPresentationComponent } from './artist-presentation/artist-presen
     MatCheckboxModule,
     MatAutocompleteModule,
     MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },

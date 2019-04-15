@@ -1,0 +1,17 @@
+<app-header-picture></app-header-picture>
+<div class="container">
+  <h2 class="artist__title">Réservation</h2>
+  <mat-card class="artist__box">
+    <form class="artist__book" [formGroup]="eventForm">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choisir une date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Nombre de personnes max" formControlName="maxPerson">
+      </mat-form-field>
+      <button mat-button (click)="handleReserve()">Réserver</button>
+    </form>
+  </mat-card>
+</div>
