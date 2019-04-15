@@ -64,7 +64,8 @@
 						(click)="isChecked($event)">Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
 						<app-register-artist (handleArtistName)="handleInputArtistName($event)"
                                  (handleShortDescription)="handleInputShortDescription($event)"
-                                 (handleLongDescription)="handleInputLongDescription($event)"
+								 (handleLongDescription)="handleInputLongDescription($event)"
+								 (handlePicture)="handleInputPicture($event)"
                                  *ngIf='isArtist'>
 
             </app-register-artist>
