@@ -103,7 +103,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   handleSubmit() {
-    console.log(this.picture)
     this.userService.register(
       this.registerForm.value.username,
       this.registerForm.value.passwordGroup.password,

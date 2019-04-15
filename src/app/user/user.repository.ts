@@ -18,7 +18,7 @@ export class UserRepository {
   }
 
   register(username: string, password: string, email: string, city: string,
-    artistName?: string, shortDescription?: string, longDescription?: string, picture?:string) {
+    artistName?: string, shortDescription?: string, longDescription?: string, picture?: string) {
     let userAndArtist: any;
     if (artistName !== undefined) {
       userAndArtist = {

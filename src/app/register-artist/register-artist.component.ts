@@ -38,7 +38,7 @@ export class RegisterArtistComponent implements OnInit {
   eventArtistName: string;
   eventShortDescription: string;
   eventLongDescription: string;
-  eventPicture:string|ArrayBuffer;
+  eventPicture: string|ArrayBuffer;
 
   constructor(
     fb: FormBuilder,
