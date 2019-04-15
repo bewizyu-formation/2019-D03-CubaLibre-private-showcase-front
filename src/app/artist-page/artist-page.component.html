@@ -1,9 +1,11 @@
 <app-header-picture></app-header-picture>
 <div class="container">
-  <app-artist-presentation *ngIf="isReqArtistDone" [artist]="artist"></app-artist-presentation>
+  <app-artist-presentation *ngIf="isReqArtistDone" [artist]="artist" (handleArtistName)="handleInputArtistName($event)"
+    (handleShortDescription)="handleInputShortDescription($event)"
+    (handleLongDescription)="handleInputLongDescription($event)"></app-artist-presentation>
   <h2 class="artist__title">Informations générales</h2>
   <mat-card class="artist__box--info">
-    <div>
+    <div *ngIf='!isEditable'>
       <div class="artist__info-line">
         <mat-icon class="artist__info-icon">alternate_email</mat-icon>{{artist?.website}}
       </div>
@@ -14,6 +16,29 @@
         <mat-icon class="artist__info-icon">email</mat-icon>{{artist?.address}}
       </div>
     </div>
+    <div *ngIf='isEditable'>
+      <div class="artist__info-line">
+        <mat-form-field class="artist__info-line">
+          <mat-icon matPrefix class="artist__info-icon">alternate_email</mat-icon>
+          <input matInput placeholder="{{artist?.website}}" (change)='changeWebsite($event)'>
+        </mat-form-field>
+      </div>
+
+      <div class="artist__info-line">
+        <mat-form-field class="artist__info-line">
+          <mat-icon matPrefix class="artist__info-icon">call</mat-icon>
+          <input matInput placeholder="{{artist?.phone}}" (change)='changePhone($event)'>
+        </mat-form-field>
+      </div>
+
+      <div class="artist__info-line">
+        <mat-form-field class="artist__info-line">
+          <mat-icon matPrefix class="artist__info-icon">email</mat-icon>
+          <input matInput placeholder="{{artist?.address}}" (change)='changeAddress($event)'>
+        </mat-form-field>
+      </div>
+
+    </div>
     <div>
       <span>Départements acceptés</span>
       <div class="artist__departement-list">
@@ -22,6 +47,13 @@
         </mat-chip-list>
       </div>
 
+
+
     </div>
+
+    <div *ngIf='isEditable'>
+      <button mat-button value='' (click)='submit()'>Sauvegarder</button>
+    </div>
+
   </mat-card>
 </div>

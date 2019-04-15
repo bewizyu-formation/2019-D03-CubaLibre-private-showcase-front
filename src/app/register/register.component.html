@@ -18,10 +18,10 @@
 					<div formGroupName="passwordGroup">
 						<mat-form-field class="register-card__input">
 							<input matInput type="password" placeholder="Mot de passe" formControlName="password"
-							[errorStateMatcher]="passwordMatcher">
+								[errorStateMatcher]="passwordMatcher">
 							<mat-error *ngIf="passwordCtrl.hasError('pattern') && !passwordCtrl.hasError('required')">
 								Le mot de passe doit contenir au moins <strong>8 caractères</strong> dont <strong>une
-								minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
+									minuscule</strong>, <strong>une majuscule</strong> et <strong>un chiffre</strong>.
 							</mat-error>
 							<mat-error *ngIf="passwordCtrl.hasError('required')">
 								Mot de passe <strong>obligatoire</strong>, gros bêta
@@ -30,7 +30,7 @@
 
 						<mat-form-field class="register-card__input">
 							<input matInput type="password" placeholder="Confirmez le mot de passe"
-							formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
+								formControlName="confirmPassword" [errorStateMatcher]="passwordMatcher">
 							<mat-error *ngIf="passwordGroup.hasError('notSame')">
 								Mot de passe incorrect
 							</mat-error>
@@ -48,7 +48,8 @@
 					</mat-form-field>
 
 					<mat-form-field class="register-card__input">
-						<input matInput placeholder="Ville" [formControl]="cityCtrl" [errorStateMatcher]="matcher" [matAutocomplete]="auto">
+						<input matInput placeholder="Ville" [formControl]="cityCtrl" [errorStateMatcher]="matcher"
+							[matAutocomplete]="auto">
 						<mat-autocomplete #auto="matAutocomplete">
 							<mat-option *ngFor="let option of options" [value]="option">
 								{{option}}
@@ -60,21 +61,20 @@
 					</mat-form-field>
 
 					<div class="register-card__input">
-						<mat-checkbox [checked]="isArtist"   
-						(click)="isChecked($event)">Êtes vous un artiste proposant des prestations privées?</mat-checkbox>
+						<mat-checkbox [checked]="isArtist" (click)="isChecked($event)">Êtes vous un artiste proposant
+							des prestations privées?</mat-checkbox>
 						<app-register-artist (handleArtistName)="handleInputArtistName($event)"
-                                 (handleShortDescription)="handleInputShortDescription($event)"
-                                 (handleLongDescription)="handleInputLongDescription($event)"
-                                 *ngIf='isArtist'>
+							(handleShortDescription)="handleInputShortDescription($event)"
+							(handleLongDescription)="handleInputLongDescription($event)" *ngIf='isArtist'>
 
-            </app-register-artist>
+						</app-register-artist>
 					</div>
 
 					<div class="register-card__footer">
 						<button mat-raised-button class="register-card__button register-card__button--cancel"
-						(click)="toWelcome()">Annuler</button>
+							(click)="toWelcome()">Annuler</button>
 						<button mat-raised-button class="register-card__button register-card__button--validate"
-						type="submit" [disabled]="registerForm.invalid">Valider</button>
+							type="submit" [disabled]="registerForm.invalid">Valider</button>
 					</div>
 				</form>
 			</div>
