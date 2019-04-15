@@ -13,6 +13,7 @@ export class HeaderPictureComponent implements OnInit {
 
   visibleHomeUserSettings = false;
   visibleHomeUserMenu = false;
+  visibleLogMenu = false;
 
   isAuthenticated: boolean;
 
@@ -30,6 +31,10 @@ export class HeaderPictureComponent implements OnInit {
     return (this.router.url === `/${PATH_HOME}`) ? true : false;
   }
 
+  isLogged() {
+    return this.userService.token ? true : false;
+  }
+
   isLogPage() {
     return ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) ? true : false;
   }
@@ -44,6 +49,11 @@ export class HeaderPictureComponent implements OnInit {
     $event.stopPropagation();
     this.visibleHomeUserMenu = !this.visibleHomeUserMenu;
     this.visibleHomeUserSettings = false;
+  }
+
+  clickLogMenu($event) {
+    $event.stopPropagation();
+    this.visibleLogMenu = !this.visibleLogMenu;
   }
 
   @HostListener('click', ['$event']) click(e) {

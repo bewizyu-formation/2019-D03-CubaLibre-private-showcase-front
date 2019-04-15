@@ -1,7 +1,7 @@
-.navbar{
-    display:flex;
+.navbar {
+    display: flex;
     background-color: #000000;
-    color:white;
+    color: white;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -9,26 +9,57 @@
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.left{
-    position:absolute;
-    left:10px;
+@media(max-width: 600px) {
+    .navbar__title {
+        font-size: 6vw;
+    }
+    .navbar__large {
+        display: none;
+    }
+    .large {
+        display: none;
+    }
+}
+
+@media(min-width: 600.1px) {
+    .small {
+        display: none
+    }
+}
+
+.navbar__button_connect-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    right: 0;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.38);
+    border-radius: 1px;
+    background-color: #fafafa;
+    color: black;
+    padding: 10px;
+}
+
+.left {
+    position: absolute;
+    left: 10px;
     align-self: center;
     cursor: pointer;
     z-index: 1;
 }
 
-.right{
-    position:absolute;
-    right:10px;
+.right {
+    position: absolute;
+    right: 10px;
     cursor: pointer;
     z-index: 1;
 }
 
-.picture{
-    width:100%;
+.picture {
+    width: 100%;
 }
 
-.picture img{
+.picture img {
     background-size: cover;
-    width:100%;
+    width: 100%;
 }
