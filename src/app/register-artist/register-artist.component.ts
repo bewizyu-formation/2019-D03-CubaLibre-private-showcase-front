@@ -38,7 +38,7 @@ export class RegisterArtistComponent implements OnInit {
   eventArtistName: string;
   eventShortDescription: string;
   eventLongDescription: string;
-  eventPicture: any;
+  eventPicture:string|ArrayBuffer;
 
   constructor(
     fb: FormBuilder,
@@ -79,12 +79,7 @@ export class RegisterArtistComponent implements OnInit {
     const reader = new FileReader();
     reader.onloadend = () => {
       this.eventPicture = reader.result;
-
-      const imageArtist: FormData = new FormData();
-      imageArtist.append('artistName', this.eventArtistName);
-      imageArtist.append('name', this.selectedFile.name);
-      imageArtist.append('file', this.selectedFile);
-
+      const imageArtist = reader.result;
       this.handlePicture.emit(imageArtist);
     };
     reader.readAsDataURL(this.selectedFile);
