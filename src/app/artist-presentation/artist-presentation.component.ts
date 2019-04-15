@@ -33,24 +33,24 @@ export class ArtistPresentationComponent implements OnInit {
   }
 
   shortDescription() {
-      this.isChangeShortDescription = !this.isChangeShortDescription;
+    this.isChangeShortDescription = !this.isChangeShortDescription;
   }
 
   longDescription() {
     this.isChangeLongDescription = !this.isChangeLongDescription;
   }
 
-  changeName($event){
+  changeName($event) {
     this.artist.artistName = $event.target.value;
     this.handleArtistName.emit(this.artist.artistName);
   }
 
-  changeShortDescription($event){
+  changeShortDescription($event) {
     this.artist.shortDescription = $event.target.value;
     this.handleShortDescription.emit(this.artist.shortDescription);
   }
 
-  changeLongDescription($event){
+  changeLongDescription($event) {
     this.artist.longDescription = $event.target.value;
     this.handleLongDescription.emit(this.artist.longDescription);
   }

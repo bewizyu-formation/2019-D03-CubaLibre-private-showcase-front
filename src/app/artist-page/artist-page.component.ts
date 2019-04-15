@@ -18,11 +18,11 @@ export class ArtistPageComponent implements OnInit {
   countys: any[];
 
   isEditable: boolean;
-  
 
-  changeWebsite($event) { this.artist.website = $event.target.value; console.log(this.artist.website) }
-  changePhone($event) { this.artist.phone = $event.target.value; console.log(this.artist.phone) }
-  changeAddress($event) { this.artist.address = $event.target.value; console.log(this.artist.address) }
+
+  changeWebsite($event) { this.artist.website = $event.target.value; }
+  changePhone($event) { this.artist.phone = $event.target.value; }
+  changeAddress($event) { this.artist.address = $event.target.value; }
 
   handleInputArtistName(event) { this.artist.artistName = event; }
   handleInputShortDescription(event) { this.artist.shortDescription = event; }
@@ -32,7 +32,7 @@ export class ArtistPageComponent implements OnInit {
     this.isEditable = (this.router.url.includes(`${PATH_ARTIST}/${PATH_EDIT}`)) ? true : false;
   }
 
-  submit(){
+  submit() {
     this.artistService.putArtistUpdate(this.artist).subscribe(
       (resp: any) => {
         window.location.reload();
