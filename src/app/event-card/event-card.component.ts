@@ -36,9 +36,10 @@ export class EventCardComponent implements OnInit {
         this.isArtistDone = true;
       }
     );
-
-    this.dateDay = this.dayTab[this.event.date.getDay()];
-    this.dateFormat = '' + this.event.date.getDate() + '/' + (this.event.date.getMonth()+1);
+    
+    const date = new Date(this.event.date)
+    this.dateDay = this.dayTab[date.getDay()];
+    this.dateFormat = '' + date.getDate() + '/' + (date.getMonth()+1);
   }
 
   handleValidate(isAccept: boolean){

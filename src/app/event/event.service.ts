@@ -14,7 +14,7 @@ export class EventService {
     return this.httpClient.post(`${this.env.getPrivateShowcaseApiConfig().uri}/event/new`, newEvent);
   }
 
-  getAllEventByUser() {
-    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/event/byUser`);
+  getAllEvent() {
+    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/event/all`);
   }
 }

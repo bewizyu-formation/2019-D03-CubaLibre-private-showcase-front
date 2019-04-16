@@ -14,7 +14,7 @@ export class EventPageComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
-    this.eventService.getAllEventByUser().subscribe(
+    this.eventService.getAllEvent().subscribe(
       (resp: any) => {
         this.events = resp;
       });
