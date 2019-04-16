@@ -27,7 +27,8 @@ import {
   MatAutocompleteModule,
   MatChipsModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatButtonToggleModule
 } from '@angular/material';
 import { CommonHeadersInterceptorService } from './services/interceptors/common-headers-interceptor.service';
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
@@ -82,6 +83,7 @@ describe('AppComponent', () => {
         MatChipsModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatButtonToggleModule
       ],
       providers: [
         { provide: APP_CONFIG, useValue: environment },
