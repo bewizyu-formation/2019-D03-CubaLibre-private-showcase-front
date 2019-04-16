@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { EventService } from '../event/event.service';
+import { ActivatedRoute } from '@angular/router';
+import { Event } from '../event/event';
 
 @Component({
   selector: 'app-book-artist',
@@ -22,7 +24,7 @@ export class BookArtistComponent implements OnInit {
     return day !== 0 && day !== 6;
   }*/
 
-  constructor(private fb: FormBuilder, private eventService: EventService) {
+  constructor(private fb: FormBuilder, private eventService: EventService, private route: ActivatedRoute) {
     this.dateCtrl = fb.control('');
     this.maxPersonCtrl = fb.control('');
 
@@ -36,6 +38,9 @@ export class BookArtistComponent implements OnInit {
   }
 
   handleReserve() {
-    this.eventService.addNewEvent(this.eventForm.value);
+    const newEvent = new Event(this.eventForm.value.date,
+      this.eventForm.value.maxPerson,
+      this.route.snapshot.paramMap.get('artistName'));
+    this.eventService.addNewEvent(newEvent);
   }
 }
