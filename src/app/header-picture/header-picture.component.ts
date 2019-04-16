@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME, PATH_ARTIST } from '../app.routes.constantes';
+import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME, PATH_ARTIST, PATH_BOOK, PATH_PROFIL } from '../app.routes.constantes';
 import { UserService } from '../user/user.service';
 
 
@@ -15,12 +15,25 @@ export class HeaderPictureComponent implements OnInit {
   visibleHomeUserMenu = false;
   visibleLogMenu = false;
 
-  isAuthenticated: boolean;
-
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    this.isAuthenticated = !(this.userService.token == null);
+  }
+
+  artistPage() {
+    return this.router.url.includes(PATH_ARTIST) ? true : false;
+  }
+
+  isWelcomeAuthenticated() {
+    return (this.isWelcome() && this.isLogged) ? true : false;
+  }
+
+  needPicture() {
+    return (this.router.url === `/${PATH_HOME}`) ? false : true;
+  }
+
+  needTitleWelcomePage() {
+    return (this.isWelcome() || this.isLogPage()) ? true : false;
   }
 
   isWelcome() {
@@ -37,6 +50,14 @@ export class HeaderPictureComponent implements OnInit {
 
   isLogPage() {
     return ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) ? true : false;
+  }
+
+  isBooking() {
+    return this.router.url.includes(PATH_BOOK);
+  }
+
+  isProfil() {
+    return (this.router.url === `/${PATH_PROFIL}`) ? true : false;
   }
 
   clickHomeUserSettings($event) {
@@ -74,14 +95,6 @@ export class HeaderPictureComponent implements OnInit {
       return true;
     }
     return false;
-  }
-
-  notArtistPage() {
-    return this.router.url.includes(PATH_ARTIST) ? false : true;
-  }
-
-  needPicture() {
-    return (this.router.url === `/${PATH_HOME}`) ? false : true;
   }
 
   navigateToRegister() {

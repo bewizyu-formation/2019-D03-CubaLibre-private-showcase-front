@@ -18,7 +18,7 @@ export class UserRepository {
   }
 
   register(username: string, password: string, email: string, city: string,
-    artistName?: string, shortDescription?: string, longDescription?: string) {
+    artistName?: string, shortDescription?: string, longDescription?: string, picture?: string) {
     let userAndArtist: any;
     if (artistName !== undefined) {
       userAndArtist = {
@@ -32,7 +32,8 @@ export class UserRepository {
         artist: {
           artistName: artistName,
           shortDescription: shortDescription,
-          longDescription: longDescription
+          longDescription: longDescription,
+          picture: picture
         }
       };
     } else {
@@ -49,7 +50,7 @@ export class UserRepository {
   }
 
   changePassword(oldPassword: string, password: string, email: string) {
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}changePassword`, [oldPassword, password, email]);
+    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}changePassword`, {oldPassword, password, email});
   }
 
   /**
