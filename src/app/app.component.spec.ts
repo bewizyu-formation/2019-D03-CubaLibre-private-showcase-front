@@ -41,6 +41,8 @@ import { RatingComponent } from './rating/rating.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
 import { BookArtistComponent } from './book-artist/book-artist.component';
+import { EventPageComponent } from './event-page/event-page.component';
+import { EventCardComponent } from './event-card/event-card.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -62,6 +64,8 @@ describe('AppComponent', () => {
         ProfilComponent,
         ArtistPresentationComponent,
         BookArtistComponent,
+        EventPageComponent,
+        EventCardComponent,
       ],
       imports: [
         BrowserModule,
@@ -80,6 +84,8 @@ describe('AppComponent', () => {
         MatAutocompleteModule,
         FormsModule,
         MatChipsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
         MatDatepickerModule,
         MatNativeDateModule,
       ],
