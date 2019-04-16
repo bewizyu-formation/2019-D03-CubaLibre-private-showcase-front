@@ -1,5 +1,6 @@
 <app-header-picture></app-header-picture>
 <div class="container">
+  <app-artist-presentation [artist]="artist" *ngIf="isReqArtistDone"></app-artist-presentation>
   <h2 class="artist__title">Réservation</h2>
   <mat-card class="artist__box">
     <form class="artist__book" [formGroup]="eventForm">
