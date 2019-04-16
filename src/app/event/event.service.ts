@@ -11,7 +11,6 @@ export class EventService {
   constructor(private httpClient: HttpClient, private env: EnvironmentService) { }
 
   addNewEvent(newEvent: Event) {
-    console.log(newEvent);
-    this.httpClient.post(`${this.env.getPrivateShowcaseApiConfig().uri}/event/new`, newEvent);
+    return this.httpClient.post(`${this.env.getPrivateShowcaseApiConfig().uri}/event/new`, newEvent);
   }
 }

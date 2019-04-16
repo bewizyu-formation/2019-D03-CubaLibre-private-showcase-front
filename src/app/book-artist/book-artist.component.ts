@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { EventService } from '../event/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../event/event';
+import { PATH_HOME } from '../app.routes.constantes';
 
 @Component({
   selector: 'app-book-artist',
@@ -24,7 +25,7 @@ export class BookArtistComponent implements OnInit {
     return day !== 0 && day !== 6;
   }*/
 
-  constructor(private fb: FormBuilder, private eventService: EventService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private eventService: EventService, private route: ActivatedRoute, private router: Router) {
     this.dateCtrl = fb.control('');
     this.maxPersonCtrl = fb.control('');
 
@@ -41,6 +42,8 @@ export class BookArtistComponent implements OnInit {
     const newEvent = new Event(this.eventForm.value.date,
       this.eventForm.value.maxPerson,
       this.route.snapshot.paramMap.get('artistName'));
-    this.eventService.addNewEvent(newEvent);
+    this.eventService.addNewEvent(newEvent).subscribe((resp) => {
+      this.router.navigate([PATH_HOME]);
+    });
   }
 }
