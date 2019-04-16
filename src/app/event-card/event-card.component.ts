@@ -24,10 +24,10 @@ export class EventCardComponent implements OnInit {
 
   isArtistDone: boolean;
 
-  isValidate: boolean = false;
-  isOwner: boolean = false;
+  isValidate = false;
+  isOwner = false;
 
-  constructor(private artistService: ArtistService) {}
+  constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
     this.artistService.getArtistByName(this.event.artistName).subscribe(
@@ -36,13 +36,12 @@ export class EventCardComponent implements OnInit {
         this.isArtistDone = true;
       }
     );
-    
-    const date = new Date(this.event.date)
+    const date = new Date(this.event.date);
     this.dateDay = this.dayTab[date.getDay()];
-    this.dateFormat = '' + date.getDate() + '/' + (date.getMonth()+1);
+    this.dateFormat = '' + date.getDate() + '/' + (date.getMonth() + 1);
   }
 
-  handleValidate(isAccept: boolean){
-    //TODO
+  handleValidate(isAccept: boolean) {
+    // TODO
   }
 }
