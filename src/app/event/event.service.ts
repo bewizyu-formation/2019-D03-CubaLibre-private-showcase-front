@@ -13,7 +13,7 @@ export class EventService {
   addNewEvent(newEvent: Event) {
     return this.httpClient.post(`${this.env.getPrivateShowcaseApiConfig().uri}/event/new`, newEvent);
   }
-
+  
   getAllEvent() {
     return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/event/all`);
   }
