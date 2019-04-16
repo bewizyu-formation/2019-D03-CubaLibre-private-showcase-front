@@ -53,8 +53,8 @@ export class UserService {
           if (resp.status === 400) {
             return this.serverErrorMessage = resp.error.message;
           }
-        })
-    }
+        });
+    });
   }
 
   /**
