@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   artistName: string;
   shortDescription: string;
   longDescription: string;
-  picture: any;
+  picture: string;
 
   constructor(
     fb: FormBuilder,

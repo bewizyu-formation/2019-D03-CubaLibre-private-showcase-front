@@ -20,15 +20,12 @@ export class UserService {
   }
 
   register(username: string, password: string, email: string, city: string,
-    artistName?: string, shortDescription?: string, longDescription?: string, picture?: FormData) {
+    artistName?: string, shortDescription?: string, longDescription?: string, picture?: string) {
     return new Promise((resolve) => {
       this.userRepository
-        .register(username, password, email, city, artistName, shortDescription, longDescription)
+        .register(username, password, email, city, artistName, shortDescription, longDescription, picture)
         .subscribe(
           (response: HttpResponse<any>) => {
-            if (picture) {
-              this.artistService.putArtistPicture(picture).subscribe(() => { });
-            }
             this.router.navigate([PATH_LOGIN]);
           },
 
