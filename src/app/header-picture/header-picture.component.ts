@@ -1,6 +1,9 @@
 import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME, PATH_ARTIST, PATH_BOOK, PATH_PROFIL, PATH_EVENT } from '../app.routes.constantes';
+import {
+  PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME,
+  PATH_ARTIST, PATH_BOOK, PATH_PROFIL, PATH_EVENT
+} from '../app.routes.constantes';
 import { UserService } from '../user/user.service';
 
 
