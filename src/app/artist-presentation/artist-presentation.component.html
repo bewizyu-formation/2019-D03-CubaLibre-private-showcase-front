@@ -1,6 +1,6 @@
 <h2 class="artist__title">Présentation</h2>
 <mat-card class="artist__box">
-  <img src="../../assets/img/card_temp/dark_fufu.jpg" class="artist__img">
+  <img src="{{artist?.picture}}" class="artist__img">
   <div class="artist__box-content">
     <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber"
       class="artist__rating"></app-rating>
