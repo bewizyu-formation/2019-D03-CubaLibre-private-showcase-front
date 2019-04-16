@@ -45,7 +45,7 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   isLogged() {
-    return this.userService.token !==undefined ? true : false;
+    return this.userService.token !== undefined ? true : false;
   }
 
   isLogPage() {
