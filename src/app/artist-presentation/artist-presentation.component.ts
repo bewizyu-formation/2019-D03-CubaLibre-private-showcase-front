@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Artist } from '../artist/artist';
+import { UserService } from '../user/user.service'
 import { Router } from '@angular/router';
 import { PATH_ARTIST, PATH_EDIT } from '../app.routes.constantes';
 
@@ -13,6 +14,12 @@ export class ArtistPresentationComponent implements OnInit {
   @Input()
   artist: Artist;
 
+  @Input()
+  isEditable: boolean;
+
+  @Input()
+  currentUser: any;
+
   @Output()
   handleArtistName: EventEmitter<string> = new EventEmitter<string>();
 
@@ -25,23 +32,12 @@ export class ArtistPresentationComponent implements OnInit {
   @Output()
   handlePicture: EventEmitter<any> = new EventEmitter<any>();
 
-  isEditable: boolean;
-  isChangeName: boolean;
-  isChangeShortDescription: boolean;
-  isChangeLongDescription: boolean;
+  
+  isChangeName: boolean = false;
+  isChangeShortDescription: boolean = false;
+  isChangeLongDescription: boolean = false;
   selectedFile: File;
 
-  name() {
-    this.isChangeName = !this.isChangeName;
-  }
-
-  shortDescription() {
-    this.isChangeShortDescription = !this.isChangeShortDescription;
-  }
-
-  longDescription() {
-    this.isChangeLongDescription = !this.isChangeLongDescription;
-  }
 
   handleInputPicture(event) {
     this.selectedFile = event.target.files[0];
@@ -69,11 +65,12 @@ export class ArtistPresentationComponent implements OnInit {
     this.handleLongDescription.emit(this.artist.longDescription);
   }
 
-  constructor(private router: Router) {
-    this.isEditable = (this.router.url.includes(`${PATH_ARTIST}/${PATH_EDIT}`)) ? true : false;
+  constructor(private router: Router, private userService: UserService) {
+   
   }
 
-  ngOnInit() {
+  ngOnInit() {    
+     
   }
 
 }
