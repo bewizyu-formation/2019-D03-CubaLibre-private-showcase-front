@@ -1,9 +1,15 @@
 <div class='navbar'>
-  <h1 class='navbar__title' *ngIf="isWelcome() || isLogPage()">
+  <h1 class='navbar__title' *ngIf="needTitleWelcomePage()">
     Private ShowCase
   </h1>
   <h1 class='navbar__title' *ngIf="isHome()">
     Artistes<span class="navbar__large"> dans votre département</span>
+  </h1>
+  <h1 class='navbar__title' *ngIf="artistPage()">
+    Fiche Artiste
+  </h1>
+  <h1 class='navbar__title' *ngIf="isBooking()">
+    Créer un évènement
   </h1>
   <!-- If we need a back button-->
   <div class='left' *ngIf='hasReturn()'>
@@ -12,8 +18,8 @@
     </button>
   </div>
   <!-- If we need login and register button-->
-  <div class='right small' *ngIf='isWelcome() && !isAuthenticated'>
-    <button mat-button (click)='clickLogMenu($event)' *ngIf="!isLogged()">
+  <div class='right small' *ngIf='isWelcomeAuthenticated()'>
+    <button mat-button (click)='clickLogMenu($event)'>
       <mat-icon>menu</mat-icon>
     </button>
     <div class='navbar__button_connect-menu right' *ngIf="visibleLogMenu">
@@ -25,7 +31,7 @@
       </button>
     </div>
   </div>
-  <div class='navbar__button_connect right large' *ngIf='isWelcome() && !isAuthenticated'>
+  <div class='navbar__button_connect right large' *ngIf='isWelcomeAuthenticated()'>
     <button class='navbar__login' (click)='navigateToLogin()' mat-button>
       Connexion
     </button>
@@ -35,14 +41,14 @@
   </div>
   <!-- If we need left menu and right menu-->
 
-  <div class='left' *ngIf='isAuthenticated && notArtistPage()'>
+  <div class='left' *ngIf='isHome()'>
     <button mat-button (click)='clickHomeUserMenu($event)'>
       <mat-icon>menu</mat-icon>
     </button>
     <app-home-user-menu *ngIf="visibleHomeUserMenu"></app-home-user-menu>
   </div>
 
-  <div class='menu-home-right right' *ngIf='isAuthenticated'>
+  <div class='menu-home-right right' *ngIf='isLogged()'>
     <button mat-button (click)='clickHomeUserSettings($event)'>
       <mat-icon>more_vert</mat-icon>
     </button>
