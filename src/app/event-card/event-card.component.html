@@ -1,3 +1,22 @@
-<p>
-  event-card works!
-</p>
+<div class="card__container">
+  <div class="card__grid">
+    <div class="card__event-info">
+      <div class="card__date">
+        <span class="card__date-day">{{dateDay}}</span>
+        <span class="card__date-format">{{dateFormat}}</span>
+      </div>
+      <img src="{{artist?.picture}}" class="card__image">
+      <div class="card__artist-info">
+        <h2 class="card__artist-info-title">{{artist?.artistName}}</h2>
+        <div>
+          <mat-icon>mail</mat-icon>
+
+        </div>
+      </div>
+    </div>
+    <div class="card__event-status">
+      <app-rating *ngIf="isArtistDone" [rating]="artist.rating" [voteNumber]="artist?.voteNumber"></app-rating>
+      {{event.maxConfirmed}}
+    </div>
+  </div>
+</div>

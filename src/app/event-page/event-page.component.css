@@ -30,3 +30,12 @@
 .event__filter-checkbox {
     margin: 5px;
 }
+
+.event-card__container {
+    width: 80%;
+    padding-top: 50px;
+}
+
+.event-card {
+    margin: 10px;
+}

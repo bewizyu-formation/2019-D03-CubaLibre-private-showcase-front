@@ -11,8 +11,8 @@
       <mat-checkbox class="event__filter-checkbox">A venir</mat-checkbox>
       <mat-checkbox class="event__filter-checkbox">Passés</mat-checkbox>
     </div>
-  </div>
-  <div class="event-card__container">
-    
+    <div class="event-card__container">
+      <app-event-card *ngFor="let event of events" [event]="event" class="event-card"></app-event-card>
+    </div>
   </div>
 </div>
