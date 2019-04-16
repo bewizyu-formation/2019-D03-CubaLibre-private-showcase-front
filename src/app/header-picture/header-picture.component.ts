@@ -24,7 +24,7 @@ export class HeaderPictureComponent implements OnInit {
     return this.router.url.includes(PATH_ARTIST) ? true : false;
   }
 
-  isWelcomeAuthenticated(){
+  isWelcomeAuthenticated() {
     return (this.isWelcome() && this.isLogged) ? true : false;
   }
 
@@ -33,7 +33,7 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   needTitleWelcomePage() {
-    return (this.isWelcome()|| this.isLogPage()) ? true : false;
+    return (this.isWelcome() || this.isLogPage()) ? true : false;
   }
 
   isWelcome() {
@@ -96,8 +96,6 @@ export class HeaderPictureComponent implements OnInit {
     }
     return false;
   }
-
-  
 
   navigateToRegister() {
     this.navigateTo([PATH_REGISTER]);
