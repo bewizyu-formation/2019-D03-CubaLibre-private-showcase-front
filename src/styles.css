@@ -10,6 +10,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: gray;
     color: white;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
 }
 
 .container {

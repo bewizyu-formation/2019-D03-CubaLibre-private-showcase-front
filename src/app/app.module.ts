@@ -40,6 +40,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { BookArtistComponent } from './book-artist/book-artist.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
 import { EventPageComponent } from './event-page/event-page.component';
+import { EventCardComponent } from './event-card/event-card.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { EventPageComponent } from './event-page/event-page.component';
     ArtistPresentationComponent,
     BookArtistComponent,
     EventPageComponent,
+    EventCardComponent,
   ],
   imports: [
     BrowserModule,
