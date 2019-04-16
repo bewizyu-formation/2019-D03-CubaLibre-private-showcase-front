@@ -2,7 +2,8 @@
 <div class="container">
   <app-artist-presentation *ngIf="isReqArtistDone" [artist]="artist" (handleArtistName)="handleInputArtistName($event)"
     (handleShortDescription)="handleInputShortDescription($event)"
-    (handleLongDescription)="handleInputLongDescription($event)"></app-artist-presentation>
+    (handleLongDescription)="handleInputLongDescription($event)"
+    (handlePicture)="handlePicture($event)"></app-artist-presentation>
 
   <div *ngIf='!isEditable'>
     <h2 class="artist__title">Informations générales</h2>

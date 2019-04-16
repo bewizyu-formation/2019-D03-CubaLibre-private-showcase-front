@@ -33,6 +33,7 @@ export class ArtistPageComponent implements OnInit {
   handleInputArtistName(event) { this.artist.artistName = event; }
   handleInputShortDescription(event) { this.artist.shortDescription = event; }
   handleInputLongDescription(event) { this.artist.longDescription = event; }
+  handlePicture(event) { this.artist.picture = event ;}
 
   constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.isEditable = (this.router.url.includes(`${PATH_ARTIST}/${PATH_EDIT}`)) ? true : false;

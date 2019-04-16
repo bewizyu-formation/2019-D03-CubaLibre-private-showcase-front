@@ -22,11 +22,14 @@ export class ArtistPresentationComponent implements OnInit {
   @Output()
   handleLongDescription: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output()
+  handlePicture: EventEmitter<any> = new EventEmitter<any>();
 
   isEditable: boolean;
   isChangeName: boolean;
   isChangeShortDescription: boolean;
   isChangeLongDescription: boolean;
+  selectedFile: File;
 
   name() {
     this.isChangeName = !this.isChangeName;
@@ -38,6 +41,17 @@ export class ArtistPresentationComponent implements OnInit {
 
   longDescription() {
     this.isChangeLongDescription = !this.isChangeLongDescription;
+  }
+
+  handleInputPicture(event){
+    this.selectedFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      this.artist.picture = reader.result;
+      const imageArtist = reader.result;
+      this.handlePicture.emit(imageArtist);
+    };
+    reader.readAsDataURL(this.selectedFile);
   }
 
   changeName($event) {

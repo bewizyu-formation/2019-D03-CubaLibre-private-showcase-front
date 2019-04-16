@@ -1,6 +1,18 @@
 <h2 class="artist__title">Présentation</h2>
 <mat-card class="artist__box">
-  <img src="../../assets/img/card_temp/dark_fufu.jpg" class="artist__img">
+  <div *ngIf='!isEditable'>
+    <img src="../../assets/img/card_temp/dark_fufu.jpg" class="artist__img">
+  </div>
+  <div *ngIf='isEditable'>
+    <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
+    <div (click)='selectFile.click()' class='upload__container__background'>
+      <mat-icon>edit</mat-icon>
+    </div>
+  </div>
+  <div (click)='selectFile.click()'>
+
+    <img src="{{artist.picture}}" (change)='changePicture($event)' class="artist__img">
+  </div>
   <div class="artist__box-content">
     <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber" class="artist__rating"></app-rating>
 
