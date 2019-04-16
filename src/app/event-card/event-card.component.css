@@ -66,3 +66,47 @@
     margin: 0;
     padding: 0;
 }
+
+.card__event-status-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 30px;
+}
+
+.card__event-status-place {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.card__event-validate {
+    margin: 0 10px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card__event-validate-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0;
+}
+
+.card__event-validate-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.validate {
+    color: #5da210;
+}
+
+.refuse {
+    color: #d80000;
+}

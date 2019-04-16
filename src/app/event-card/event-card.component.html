@@ -15,8 +15,18 @@
       </div>
     </div>
     <div class="card__event-status">
-      <app-rating *ngIf="isArtistDone" [rating]="artist.rating" [voteNumber]="artist?.voteNumber"></app-rating>
-      {{event.maxConfirmed}}
+      <div class="card__event-status-info">
+        <app-rating *ngIf="isArtistDone" [rating]="artist.rating" [voteNumber]="artist.voteNumber"></app-rating>
+        <span class="card__event-status-place" *ngIf="!isOwner">{{event.maxConfirmed}} places</span>
+        <span class="card__event-status-place" *ngIf="isOwner">{{event.maxConfirmed}} places disponibles</span>
+      </div>
+      <div class="card__event-validate" *ngIf="isValidate && !isOwner">
+        <h2 class="card__event-validate-title">Validation ?</h2>
+        <div class="card__event-validate-buttons">
+          <button mat-button (click)="handleValidate(false)"><mat-icon class="refuse">clear</mat-icon></button>
+          <button mat-button (click)="handleValidate(true)"><mat-icon class="validate">done</mat-icon></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -24,6 +24,9 @@ export class EventCardComponent implements OnInit {
 
   isArtistDone: boolean;
 
+  isValidate: boolean = false;
+  isOwner: boolean = false;
+
   constructor(private artistService: ArtistService) {}
 
   ngOnInit() {
@@ -36,5 +39,9 @@ export class EventCardComponent implements OnInit {
 
     this.dateDay = this.dayTab[this.event.date.getDay()];
     this.dateFormat = '' + this.event.date.getDate() + '/' + (this.event.date.getMonth()+1);
+  }
+
+  handleValidate(isAccept: boolean){
+    //TODO
   }
 }
