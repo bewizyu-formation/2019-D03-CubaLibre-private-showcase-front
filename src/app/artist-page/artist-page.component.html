@@ -58,6 +58,20 @@
         </div>
         <div>
           <span>Départements acceptés</span>
+          <mat-form-field class="register-card__input">
+              <input matInput placeholder="Ville" [formControl]="cityCtrl" [errorStateMatcher]="matcher"
+                [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <div class="artist__departement-list">
+                <mat-chip-list>
+                  <mat-chip *ngFor="let county of countys">{{county.nom}}</mat-chip>
+                </mat-chip-list>
+              </div>
         </div>
         <button mat-raised-button class="artist-card__button artist-card__button--validate"
 							type="submit" [disabled]="artistForm.invalid">Sauvegarder</button>

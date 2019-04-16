@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArtistService } from '../artist/artist.service';
 import { Artist } from '../artist/artist';
-import { PATH_ARTIST, PATH_EDIT, PATH_HOME } from '../app.routes.constantes';
+import { PATH_ARTIST, PATH_EDIT } from '../app.routes.constantes';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { GeoService } from '../geo/geo.service';
 
 @Component({
   selector: 'app-artist-page',
@@ -20,6 +22,9 @@ export class ArtistPageComponent implements OnInit {
 
   isEditable: boolean;
 
+  options: string[] = [];
+  optionsSubscription: Subscription;
+
   websiteCtrl: FormControl;
   phoneCtrl: FormControl;
   addressCtrl: FormControl;
@@ -35,17 +40,19 @@ export class ArtistPageComponent implements OnInit {
   handleInputLongDescription(event) { this.artist.longDescription = event; }
   handlePicture(event) { this.artist.picture = event; }
 
-  constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute, private fb: FormBuilder,private geoService: GeoService) {
     this.isEditable = (this.router.url.includes(`${PATH_ARTIST}/${PATH_EDIT}`)) ? true : false;
-    this.websiteCtrl = fb.control('', [Validators.pattern('[a-zA-Z0-9]*[.][com]')]);
-    this.phoneCtrl = fb.control('', [Validators.minLength(10), Validators.maxLength(10)]);
-    this.addressCtrl = fb.control('');
+    if (this.isEditable === true) {
+      this.websiteCtrl = fb.control('', [Validators.pattern('[a-zA-Z0-9]*[.][com]')]);
+      this.phoneCtrl = fb.control('', [Validators.minLength(10), Validators.maxLength(10)]);
+      this.addressCtrl = fb.control('');
 
-    this.artistForm = fb.group({
-      website: this.websiteCtrl,
-      phone: this.phoneCtrl,
-      address: this.addressCtrl
-    });
+      this.artistForm = fb.group({
+        website: this.websiteCtrl,
+        phone: this.phoneCtrl,
+        address: this.addressCtrl
+      });
+    }
   }
 
   handleSubmit() {
@@ -71,6 +78,20 @@ export class ArtistPageComponent implements OnInit {
         this.countys = resp;
       }
     );
+    /*if(this.isEditable){
+      this.optionsSubscription = this.countyCtrl.valueChanges
+      .pipe(
+        switchMap(value => {
+          return this.geoService.getDepartements(value);
+        }),
+        map(resp => resp.map(ville => ville.nom).slice(0, 20))
+      ).subscribe(value => this.options = value,
+        error => console.log(error));
+    }*/
+  }
+
+  ngOnDestroy() {
+    this.optionsSubscription.unsubscribe();
   }
 
 }
