@@ -25,7 +25,7 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   isWelcomeAuthenticated() {
-    return (this.isWelcome() && this.isLogged) ? true : false;
+    return (this.isWelcome() && !this.isLogged()) ? true : false;
   }
 
   needPicture() {
@@ -45,7 +45,7 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   isLogged() {
-    return this.userService.token ? true : false;
+    return this.userService.token !==undefined ? true : false;
   }
 
   isLogPage() {

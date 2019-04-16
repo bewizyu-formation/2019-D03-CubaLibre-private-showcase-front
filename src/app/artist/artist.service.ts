@@ -16,7 +16,7 @@ export class ArtistService implements OnInit {
   ngOnInit(): void { }
 
   getArtistList() {
-    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/all/`);
+    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/`);
   }
 
   getArtistByName(artistName: string) {
