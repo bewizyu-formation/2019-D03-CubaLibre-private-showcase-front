@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ArtistService } from '../artist/artist.service';
 import { Artist } from '../artist/artist';
 import { PATH_ARTIST, PATH_EDIT, PATH_HOME } from '../app.routes.constantes';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-artist-page',
@@ -19,6 +20,11 @@ export class ArtistPageComponent implements OnInit {
 
   isEditable: boolean;
 
+  websiteCtrl: FormControl;
+  phoneCtrl: FormControl;
+  addressCtrl: FormControl;
+
+  artistForm: FormGroup;
 
   changeWebsite($event) { this.artist.website = $event.target.value; }
   changePhone($event) { this.artist.phone = $event.target.value; }
@@ -28,11 +34,23 @@ export class ArtistPageComponent implements OnInit {
   handleInputShortDescription(event) { this.artist.shortDescription = event; }
   handleInputLongDescription(event) { this.artist.longDescription = event; }
 
-  constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute) {
+  constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.isEditable = (this.router.url.includes(`${PATH_ARTIST}/${PATH_EDIT}`)) ? true : false;
+    this.websiteCtrl = fb.control('', [Validators.pattern('[a-zA-Z0-9]*[.][com]')]);
+    this.phoneCtrl = fb.control('', [Validators.minLength(10), Validators.maxLength(10)]);
+    this.addressCtrl = fb.control('', );
+
+    this.artistForm = fb.group({
+      website: this.websiteCtrl,
+      phone: this.phoneCtrl,
+      address: this.addressCtrl
+    });
   }
 
-  submit() {
+  handleSubmit() {
+    this.artist.website = this.websiteCtrl.value;
+    this.artist.phone = this.phoneCtrl.value;
+    this.artist.address =  this.addressCtrl.value;
     this.artistService.putArtistUpdate(this.artist).subscribe(
       (resp: any) => {
         window.location.reload();
