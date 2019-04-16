@@ -56,9 +56,7 @@ export class ProfilComponent implements OnInit {
       this.profilForm.value.passwordGroup.password,
       this.profilForm.value.email
     );
-    
       this.logoutService.setDisconnect();
-
   }
 
   toHome() {

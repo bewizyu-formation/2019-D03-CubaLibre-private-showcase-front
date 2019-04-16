@@ -50,12 +50,11 @@ export class UserService {
         .changePassword(oldPassword, password, email)
         .subscribe()
         .then((resp: any) => {
-        if (resp.status === 400) {
-          return this.serverErrorMessage = resp.error.message;
-        }
-      };
-      this.logoutService.setDisconnect();
-    });)
+          if (resp.status === 400) {
+            return this.serverErrorMessage = resp.error.message;
+          }
+        })
+    }
   }
 
   /**
