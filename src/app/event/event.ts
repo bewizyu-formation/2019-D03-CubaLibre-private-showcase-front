@@ -5,5 +5,4 @@ export class Event {
         public confirmedUserList?: string[],
         public invitatedUserList?: string[],
         public organiserUserName?: string) { }
-
 }
