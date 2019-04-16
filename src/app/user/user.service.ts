@@ -84,7 +84,7 @@ export class UserService {
      });
    }
 
-   getCurrentUserAndArtist(){
+   getCurrentUserAndArtist() {
      return this.http.get(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_USERS}`);
    }
 

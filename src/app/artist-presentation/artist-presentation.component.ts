@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Artist } from '../artist/artist';
-import { UserService } from '../user/user.service'
+import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 import { PATH_ARTIST, PATH_EDIT } from '../app.routes.constantes';
 
@@ -32,10 +32,10 @@ export class ArtistPresentationComponent implements OnInit {
   @Output()
   handlePicture: EventEmitter<any> = new EventEmitter<any>();
 
-  
-  isChangeName: boolean = false;
-  isChangeShortDescription: boolean = false;
-  isChangeLongDescription: boolean = false;
+
+  isChangeName = false;
+  isChangeShortDescription = false;
+  isChangeLongDescription = false;
   selectedFile: File;
 
 
@@ -66,11 +66,11 @@ export class ArtistPresentationComponent implements OnInit {
   }
 
   constructor(private router: Router, private userService: UserService) {
-   
+
   }
 
-  ngOnInit() {    
-     
+  ngOnInit() {
+
   }
 
 }

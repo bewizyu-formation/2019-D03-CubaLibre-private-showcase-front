@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArtistService } from '../artist/artist.service';
-import { UserService } from '../user/user.service'
+import { UserService } from '../user/user.service';
 import { Artist } from '../artist/artist';
 import { PATH_ARTIST, PATH_EDIT } from '../app.routes.constantes';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -47,8 +47,8 @@ export class ArtistPageComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private geoService: GeoService
-    ) { 
-    this.websiteCtrl = fb.control('')//, [Validators.pattern('[a-zA-Z0-9]*[.][com]')]);
+    ) {
+    this.websiteCtrl = fb.control(''); // , [Validators.pattern('[a-zA-Z0-9]*[.][com]')]);
     this.phoneCtrl = fb.control('', [Validators.minLength(10), Validators.maxLength(10)]);
     this.addressCtrl = fb.control('');
 
@@ -72,17 +72,17 @@ export class ArtistPageComponent implements OnInit {
 
   ngOnInit() {
     this.artistService.getArtistByName(this.route.snapshot.paramMap.get('artistName')).pipe(
-      switchMap((resp:any) => {
+      switchMap((resp: any) => {
         this.artist = resp;
         return this.artistService.getArtistCountys(resp.artistName);
       }),
-      switchMap((resp:any) => {
+      switchMap((resp: any) => {
         this.countys = resp;
         return this.userService.getCurrentUserAndArtist();
       })).
     subscribe(
       (resp: any) => {
-        console.log("currentUser", resp);
+        console.log('currentUser', resp);
         this.currentUser = resp;
         this.isEditable = (this.currentUser.user.artistName === this.artist.artistName);
         this.isReqArtistDone = true;
@@ -90,8 +90,6 @@ export class ArtistPageComponent implements OnInit {
       );
   }
 
-  ngOnDestroy() {
 
-  }
 
 }
