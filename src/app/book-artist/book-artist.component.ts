@@ -4,6 +4,8 @@ import { EventService } from '../event/event.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../event/event';
 import { PATH_HOME } from '../app.routes.constantes';
+import { ArtistService } from '../artist/artist.service';
+import { Artist } from '../artist/artist';
 
 @Component({
   selector: 'app-book-artist',
@@ -18,6 +20,10 @@ export class BookArtistComponent implements OnInit {
 
   invalidDate: Date[];
 
+  artist: Artist;
+
+  isReqArtistDone: boolean;
+
   // La pou plus tard
   /*myFilter = (d: Date): boolean => {
     const day = d.getDay();
@@ -25,7 +31,11 @@ export class BookArtistComponent implements OnInit {
     return day !== 0 && day !== 6;
   }*/
 
-  constructor(private fb: FormBuilder, private eventService: EventService, private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder,
+    private eventService: EventService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private artistService: ArtistService) {
     this.dateCtrl = fb.control('');
     this.maxPersonCtrl = fb.control('');
 
@@ -36,6 +46,12 @@ export class BookArtistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.artistService.getArtistByName(this.route.snapshot.paramMap.get('artistName')).subscribe(
+      (resp: any) => {
+        this.artist = resp;
+        this.isReqArtistDone = true;
+      }
+    );
   }
 
   handleReserve() {
