@@ -44,7 +44,12 @@ export class UserService {
   changePassword(oldPassword: string, password: string, email: string) {
     return new Promise((resolve) => {
       this.userRepository
-        .changePassword(oldPassword, password, email);
+        .changePassword(oldPassword, password, email)
+        .subscribe((resp: any) => {
+          if (resp.status === 400) {
+            return resp.error.message;
+          }
+        });
     });
   }
 
