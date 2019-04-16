@@ -33,13 +33,13 @@ export class ArtistPageComponent implements OnInit {
   handleInputArtistName(event) { this.artist.artistName = event; }
   handleInputShortDescription(event) { this.artist.shortDescription = event; }
   handleInputLongDescription(event) { this.artist.longDescription = event; }
-  handlePicture(event) { this.artist.picture = event ;}
+  handlePicture(event) { this.artist.picture = event; }
 
   constructor(private router: Router, private artistService: ArtistService, private route: ActivatedRoute, private fb: FormBuilder) {
     this.isEditable = (this.router.url.includes(`${PATH_ARTIST}/${PATH_EDIT}`)) ? true : false;
     this.websiteCtrl = fb.control('', [Validators.pattern('[a-zA-Z0-9]*[.][com]')]);
     this.phoneCtrl = fb.control('', [Validators.minLength(10), Validators.maxLength(10)]);
-    this.addressCtrl = fb.control('', );
+    this.addressCtrl = fb.control('');
 
     this.artistForm = fb.group({
       website: this.websiteCtrl,
@@ -51,7 +51,7 @@ export class ArtistPageComponent implements OnInit {
   handleSubmit() {
     this.artist.website = this.websiteCtrl.value;
     this.artist.phone = this.phoneCtrl.value;
-    this.artist.address =  this.addressCtrl.value;
+    this.artist.address = this.addressCtrl.value;
     this.artistService.putArtistUpdate(this.artist).subscribe(
       (resp: any) => {
         window.location.reload();

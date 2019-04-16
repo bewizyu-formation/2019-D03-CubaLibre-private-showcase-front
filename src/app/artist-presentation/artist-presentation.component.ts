@@ -43,7 +43,7 @@ export class ArtistPresentationComponent implements OnInit {
     this.isChangeLongDescription = !this.isChangeLongDescription;
   }
 
-  handleInputPicture(event){
+  handleInputPicture(event) {
     this.selectedFile = event.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
