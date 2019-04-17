@@ -1,7 +1,7 @@
 <h2 class="artist__title">Présentation</h2>
 <mat-card class="artist__box">
   <div *ngIf='!isEditable'>
-    <img src="../../assets/img/card_temp/dark_fufu.jpg" class="artist__img">
+    <img src="{{artist?.picture}}" class="artist__img">
   </div>
   <div class='upload__container' *ngIf='isEditable' mat-button>
     <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
@@ -12,15 +12,6 @@
       <img type="file" [src]='eventPicture' class='upload__preview'>
     </div>
   </div>
-  <!--<div >
-    <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
-    <div (click)='selectFile.click()' class='upload__container__background'>
-      <mat-icon>Upload Image</mat-icon>
-    </div>
-  </div>
-  <div (click)='selectFile.click()'>
-    <img src="{{artist.picture}}" (change)='changePicture($event)' class="artist__img">
-  </div>-->
 
   <div class="artist__box-content">
     <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber" class="artist__rating"></app-rating>
