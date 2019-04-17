@@ -17,7 +17,7 @@ export class LogoutService {
     this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/logout/`)
       .subscribe(() => {
         localStorage.clear();
-        this.userService.token = null;
+        this.userService.token = undefined;
         if (this.router.url === `/${PATH_WELCOME}`) {
           window.location.reload();
         }
