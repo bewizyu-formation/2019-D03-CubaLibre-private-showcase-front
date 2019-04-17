@@ -50,6 +50,7 @@
 
 .artist__name {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .artist__short-description {
@@ -58,4 +59,14 @@
 
 .artist__description {
     font-size: 14px;
+}
+
+.artist__row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.artist__toggle-button {
+    margin-left: 20px;
 }
