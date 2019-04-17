@@ -28,7 +28,8 @@ export class HomeUserSettingsComponent implements OnInit {
         (resp: any) => {
           console.log('currentUser', resp);
           this.currentUser = resp;
-          if ( this.isArtist= (this.currentUser.user.artistName !== null) ) {
+          if (this.currentUser.user.artistName !== null) {
+            this.isArtist = (this.currentUser.user.artistName !== null);
             this.artistName = this.currentUser.user.artistName;
           }
         }
