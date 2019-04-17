@@ -32,7 +32,7 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   needPicture() {
-    return (this.router.url === `/${PATH_HOME}`) ? false : true;
+    return (this.router.url === `/${PATH_WELCOME}` || this.router.url === `/${PATH_LOGIN}` || this.router.url === `/${PATH_REGISTER}`) ? true :  false;
   }
 
   needTitleWelcomePage() {

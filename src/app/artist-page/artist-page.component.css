@@ -9,6 +9,12 @@
     margin: 18px;
 }
 
+.artist__info-line--editable {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 18px;
+}
+
 .artist__info-icon {
     margin-right: 15px;
 }
@@ -23,6 +29,7 @@
 @media(max-width: 600px){
     .artist__box--info {
         display: grid;
+        grid-row-gap: 10px;
         grid-template-columns: repeat(1, 1fr);
     }
 }

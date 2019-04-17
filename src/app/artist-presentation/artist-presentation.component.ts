@@ -37,12 +37,13 @@ export class ArtistPresentationComponent implements OnInit {
   isChangeShortDescription = false;
   isChangeLongDescription = false;
   selectedFile: File;
-
+  eventPicture: any;
 
   handleInputPicture(event) {
     this.selectedFile = event.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
+      this.eventPicture  = reader.result;
       this.artist.picture = reader.result;
       const imageArtist = reader.result;
       this.handlePicture.emit(imageArtist);
@@ -70,7 +71,7 @@ export class ArtistPresentationComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.eventPicture = this.artist.picture;
   }
 
 }
