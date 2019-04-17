@@ -28,16 +28,17 @@ export class HomeUserSettingsComponent implements OnInit {
         (resp: any) => {
           console.log('currentUser', resp);
           this.currentUser = resp;
-          if (this.isArtist = (this.currentUser.user.artistName != undefined)) {
+          if (this.isArtist = (this.currentUser.user.artistName !== undefined ||
+            this.currentUser.user.artistName !== null ||
+            this.currentUser.user.artistName !== '')) {
             this.artistName = this.currentUser.user.artistName;
           }
-
         }
       );
   }
 
   navigateToArtist() {
-    this.router.navigate([`${PATH_ARTIST}/${this.artistName}`])
+    this.router.navigate([`${PATH_ARTIST}/${this.artistName}`]);
   }
 
   navigateToProfil() {
