@@ -1,6 +1,9 @@
 import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME, PATH_ARTIST, PATH_BOOK, PATH_PROFIL } from '../app.routes.constantes';
+import {
+  PATH_REGISTER, PATH_LOGIN, PATH_WELCOME, PATH_HOME,
+  PATH_ARTIST, PATH_BOOK, PATH_PROFIL, PATH_EVENT
+} from '../app.routes.constantes';
 import { UserService } from '../user/user.service';
 
 
@@ -25,7 +28,7 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   isWelcomeAuthenticated() {
-    return (this.isWelcome() && this.isLogged) ? true : false;
+    return (this.isWelcome() && !this.isLogged()) ? true : false;
   }
 
   needPicture() {
@@ -45,11 +48,15 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   isLogged() {
-    return this.userService.token ? true : false;
+    return this.userService.token !== undefined ? true : false;
   }
 
   isLogPage() {
     return ((this.router.url === `/${PATH_LOGIN}`) || (this.router.url === `/${PATH_REGISTER}`)) ? true : false;
+  }
+
+  isEventPage() {
+    return (this.router.url === `/${PATH_EVENT}`) ? true : false;
   }
 
   isBooking() {

@@ -28,7 +28,8 @@ import {
   MatAutocompleteModule,
   MatChipsModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatButtonToggleModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
@@ -39,6 +40,8 @@ import { RegisterArtistComponent } from './register-artist/register-artist.compo
 import { ProfilComponent } from './profil/profil.component';
 import { BookArtistComponent } from './book-artist/book-artist.component';
 import { ArtistPresentationComponent } from './artist-presentation/artist-presentation.component';
+import { EventPageComponent } from './event-page/event-page.component';
+import { EventCardComponent } from './event-card/event-card.component';
 
 
 @NgModule({
@@ -60,6 +63,8 @@ import { ArtistPresentationComponent } from './artist-presentation/artist-presen
     ProfilComponent,
     ArtistPresentationComponent,
     BookArtistComponent,
+    EventPageComponent,
+    EventCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +87,7 @@ import { ArtistPresentationComponent } from './artist-presentation/artist-presen
     MatChipsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },

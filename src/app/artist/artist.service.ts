@@ -16,7 +16,7 @@ export class ArtistService implements OnInit {
   ngOnInit(): void { }
 
   getArtistList() {
-    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/all/`);
+    return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/`);
   }
 
   getArtistByName(artistName: string) {
@@ -25,6 +25,10 @@ export class ArtistService implements OnInit {
 
   getArtistCountys(artistName: string) {
     return this.httpClient.get(`${this.env.getPrivateShowcaseApiConfig().uri}/county/${artistName}`);
+  }
+
+  putArtistUpdate(artist: Artist) {
+    return this.httpClient.put(`${this.env.getPrivateShowcaseApiConfig().uri}/artists/`, artist);
   }
 
   putArtistPicture(picture: FormData) {
