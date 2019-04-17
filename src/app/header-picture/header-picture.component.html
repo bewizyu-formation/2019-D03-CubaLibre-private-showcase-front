@@ -18,7 +18,7 @@
     </button>
   </div>
   <!-- If we need login and register button-->
-  <div class='right small' *ngIf='isWelcomeAuthenticated()'>
+  <div class='right small' *ngIf='isWelcomeNotAuthenticated()'>
     <button mat-button (click)='clickLogMenu($event)'>
       <mat-icon>menu</mat-icon>
     </button>
@@ -31,7 +31,7 @@
       </button>
     </div>
   </div>
-  <div class='navbar__button_connect right large' *ngIf='isWelcomeAuthenticated()'>
+  <div class='navbar__button_connect right large' *ngIf='isWelcomeNotAuthenticated()'>
     <button class='navbar__login' (click)='navigateToLogin()' mat-button>
       Connexion
     </button>
@@ -41,7 +41,7 @@
   </div>
   <!-- If we need left menu and right menu-->
 
-  <div class='left' *ngIf='isHome()'>
+  <div class='left' *ngIf='isHome() || isWelcomeAuthenticated()'>
     <button mat-button (click)='clickHomeUserMenu($event)'>
       <mat-icon>menu</mat-icon>
     </button>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoutService } from '../services/logout.service';
-import { PATH_PROFIL } from '../app.routes.constantes';
+import { PATH_PROFIL, PATH_ARTIST } from '../app.routes.constantes';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user/user.service';
+import { Artist } from '../artist/artist';
 
 @Component({
   selector: 'app-home-user-settings',
@@ -13,6 +14,8 @@ export class HomeUserSettingsComponent implements OnInit {
 
 
   isArtist: boolean;
+  artistName: string;
+  currentUser: any;
 
   constructor(
     private router: Router,
@@ -20,11 +23,21 @@ export class HomeUserSettingsComponent implements OnInit {
     private logoutService: LogoutService) { }
 
   ngOnInit() {
-    this.isArtist = this.userService.getUser().artiste ? true : false;
+    this.userService.getCurrentUserAndArtist().
+      subscribe(
+        (resp: any) => {
+          console.log('currentUser', resp);
+          this.currentUser = resp;
+          if (this.isArtist = (this.currentUser.user.artistName != undefined)) {
+            this.artistName = this.currentUser.user.artistName;
+          }
+
+        }
+      );
   }
 
   navigateToArtist() {
-    // TODO
+    this.router.navigate([`${PATH_ARTIST}/${this.artistName}`])
   }
 
   navigateToProfil() {
