@@ -17,8 +17,6 @@
 
 @media(max-width: 700px) {
     .artist__img {
-        height: auto;
-        width: auto;
         max-width: 100%;
         margin-right: 0;
         margin-bottom: 25px;
@@ -29,6 +27,14 @@
     position: absolute;
     top: 24px;
     right: 24px;
+}
+
+.artist__box {
+    border: solid 1px #979797;
+    background-color: #fafafa;
+    display: flex;
+    padding: 24px;
+    position: relative;
 }
 
 @media(max-width: 700px) {
