@@ -28,7 +28,8 @@ import {
   MatAutocompleteModule,
   MatChipsModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatButtonToggleModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtistCardComponent } from './artist-card/artist-card.component';
@@ -86,6 +87,7 @@ import { EventCardComponent } from './event-card/event-card.component';
     MatChipsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: environment },

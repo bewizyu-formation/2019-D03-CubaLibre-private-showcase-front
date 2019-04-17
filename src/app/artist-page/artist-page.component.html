@@ -1,27 +1,80 @@
 <app-header-picture></app-header-picture>
 <div class="container">
-  <app-artist-presentation [artist]="artist" *ngIf="isReqArtistDone"></app-artist-presentation>
-  <h2 class="artist__title">Informations générales</h2>
-  <mat-card class="artist__box--info">
-    <div>
-      <div class="artist__info-line">
-        <mat-icon class="artist__info-icon">alternate_email</mat-icon>{{artist?.website}}
-      </div>
-      <div class="artist__info-line">
-        <mat-icon class="artist__info-icon">call</mat-icon>{{artist?.phone}}
-      </div>
-      <div class="artist__info-line">
-        <mat-icon class="artist__info-icon">email</mat-icon>{{artist?.address}}
-      </div>
-    </div>
-    <div>
-      <span>Départements acceptés</span>
-      <div class="artist__departement-list">
-        <mat-chip-list>
-          <mat-chip *ngFor="let county of countys">{{county.nom}}</mat-chip>
-        </mat-chip-list>
-      </div>
+  <app-artist-presentation *ngIf="isReqArtistDone" [artist]="artist" [isEditable]="isEditable" (handleArtistName)="handleInputArtistName($event)"
+  (handleShortDescription)="handleInputShortDescription($event)"
+  (handleLongDescription)="handleInputLongDescription($event)"
+  (handlePicture)="handlePicture($event)"></app-artist-presentation>
 
+  <div *ngIf='!isEditable'>
+    <h2 class="artist__title">Informations générales</h2>
+    <mat-card class="artist__box--info">
+      <div>
+        <div class="artist__info-line">
+          <mat-icon class="artist__info-icon">alternate_email</mat-icon>{{artist?.website}}
+          <mat-button-toggle *ngIf='isEditable' >
+            <mat-icon>edit</mat-icon>
+          </mat-button-toggle>
+          </div>
+
+          <div class="artist__info-line">
+            <mat-icon class="artist__info-icon">call</mat-icon>{{artist?.phone}}
+          </div>
+
+          <div class="artist__info-line">
+            <mat-icon class="artist__info-icon">email</mat-icon>{{artist?.address}}
+          </div>
+
+        </div>
+        <div>
+          <span>Départements acceptés</span>
+          <div class="artist__departement-list">
+            <mat-chip-list>
+              <mat-chip *ngFor="let county of countys">{{county.nom}}</mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+      </mat-card>
     </div>
-  </mat-card>
-</div>
+
+    <div *ngIf='isEditable'>
+      <h2 class="artist__title">Informations générales</h2>
+      <mat-card class="artist__box--info">
+        <form (ngSubmit)="handleSubmit()" [formGroup]="artistForm">
+          <div>
+            <div class="artist__info-line">
+              <mat-form-field class="artist__info-line">
+                <mat-icon matPrefix class="artist__info-icon">alternate_email</mat-icon>
+                <input matInput placeholder="{{artist?.website}}" (change)='changeWebsite($event)' formControlName='website'>
+              </mat-form-field>
+            </div>
+
+            <div class="artist__info-line">
+              <mat-form-field class="artist__info-line">
+                <mat-icon matPrefix class="artist__info-icon">call</mat-icon>
+                <input matInput placeholder="{{artist?.phone}}" (change)='changePhone($event)' formControlName='phone'>
+              </mat-form-field>
+            </div>
+
+            <div class="artist__info-line">
+              <mat-form-field class="artist__info-line">
+                <mat-icon matPrefix class="artist__info-icon">email</mat-icon>
+                <input matInput placeholder="{{artist?.address}}" (change)='changeAddress($event)' formControlName='address'>
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <span>Départements acceptés</span>
+            <div class="artist__departement-list">
+              <mat-chip-list>
+                <mat-chip *ngFor="let county of countys">{{county.nom}}</mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+          <button mat-raised-button class="artist-card__button artist-card__button--validate"
+          type="submit" [disabled]="artistForm.invalid">Sauvegarder</button>
+        </form>
+      </mat-card>
+    </div>
+
+
+  </div>

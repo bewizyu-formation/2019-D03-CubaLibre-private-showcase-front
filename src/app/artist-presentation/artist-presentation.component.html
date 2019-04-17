@@ -1,17 +1,61 @@
 <h2 class="artist__title">Présentation</h2>
 <mat-card class="artist__box">
-  <img src="../../assets/img/card_temp/dark_fufu.jpg" class="artist__img">
-  <div class="artist__box-content">
-    <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber"
-      class="artist__rating"></app-rating>
-    <h2 class="artist__name">
-      {{artist?.artistName}}
-    </h2>
-    <p class="artist__short-description">
-      {{artist?.shortDescription}}
-    </p>
-    <p class="artist__description">
-      {{artist?.longDescription}}
-    </p>
+  <div *ngIf='!isEditable'>
+    <img src="../../assets/img/card_temp/dark_fufu.jpg" class="artist__img">
   </div>
+  <div class='upload__container' *ngIf='isEditable' mat-button>
+    <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
+    <div (click)='selectFile.click()' class='upload__container__background'>
+      <button mat-button>Upload Image</button>
+    </div>
+    <div *ngIf='eventPicture'>
+      <img type="file" [src]='eventPicture' class='upload__preview'>
+    </div>
+  </div>
+  <!--<div >
+    <input style='display:none' type='file' (change)='handleInputPicture($event)' #selectFile accept='image/*'>
+    <div (click)='selectFile.click()' class='upload__container__background'>
+      <mat-icon>Upload Image</mat-icon>
+    </div>
+  </div>
+  <div (click)='selectFile.click()'>
+    <img src="{{artist.picture}}" (change)='changePicture($event)' class="artist__img">
+  </div>-->
+
+  <div class="artist__box-content">
+    <app-rating [rating]="artist.rating" [voteNumber]="artist.voteNumber" class="artist__rating"></app-rating>
+
+    <h2 class="artist__name" *ngIf='!isChangeName'>
+      {{artist?.artistName}}      
+    </h2>
+    <mat-form-field *ngIf='isChangeName' class='artist__name'>
+      <input matInput placeholder='{{artist.artistName}}' (change)='changeName($event)'>
+    </mat-form-field>
+    <mat-button-toggle *ngIf='isEditable' [checked]="isChangeName" 
+    (change)="isChangeName = $event.source.checked">
+    <mat-icon>edit</mat-icon>
+  </mat-button-toggle>
+
+  <div class="artist__short-description" *ngIf='!isChangeShortDescription'>
+    {{artist?.shortDescription}}
+  </div>
+  <mat-form-field *ngIf='isChangeShortDescription' class='artist__name'>
+    <input matInput placeholder='{{artist.shortDescription}}' (change)='changeShortDescription($event)'>
+  </mat-form-field>
+  <mat-button-toggle *ngIf='isEditable' [checked]="isChangeShortDescription" 
+  (change)="isChangeShortDescription = $event.source.checked">
+  <mat-icon>edit</mat-icon>
+</mat-button-toggle>
+
+<div class="artist__description" *ngIf='!isChangeLongDescription'>
+  {{artist?.longDescription}}
+</div>
+<mat-form-field *ngIf='isChangeLongDescription' class='artist__name'>
+  <input matInput placeholder='{{artist.longDescription}}' (change)='changeLongDescription($event)'>
+</mat-form-field>
+<mat-button-toggle *ngIf='isEditable' [checked]="isChangeLongDescription" 
+(change)="isChangeLongDescription = $event.source.checked">
+<mat-icon>edit</mat-icon>
+</mat-button-toggle>
+</div>
 </mat-card>
