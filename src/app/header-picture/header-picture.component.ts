@@ -28,6 +28,10 @@ export class HeaderPictureComponent implements OnInit {
   }
 
   isWelcomeAuthenticated() {
+    return (this.isWelcome() && this.isLogged()) ? true : false;
+  }
+
+  isWelcomeNotAuthenticated() {
     return (this.isWelcome() && !this.isLogged()) ? true : false;
   }
 
