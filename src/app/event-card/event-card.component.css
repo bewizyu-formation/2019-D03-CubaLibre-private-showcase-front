@@ -110,3 +110,9 @@
 .refuse {
     color: #d80000;
 }
+
+.card__artist-adress {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
