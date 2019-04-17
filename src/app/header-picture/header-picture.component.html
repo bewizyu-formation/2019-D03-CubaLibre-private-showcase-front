@@ -11,6 +11,9 @@
   <h1 class='navbar__title' *ngIf="isBooking()">
     Créer un évènement
   </h1>
+  <h1 class='navbar__title' *ngIf="isEventPage()">
+    Évènement
+  </h1>
   <!-- If we need a back button-->
   <div class='left' *ngIf='hasReturn()'>
     <button mat-button (click)='navigateToPrevious()'>
